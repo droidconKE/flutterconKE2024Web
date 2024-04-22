@@ -1,7 +1,7 @@
-# Contributing to droidconKe2022 Web
+# Contributing to flutterconKE2024 Web
 
 We'd love to accept your patches!
-To contribute to _droidconKe2022_ simply open a pull request against the [dev branch](https://github.com/droidconKE/droidconKe2022Web/tree/dev)
+To contribute to _flutterconKE2024_ simply open a pull request against the [dev branch](https://github.com/droidconKE/flutterconKE2024Web/tree/dev)
 
 To ensure you that your pull request is accepted:
 

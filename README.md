@@ -1,14 +1,14 @@
 <p align="center">
-  <a href="https://github.com/droidconKE/droidconKE2022Web">
-    <img src="https://avatars.githubusercontent.com/u/37573296?s=200&v=4" alt="droidconKE2022">
+  <a href="https://github.com/droidconKE/flutterconKE2024Web">
+    <img src="https://pbs.twimg.com/profile_images/1781743620741033984/BjmlGpPC_400x400.jpg" alt="flutterconKE2024" style="border-radius: 50%; width:200px;">
   </a>
   </p>
 
-![badge](https://github.com/droidconKE/droidconKE2022Web/workflows/Lint%20CI/badge.svg)
+![badge](https://github.com/droidconKE/flutterconKE2024Web/workflows/Lint%20CI/badge.svg)
 
-# droidconKe 2022 Web
+# fluttercon official Web
 
-> [droidconKe](https://droidcon.co.ke) Official Website
+> [FlutterconKE](https://flutterconke.dev) Official Website
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
@@ -42,23 +42,23 @@ The project is still very incomplete, but if there's an issue you'd like to see 
 
 For any concerns kindly:
 
-- [Open an issue](https://github.com/droidconKE/droidconKE2022Web/issues),
+- [Open an issue](https://github.com/droidconKE/flutterconKE2024Web/issues),
 
 [Contributing Guide](contributing.md)
 
     or JUST,
 
-- [Fork the project and send a pull request](https://github.com/droidconKE/droidconKE2022Web/pulls).
+- [Fork the project and send a pull request](https://github.com/droidconKE/flutterconKE2024Web/pulls).
 
 [Pull Request Guide](pull_request_template.md)
 
 ## Contributors
 
 Auto-populated from:
-[contributors-img](https://contributors-img.firebaseapp.com/image?repo=droidconke/droidconKE2022Web)
+[contributors-img](https://contributors-img.firebaseapp.com/image?repo=droidconke/flutterconKE2024Web)
 
-<a href="https://github.com/droidconke/droidconKE2022Web/graphs/contributors">
-  <img src="https://contributors-img.firebaseapp.com/image?repo=droidconke/droidconKE2022Web" />
+<a href="https://github.com/droidconke/flutterconKE2024Web/graphs/contributors">
+  <img src="https://contributors-img.firebaseapp.com/image?repo=droidconke/flutterconKE2024Web" />
 </a>
 
 ## License
@@ -67,9 +67,9 @@ Auto-populated from:
 
 **Credits:**
 
-- Logo is used from [droidconKE](https://droidcon.co.ke/)
+- Logo is used from [FlutterconKE](https://flutterconke.dev/)
 
-- Follow them twitter: [@droidconKE](https://twitter.com/droidconke?lang=en)
+- Follow them twitter: [@FlutterconKE](https://twitter.com/FlutterconKE?lang=en)
 
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=for-the-badge)](#)
 
