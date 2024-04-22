@@ -100,49 +100,52 @@ class MyDocument extends Document {
           {/* SEO Headers */}
           <meta
             name="description"
-            content="Droidcon is a global conference focused on the engineering of Android applications. Droidcon provides a forum for developers to network with other developers, share techniques, announce apps and products, and to learn and teach."
+            content="Fluttercon is a global conference focused on the engineering of Flutter applications. Fluttercon provides a forum for developers to network with other developers, share techniques, announce apps and products, and learn and teach.
+"
           />
           <meta
             name="keywords"
-            content="Android, Event,  Conference, Meetup, droidCon, Kenya, KE, droidConKE, droidconke, Android254, Kotlin, Flutter, iOS, droidcon, droidcon africa, africa, android, 254 tech "
+            content="Android, Event,  Conference, Meetup, droidCon, Kenya, KE, FlutterconKE, FlutterconKE, Android254, Kotlin, Flutter, iOS, droidcon, droidcon africa, africa, android, 254 tech "
           />
-          <meta name="author" content="droidconKe" />
+          <meta name="author" content="FlutterconKE" />
 
           {/* <!-- twitter card starts from here, if you don't need remove this section --> */}
           {/* <meta name="twitter:card" content="summary"/> */}
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:site" content="@droidconke" />
-          <meta name="twitter:creator" content="@droidconke" />
-          <meta name="twitter:url" content="https://droidcon.co.ke" />
-          <meta name="twitter:title" content="droidconKe" />
+          <meta name="twitter:site" content="@FlutterconKE" />
+          <meta name="twitter:creator" content="@FlutterconKE" />
+          <meta name="twitter:url" content="https://flutterconke.dev" />
+          <meta name="twitter:title" content="FlutterconKE" />
           {/* <!-- maximum 140 char --> */}
           <meta
             name="twitter:description"
-            content="Droidcon is a global conference focused on the engineering of Android applications. Droidcon provides a forum for developers to network with other developers, share techniques, announce apps and products, and to learn and teach."
+            content="Fluttercon is a global conference focused on the engineering of Flutter applications. Fluttercon provides a forum for developers to network with other developers, share techniques, announce apps and products, and learn and teach.
+"
           />
           {/* <!-- maximum 140 char --> */}
           <meta
             name="twitter:image"
-            content="https://droidcon.co.ke/images/droidcon-24-kenya-announcement.png"
+            content="https://flutterconke.dev/images/fluttercon-24-kenya-announcement.png"
           />
           <meta name="twitter:image:alt" content="droidcon logo" />
           {/* <!-- when you post this page url in twitter , this image will be shown -->
 	<!-- twitter card ends from here --> */}
 
           {/* <!-- facebook open graph starts from here, if you don't need then delete open graph related  --> */}
-          <meta property="og:title" content="droidconKe" />
-          <meta property="og:url" content="https://droidcon.co.ke/" />
+          <meta property="og:title" content="FlutterconKE" />
+          <meta property="og:url" content="https://flutterconke.dev/" />
           <meta property="og:locale" content="en_US" />
-          <meta property="og:site_name" content="droidconKe" />
+          <meta property="og:site_name" content="FlutterconKE" />
           {/* <!--meta property="fb:admins" content="" /-->  <!-- use this if you have  --> */}
           <meta property="og:type" content="website" />
           <meta
             property="og:image"
-            content="https://droidcon.co.ke/images/droidcon-24-kenya-announcement.png"
+            content="https://flutterconke.dev/images/fluttercon-24-kenya-announcement.png"
           />
           <meta
             property="og:description"
-            content="Droidcon is a global conference focused on the engineering of Android applications. Droidcon provides a forum for developers to network with other developers, share techniques, announce apps and products, and to learn and teach."
+            content="Fluttercon is a global conference focused on the engineering of Mobile applications. Fluttercon provides a forum for developers to network with other developers, share techniques, announce apps and products, and learn and teach.
+"
           />
           {/* <!-- when you post this page url in facebook , this image will be shown -->
 	<!-- facebook open graph ends from here --></meta> */}

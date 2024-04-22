@@ -86,7 +86,7 @@ export const Footer = () => {
           <div className="w-full md:w-4/12 px-4 mx-auto text-center">
             <div className="mt-0 w-full">
               <a
-                href="https://twitter.com/droidconke"
+                href="https://twitter.com/FlutterconKE"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -98,6 +98,13 @@ export const Footer = () => {
                 rel="noreferrer"
               >
                 <i className="fa fa-instagram black font-lg p-3 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 inline-block text-center" />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/flutterconke/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <i className="fa fa-linkedin black font-lg p-3 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 inline-block text-center" />
               </a>
               <a
                 href="https://www.youtube.com/channel/UCNumwOLkQjVgNmYdG8-qHVg"

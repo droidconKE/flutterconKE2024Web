@@ -25,7 +25,7 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
               <div className="w-full flex flex-wrap text-left">
                 <h2 className="title lowercase dark:text-white-dark w-full">
                   <span>about</span>{' '}
-                  <span className="font-medium">droidconke</span>
+                  <span className="font-medium">flutterconke</span>
                 </h2>
                 <img
                   className="w-[450px] my-4 md:my-4"
@@ -33,10 +33,10 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
                   alt="line"
                 />
                 <p className="dark:text-lighter-dark pt-2 text-base md:text-2xl pr-0 md:pr-10 md:pb-16">
-                  Droidcon is a global conference focused on the engineering of
-                  Android applications. Droidcon provides a forum for developers
-                  to network with other developers, share techniques, announce
-                  apps and products, and to learn and teach.
+                  Fluttercon is a global conference focused on the engineering
+                  of Mobile applications. Fluttercon provides a forum for
+                  developers to network with other developers, share techniques,
+                  announce apps and products, and learn and teach.
                   <br /> <br />
                   This three-day developer focused gathering will be held in
                   Nairobi Kenya on November 6th to 8th 2024 and will be the
@@ -44,7 +44,7 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
                   <br /> <br />
                   It will have workshops and codelabs focused on the building of
                   Android applications and will give participants an excellent
-                  chance to learn about the local Android development ecosystem,
+                  chance to learn about the local Mobile development ecosystem,
                   opportunities and services as well as meet the engineers and
                   companies who work on them.
                 </p>
@@ -65,7 +65,7 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
           <div className="flex flex-wrap mb-10">
             <div className="w-full -mt-28 md:-mt-32 py-2 pb-12">
               <h4 className="title text-3xl text-primary md:text-6xl dark:text-accent pt-6 md:pt-0 lowercase">
-                Largest Android{' '}
+                Largest flutter{' '}
                 <small className="font-medium">
                   Focused <br />
                   Developer Conference in Africa.
@@ -74,13 +74,13 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
             </div>
             <div className="w-full md:w-12/12 ml-auto pr-0 md:pr-20">
               <h3 className="title font-medium border-b-8 border-b-accent lowercase">
-                DROIDCON
+                Fluttercon
               </h3>
               <p className="mt-2 md:mt-4 mb-4 md:mb-0 text-xl">
                 Droidcon is a global developer conference focused on bringing
-                Android engineers together. It provides a platform for
-                developers to network, share techniques and announce new apps
-                and products in the ecosystem.
+                Mobile engineers together. It provides a platform for developers
+                to network, share techniques and announce new apps and products
+                in the ecosystem.
                 <br />
                 <br />
                 The three-day gathering will be held in Nairobi, Kenya, from 6th
@@ -97,20 +97,20 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
 
             <div className="w-full md:w-12/12 ml-auto pr-0 md:pr-20 md:mt-10">
               <h3 className="title font-medium border-b-8 border-b-accent-2 mt-4 md:mt-0 lowercase">
-                PAST DROIDCONKE
+                FIRST flutterconke
               </h3>
               <p className="mt-2 md:mt-4 mb-4 md:mb-0 text-xl">
-                We hosted the first-ever DroidconKE event in October 2018. More
-                than 500 people from various parts of the world were in
-                attendance. Quality speakers from Kenya, Germany, South Africa,
-                Tanzania and Nigeria graced the event.
+                We will host the first-ever flutterconke event in Novenber 2024.
+                We are expecting than 500 people from various parts of the world
+                in attendance. Quality speakers from Kenya, Germany, USA, South
+                Africa, Tanzania and Nigeria to grace the event.
                 <br />
                 <br />
-                This year, we will host the 5th in-person event. Tech
+                {/* This year, we will host the 5th in-person event. Tech
                 communities from the East African Region and continental members
                 will be present. Participants will have an excellent chance to
                 learn about Android development, opportunities and services in
-                the ecosystem.
+                the ecosystem. */}
               </p>
             </div>
             <div className="w-full mt-2 -mb-32 md:-mb-32 pb-20 md:pb-0 flex justify-center pr-0 md:pr-20">

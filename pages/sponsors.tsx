@@ -14,7 +14,7 @@ export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
               <div className="text-center md:text-left">
                 <h2 className="title lowercase  text-accent dark:text-accent-dark mt-6 md:mt-0">
                   <span>sponsor</span>{' '}
-                  <span className="font-medium"> droidconke</span>
+                  <span className="font-medium"> flutterconke</span>
                 </h2>
                 <p className="text-white dark:text-white-dark text-xl md:text-2xl mt-4 lowercase">
                   PROMOTE YOUR BRAND | DEMONSTRATE THOUGHT LEADERSHIP | MEET &
@@ -24,15 +24,15 @@ export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
             </div>
             <div className="w-full flex  md:w-5/12 mt-10 md:mt-0 justify-center md:justify-end">
               <div className="mt-0 mb-6 flex flex-col md:flex-row flex-wrap md:mb-0 md:space-x-4">
-                {/* <Link href="mailto:sponsor@droidcon.co.ke?Subject=Sponsor droidconKe">
+                {/* <Link href="mailto:sponsor@droidcon.co.ke?Subject=Sponsor flutterconke">
                   <a className="btn-accent mt-3 md:mt-0 font-semibold rounded-lg">
-                    Sponsor droidconke
+                    Sponsor flutterconke
                   </a>
                 </Link> */}
-                {/* <Link href="mailto:sponsor@droidcon.co.ke?Subject=Sponsor droidconKe"> */}
+                {/* <Link href="mailto:sponsor@droidcon.co.ke?Subject=Sponsor flutterconke"> */}
                 <a
                   className="btn-secondary flex flex-wrap space-x-1 w-[220px] md:w-[250px] justify-center"
-                  href="/docs/DroidConKe_Prospectus(2023).pdf"
+                  href="/docs/flutterconke_Prospectus(2023).pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -71,7 +71,7 @@ export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
                 <div className="w-full px-0 pl-0 md:pl-24">
                   {/* <img src="/images/svg/numbers.svg" alt="dread" /> */}
                   <h3 className="text-3xl md:text-4xl text-black dark:text-accent font-medium w-full mt-6 md:mt-0">
-                    <span className="font-black">dcKE24</span> at a glance
+                    <span className="font-black">fcKE24</span> at a glance
                   </h3>
                   <div className="py-4 md:py-5">
                     <div>
@@ -115,12 +115,12 @@ export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
             <div className="w-full flex justify-center">
               <div className="text-center">
                 <h2 className="title text-accent lowercase">
-                  <span className="font-medium">Sponsor droidcon24</span>
+                  <span className="font-medium">Sponsor flutterconKe24</span>
                 </h2>
                 <div className="w-full">
                   <h6 className="mt-4 dark:text-lighter-dark text-xl md:text-2xl">
                     To earn a spot here/Meet our partners By sponsoring
-                    {/* droidconke23 you support and bring together{' '}
+                    {/* flutterconke23 you support and bring together{' '}
                   <br className="hidden md:block" />
                   the Android developer community. */}
                   </h6>
@@ -129,7 +129,7 @@ export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
                   {/* <Link href="/sponsors"> */}
                   <a
                     className="btn-secondary flex flex-wrap space-x-1 w-[220px] md:w-[250px] justify-center"
-                    href="/docs/DroidConKe_Prospectus(2023).pdf"
+                    href="/docs/flutterconke_Prospectus(2023).pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -152,7 +152,7 @@ export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
           <div className="flex flex-wrap">
             <div className="w-full text-center mb-2 md:mb-0 mt-4 md:mt-0 items-center justify-center">
               <h3 className="text-2xl md:text-3xl text-primary dark:text-white-dark pt-6 md:pt-0 lowercase">
-                <span className="font-black">To Sponsor</span> Droidcoke 2024
+                <span className="font-black">To Sponsor</span> FlutterconKe 2024
                 Contacts us at?
               </h3>
               <p className="text-base text-primary dark:text-white-dark mt-3">
@@ -165,9 +165,9 @@ export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
               <div className="grow h-2 bg-secondary" />
             </div>
             <div className="w-8/12 flex md:w-4/12 mb-10 md:mb-0 justify-center px-2">
-              <Link href="mailto:sponsor@droidcon.co.ke?Subject=Sponsor droidconKe">
+              <Link href="mailto:sponsor@droidcon.co.ke?Subject=Sponsor flutterconke">
                 <a className=" text-xs md:text-base btn-accent mt-3 md:mt-0">
-                  Sponsor droidconke
+                  Sponsor flutterconke
                 </a>
               </Link>
             </div>
