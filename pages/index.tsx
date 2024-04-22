@@ -25,7 +25,8 @@ const Home: NextPage<HomeProps> = ({ organizers, sponsors }) => {
         <div className="flex flex-wrap">
           <div className="w-full md:w-7/12">
             <h2 className="title lowercase dark:text-accent-dark">
-              <span>about</span> <span className="font-medium">flutterconke</span>
+              <span>about</span>{' '}
+              <span className="font-medium">flutterconke</span>
             </h2>
             <p className="dark:text-lighter-dark py-5 md:py-8 text-xl md:text-2xl">
               This 1st in-person event will include several tech communities
