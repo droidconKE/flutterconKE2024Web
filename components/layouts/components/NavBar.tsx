@@ -41,13 +41,13 @@ export const NavBar = () => {
             {!isDarkTheme ? (
               <img
                 className="w-[200px] xl:w-[250px]"
-                src="/images/logo.svg"
+                src="/images/logo.png"
                 alt="logo"
               />
             ) : (
               <img
                 className="w-[200px] md:w-[250px]"
-                src="/images/logo-dark.svg"
+                src="/images/logo-dark.png"
                 alt="logo dark"
               />
             )}

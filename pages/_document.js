@@ -90,12 +90,12 @@ class MyDocument extends Document {
             href="/images/icons/favicon-16x16.png"
           />
           <link rel="manifest" href="/manifest.json" />
-          <meta name="msapplication-TileColor" content="#FF6E4D" />
+          <meta name="msapplication-TileColor" content="#FFAB00" />
           <meta
             name="msapplication-TileImage"
             content="/images/icons/ms-icon-144x144.png"
           />
-          <meta name="theme-color" content="#FF6E4D" />
+          <meta name="theme-color" content="#FFAB00" />
 
           {/* SEO Headers */}
           <meta

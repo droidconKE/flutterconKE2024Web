@@ -79,7 +79,7 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .carousel .control-dots .dot {
-  background: #000CEB!important;
+  background: #0062FF!important;
   height: 10px!important;
   width: 10px!important;
 }
@@ -117,7 +117,7 @@ video::-webkit-media-controls-fullscreen-button {
     @apply bg-secondary dark:bg-secondary-dark lowercase text-black text-sm md:text-base dark:text-black px-4 md:px-5 py-1.5 md:py-2.5 rounded;
   }
   .btn-accent {
-    @apply bg-accent dark:bg-accent-dark lowercase text-black text-sm md:text-base dark:text-black px-4 md:px-5 py-1.5 md:py-2.5 rounded;
+    @apply bg-accent dark:bg-accent-dark lowercase text-white text-sm md:text-base dark:text-white px-4 md:px-5 py-1.5 md:py-2.5 rounded;
   }
   .title {
     @apply uppercase font-black text-3xl md:text-5xl text-primary dark:text-primary-dark
@@ -133,3 +133,15 @@ video::-webkit-media-controls-fullscreen-button {
     @apply uppercase font-light text-2xl md:text-4xl black
   }
 }
+
+
+/* --unnamed-color-3067bf: #3067BF;
+--unnamed-color-ff2100: #FF2100;
+--unnamed-color-00b704: #00B704;
+--unnamed-color-cccccc: #CCCCCC;
+--unnamed-color-ffffff: #FFFFFF;
+--unnamed-color-1a1a1a: #1A1A1A;
+--unnamed-color-0062ff: #0062FF;
+--unnamed-color-0014e6: #0014E6;
+--unnamed-color-ffab00: #FFAB00;
+--unnamed-color-54c4f7: #54C4F7; */

@@ -32,7 +32,7 @@ export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
                 {/* <Link href="mailto:sponsor@droidcon.co.ke?Subject=Sponsor flutterconke"> */}
                 <a
                   className="btn-secondary flex flex-wrap space-x-1 w-[220px] md:w-[250px] justify-center"
-                  href="/docs/flutterconke_Prospectus(2023).pdf"
+                  href="/docs/FlutterconKe-prospectus.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -71,12 +71,13 @@ export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
                 <div className="w-full px-0 pl-0 md:pl-24">
                   {/* <img src="/images/svg/numbers.svg" alt="dread" /> */}
                   <h3 className="text-3xl md:text-4xl text-black dark:text-accent font-medium w-full mt-6 md:mt-0">
-                    <span className="font-black">fcKE24</span> at a glance
+                    <span className="font-black">flutterconKE24</span> at a
+                    glance
                   </h3>
                   <div className="py-4 md:py-5">
                     <div>
                       <h4 className="text-primary font-black text-[50px] md:text-[75px]">
-                        700+
+                        400+
                       </h4>
                       <h5 className="text-primary font-bold -mt-3 text-sm md:text-base">
                         2024 Attendees Target
@@ -85,7 +86,7 @@ export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
                     <div className="flex justify-end -mt-5">
                       <div>
                         <h4 className="text-secondary font-black text-[50px] md:text-[75px]">
-                          80+
+                          50+
                         </h4>
                         <h5 className="text-secondary font-bold -mt-3 text-sm md:text-bas">
                           Sessions
@@ -129,7 +130,7 @@ export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
                   {/* <Link href="/sponsors"> */}
                   <a
                     className="btn-secondary flex flex-wrap space-x-1 w-[220px] md:w-[250px] justify-center"
-                    href="/docs/flutterconke_Prospectus(2023).pdf"
+                    href="/docs/FlutterconKe-prospectus.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

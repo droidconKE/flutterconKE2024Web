@@ -32,7 +32,7 @@ const Home: NextPage<HomeProps> = ({ organizers }) => {
             <p className="dark:text-lighter-dark py-5 md:py-8 text-xl md:text-2xl">
               This 1st in-person event will include several tech communities
               from the East African Region and continental members. Participants
-              will have an excellent chance to learn about Android development
+              will have an excellent chance to learn about Mobile development
               and opportunities and to network with Mobile experts in the
               ecosystem.
             </p>

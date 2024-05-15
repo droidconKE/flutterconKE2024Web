@@ -6,10 +6,10 @@ export const Banner = () => {
   return (
     <div className="s-container">
       <div className="w-full flex flex-col md:flex-row items-center min-h-screen justify-between">
-        <div className="mt-32 xl:mt-0">
+        <div className="mt-40 xl:mt-0">
           <h1 className="font-light text-3xl md:text-4xl black px-0">
             <span className="lowercase">welcome to</span> <br />
-            <span className="font-black text-4xl md:text-5xl">
+            <span className="font-black text-4xl md:text-5xl text-primary">
               FLUTTERCONKE24
             </span>
           </h1>
@@ -57,20 +57,19 @@ export const Banner = () => {
               </Link>
             </div>
             <div className="flex flex-wrap mt-6 md:mt-8 items-center">
-              <img
+              {/* <img
                 className="h-[58px] md:h-[80px] mr-3 mt-4"
                 src="/images/hashtag-24.png"
                 alt="droid alt"
-              />
-              <div className="text-accent dark:text-accent-dark font-black text-base md:text-2xl mt-3 md:mt-4 lowercase">
-                <span>06TH - 8TH</span> <br />
-                NOVEMBER
+              /> */}
+              <div className="text-accent dark:text-accent-dark font-black text-base md:text-3xl mt-3 md:mt-4 lowercase">
+                <span>06TH - 8TH</span> NOVEMBER 2024
               </div>
             </div>
           </div>
         </div>
         <div className="mt-16 md:mt-0">
-          <video
+          {/* <video
             id="video"
             className="rounded-xl aspect-video  w-full  md:w-[670px] "
             loop
@@ -85,7 +84,7 @@ export const Banner = () => {
               type="video/mp4"
               src="/video/dcke_23_Report_Video _ 1_minute.mp4"
             />
-          </video>
+          </video> */}
           {/* <iframe
             className="rounded-xl aspect-video h-[250px] w-full md:h-[400px] md:w-[630px] -mt-20"
             src="https://www.youtube.com/embed/AO-j2kLvKJw?start=5&controls=0&showinfo=0&modestbranding=1&rel=0"

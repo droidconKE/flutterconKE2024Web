@@ -5,9 +5,9 @@ import { SaveSession } from '../sessions/SaveSession'
 export const StarIcon = ({ isStar = true, session }: StarIconProps) => {
   const { bookmark, isStared } = useStarSession({ session })
 
-  const color = isStared ? '#FF6E4D' : 'none'
-  const stroke = isStared ? '#FF6E4D' : '#000ceb'
-  const fill = isStared ? '#FF6E4D' : '#000ceb'
+  const color = isStared ? '#FFAB00' : 'none'
+  const stroke = isStared ? '#FFAB00' : '#0062FF'
+  const fill = isStared ? '#FFAB00' : '#0062FF'
 
   return isStar ? (
     <svg

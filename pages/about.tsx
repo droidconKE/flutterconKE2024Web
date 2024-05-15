@@ -16,7 +16,7 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
   return (
     <div
       className="min-h-screen bg-[length:0%] md:bg-[length:88%] bg-[top_360px_left_115%] md:bg-[top_140px_left_148%] bg-no-repeat"
-      style={{ backgroundImage: 'url(/images/svg/about-bg.svg)' }}
+      style={{ backgroundImage: 'url(/images/about-bg.png)' }}
     >
       <section className="s-container pb-32">
         <div className="w-full flex flex-wrap min-h-screen pt-16 lg:pt-28 xl:pt-16 md:px-0 py-8 lg:py-12">
@@ -28,25 +28,39 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
                   <span className="font-medium">flutterconke</span>
                 </h2>
                 <img
-                  className="w-[450px] my-4 md:my-4"
+                  className="w-[500px] my-4 md:my-4"
                   src="/images/lines.png"
                   alt="line"
                 />
-                <p className="dark:text-lighter-dark pt-2 text-base md:text-2xl pr-0 md:pr-10 md:pb-16">
-                  Fluttercon is a global conference focused on the engineering
-                  of Mobile applications. Fluttercon provides a forum for
-                  developers to network with other developers, share techniques,
-                  announce apps and products, and learn and teach.
-                  <br /> <br />
-                  This three-day developer focused gathering will be held in
-                  Nairobi Kenya on November 6th to 8th 2024 and will be the
-                  largest of its kind in Africa.
-                  <br /> <br />
-                  It will have workshops and codelabs focused on the building of
-                  Android applications and will give participants an excellent
-                  chance to learn about the local Mobile development ecosystem,
-                  opportunities and services as well as meet the engineers and
-                  companies who work on them.
+                <p className="dark:text-lighter-dark pt-2 text-base md:text-xl pr-0 md:pr-0 md:pb-16">
+                  Fluttercon Kenya stands as the pioneering event of its kind in
+                  Africa, marking the debut of the Fluttercon conference on the
+                  continent. Designed to be a hub of innovation and learning,
+                  Fluttercon Kenya will offer a rich program of tech talks,
+                  workshops, and panels led by industry experts, Google
+                  Developer Experts, and seasoned Flutter specialists, all
+                  dedicated to exploring the latest in Flutter and Dart
+                  technologies. <br />
+                  <br />
+                  Spearheaded by the accomplished team behind Droidcon Kenya,
+                  renowned for orchestrating four highly successful editions of
+                  Droidcon Kenya, Fluttercon Kenya promises to uphold the same
+                  standard of excellence. With a track record of hosting over
+                  3000 attendees and curating 200 sessions, the team brings
+                  unparalleled expertise and organizational prowess to the
+                  table. <br />
+                  <br />
+                  By co-locating with Droidcon Kenya, Africa's premier Android
+                  developer conference with a five-year legacy, Fluttercon Kenya
+                  maximizes its reach and impact. Set to take place from
+                  November 6th to 8th, 2024, this joint event will unite Flutter
+                  and Dart experts, Google Developer Experts, and hundreds of
+                  Flutter developers with their Android counterparts. Together,
+                  they will form one of the largest gatherings of mobile
+                  developers on the continent, offering multiple tracks of
+                  in-depth tech talks, workshops, panels, and more. Join us in
+                  shaping the future of mobile development in Africa at
+                  Fluttercon Kenya!
                 </p>
               </div>
             </div>
@@ -64,53 +78,57 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
         <div className="s-container md:py-12">
           <div className="flex flex-wrap mb-10">
             <div className="w-full -mt-28 md:-mt-32 py-2 pb-12">
-              <h4 className="title text-3xl text-primary md:text-6xl dark:text-accent pt-6 md:pt-0 lowercase">
-                Largest flutter{' '}
+              <h4 className="title text-3xl text-primary md:text-6xl dark:text-accent-2 pt-6 md:pt-0 lowercase">
+                first ever flutter{' '}
                 <small className="font-medium">
-                  Focused <br />
-                  Developer Conference in Africa.
+                  focused <br />
+                  developer conference in africa.
                 </small>
               </h4>
             </div>
             <div className="w-full md:w-12/12 ml-auto pr-0 md:pr-20">
-              <h3 className="title font-medium border-b-8 border-b-accent lowercase">
+              <h3 className="title font-medium border-b-8 border-b-accent-2 lowercase">
                 Fluttercon
               </h3>
               <p className="mt-2 md:mt-4 mb-4 md:mb-0 text-xl">
-                Droidcon is a global developer conference focused on bringing
-                Mobile engineers together. It provides a platform for developers
-                to network, share techniques and announce new apps and products
-                in the ecosystem.
+                Fluttercon is a global conference focused on the engineering of
+                Mobile applications. Fluttercon provides a forum for developers
+                to network with other developers, share techniques, announce
+                apps and products, and learn and teach.
                 <br />
                 <br />
                 The three-day gathering will be held in Nairobi, Kenya, from 6th
-                to 8th November 2024 and will be the largest in Africa.
+                to 8th November 2024 and will be the first ever in Africa.
                 <br />
                 <br />
                 The conference will include workshops, codelabs and talks geared
-                towards Android development to help developers stay ahead of the
+                towards Mobile development to help developers stay ahead of the
                 curve. It will be an excellent chance for participants to
-                network and connect with their fellow Android enthusiasts from
+                network and connect with their fellow Mobile enthusiasts from
                 the African and continental communities.
               </p>
             </div>
 
             <div className="w-full md:w-12/12 ml-auto pr-0 md:pr-20 md:mt-10">
               <h3 className="title font-medium border-b-8 border-b-accent-2 mt-4 md:mt-0 lowercase">
-                FIRST flutterconke
+                how it started…
               </h3>
               <p className="mt-2 md:mt-4 mb-4 md:mb-0 text-xl">
-                We will host the first-ever flutterconke event in Novenber 2024.
-                We are expecting than 500 people from various parts of the world
-                in attendance. Quality speakers from Kenya, Germany, USA, South
-                Africa, Tanzania and Nigeria to grace the event.
+                Notably, during the 3rd and 4th editions of Droidcon Kenya, we
+                observed significant growth in the Flutter community, both
+                locally and at the conference. The increasing number of
+                Flutter-related sessions and attendees evidences this growth. In
+                2023, Droidcon Kenya received 67 Flutter submissions, of which
+                17 were selected—comprising 12 sessions, 3 workshops, and 2
+                lightning talks. Inspired by this momentum, we decided to
+                introduce Fluttercon to Africa, aligning with the trend of other
+                Droidcons worldwide.
                 <br />
                 <br />
-                {/* This year, we will host the 5th in-person event. Tech
-                communities from the East African Region and continental members
-                will be present. Participants will have an excellent chance to
-                learn about Android development, opportunities and services in
-                the ecosystem. */}
+                We are thrilled to host Africa's inaugural Fluttercon Kenya,
+                bringing together Flutter and Dart developers in the region.
+                This initiative is led by a seasoned team with a proven track
+                record of organizing four successful events!
               </p>
             </div>
             <div className="w-full mt-2 -mb-32 md:-mb-32 pb-20 md:pb-0 flex justify-center pr-0 md:pr-20">
