@@ -100,8 +100,7 @@ class MyDocument extends Document {
           {/* SEO Headers */}
           <meta
             name="description"
-            content="Fluttercon is a global conference focused on the engineering of Flutter applications. Fluttercon provides a forum for developers to network with other developers, share techniques, announce apps and products, and learn and teach.
-"
+            content="Fluttercon is a global conference focused on the engineering of Mobile applications. Fluttercon provides a forum for developers to network with other developers, share techniques, announce apps and products, and learn and teach."
           />
           <meta
             name="keywords"
@@ -119,8 +118,7 @@ class MyDocument extends Document {
           {/* <!-- maximum 140 char --> */}
           <meta
             name="twitter:description"
-            content="Fluttercon is a global conference focused on the engineering of Flutter applications. Fluttercon provides a forum for developers to network with other developers, share techniques, announce apps and products, and learn and teach.
-"
+            content="Fluttercon is a global conference focused on the engineering of Mobile applications. Fluttercon provides a forum for developers to network with other developers, share techniques, announce apps and products, and learn and teach."
           />
           {/* <!-- maximum 140 char --> */}
           <meta
