@@ -93,7 +93,7 @@ export const Footer = () => {
                 <i className="fa fa-twitter  black font-lg p-3 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 inline-block text-center" />
               </a>
               <a
-                href="https://www.instagram.com/droidconke/"
+                href="https://www.instagram.com/fluttercon_ke/"
                 target="_blank"
                 rel="noreferrer"
               >
