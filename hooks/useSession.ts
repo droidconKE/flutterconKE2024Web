@@ -4,8 +4,8 @@ import { Session, FilterInterface, Room, Schedule } from '../types/types'
 import { objIsEmpty, isClient } from '../utils/helpers'
 import axios from '../utils/axios'
 
-const ACTIVE_VIEW = 'droidcon_view'
-const MY_SESSIONS = 'droidcon_my_sessions'
+const ACTIVE_VIEW = 'fluttercon_view'
+const MY_SESSIONS = 'fluttercon_my_sessions'
 
 export const useSession = ({ allSchedules }: { allSchedules: Schedule[] }) => {
   const [showFilterSession, setShowFilterSession] = useState(false)

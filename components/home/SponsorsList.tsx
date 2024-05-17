@@ -71,6 +71,7 @@ function SponsorsList({
                   </p>
                 ) : (
                   <p className="mt-8 md:w-7/12">
+                    {/* // TODO: replace with flutter  */}
                     Thanks for being our sponsors and for making droidconke 20
                     {year} a success.
                   </p>

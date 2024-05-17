@@ -9,7 +9,7 @@ const ErrorComponent = ({ message, status }: ErrorInterface) => {
         <img
           src="/images/svg/colored-x.svg"
           className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h20 lg:w-28 lg:h-28"
-          alt="droidcon colored-x icon"
+          alt="fluttercon colored-x icon"
         />
       </div>
 
@@ -17,7 +17,7 @@ const ErrorComponent = ({ message, status }: ErrorInterface) => {
         <img
           src="/images/element_left.png"
           className="w-14 sm:w-24 sm:h-20 md:w-28 md:h-24 lg:w-36 lg:h-32"
-          alt="droidcon element-x icon"
+          alt="fluttercon element-x icon"
         />
       </div>
 

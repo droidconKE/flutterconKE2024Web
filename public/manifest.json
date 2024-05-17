@@ -1,7 +1,7 @@
 {
-  "name": "droidconKe",
-  "description": "droidconKe",
-  "short_name": "droidconKe",
+  "name": "flutterconKe",
+  "description": "flutterconKe",
+  "short_name": "flutterconKe",
   "theme_color": "#FFAB00",
   "background_color": "#54C4F7",
   "display": "standalone",

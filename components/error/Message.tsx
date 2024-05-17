@@ -26,14 +26,14 @@ const MessageComponent = ({ message }: Props) => {
                     src="/images/icons/home-icon-white.svg"
                     className="mr-2 inline"
                     width="18px"
-                    alt="droidcon home icon white"
+                    alt="fluttercon home icon white"
                   />
                 ) : (
                   <img
                     src="/images/icons/home-icon.svg"
                     className="mr-2 inline"
                     width="18px"
-                    alt="droidcon home icon"
+                    alt="fluttercon home icon"
                   />
                 )}
                 <span className="text-primary lg:text-lg align-text-top text-base dark:text-white">

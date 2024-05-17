@@ -1,1 +1,1 @@
-export const NOTIFICATIONS = 'droidcon-notifications'
+export const NOTIFICATIONS = 'fluttercon-notifications'

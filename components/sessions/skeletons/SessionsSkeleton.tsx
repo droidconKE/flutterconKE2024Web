@@ -35,7 +35,7 @@ export const SessionsSkeleton = () => {
                 style={{
                   backgroundImage: `url("https://via.placeholder.com/150/${
                     isDarkTheme ? '000000' : 'E2E8F0'
-                  }?text=droidconKe")`,
+                  }?text=flutterconKe")`,
                 }}
                 title="Woman holding a mug"
               />

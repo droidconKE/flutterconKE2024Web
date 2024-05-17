@@ -11,7 +11,7 @@ export const SpeakerSkeleton = () => {
             className="w-full p-0 rounded-lg border-2 border-gray-500 dark:border-black"
             src={`https://via.placeholder.com/150/${
               isDarkTheme ? '000000' : 'E2E8F0'
-            }?text=droidconKe`}
+            }?text=flutterconKe`}
             alt="Sunset in the mountains"
           />
         </div>
