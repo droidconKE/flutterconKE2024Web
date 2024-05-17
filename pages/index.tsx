@@ -30,11 +30,13 @@ const Home: NextPage<HomeProps> = ({ organizers }) => {
               <span className="font-medium">flutterconke</span>
             </h2>
             <p className="dark:text-lighter-dark py-5 md:py-8 text-xl md:text-2xl">
-              This 1st in-person event will include several tech communities
-              from the East African Region and continental members. Participants
-              will have an excellent chance to learn about Mobile development
-              and opportunities and to network with Mobile experts in the
-              ecosystem.
+              Fluttercon Kenya stands as the pioneering event of its kind in
+              Africa, marking the debut of the Fluttercon conference on the
+              continent. Designed to be a hub of innovation and learning,
+              Fluttercon Kenya will offer a rich program of tech talks,
+              workshops, and panels led by industry experts, Google Developer
+              Experts, and seasoned Flutter specialists, all dedicated to
+              exploring the latest in Flutter and Dart technologies.
             </p>
             <Link href="/about">
               <a className="lowercase text-xl font-bold">

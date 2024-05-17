@@ -87,7 +87,7 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
               </h4>
             </div>
             <div className="w-full md:w-12/12 ml-auto pr-0 md:pr-20">
-              <h3 className="title font-medium border-b-8 border-b-accent-2 lowercase">
+              <h3 className="title font-medium border-b-8 border-b-secondary lowercase">
                 Fluttercon
               </h3>
               <p className="mt-2 md:mt-4 mb-4 md:mb-0 text-xl">
@@ -110,7 +110,7 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
             </div>
 
             <div className="w-full md:w-12/12 ml-auto pr-0 md:pr-20 md:mt-10">
-              <h3 className="title font-medium border-b-8 border-b-accent-2 mt-4 md:mt-0 lowercase">
+              <h3 className="title font-medium border-b-8 border-b-secondary mt-4 md:mt-0 lowercase">
                 how it started…
               </h3>
               <p className="mt-2 md:mt-4 mb-4 md:mb-0 text-xl">
@@ -134,7 +134,7 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
             <div className="w-full mt-2 -mb-32 md:-mb-32 pb-20 md:pb-0 flex justify-center pr-0 md:pr-20">
               <img
                 className="w-20 md:w-36"
-                src="/images/element_left.png"
+                src="/images/element_left_2.png"
                 alt=""
               />
             </div>

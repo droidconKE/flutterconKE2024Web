@@ -7,7 +7,7 @@ import { Value } from '../components/sponsors/Value'
 export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
   return (
     <div className="w-full mt-10 lg:mt-20 xl:mt-10 mb-0">
-      <section className="w-full bg-primary dark:bg-black-dark">
+      <section className="w-full bg-gradient-to-b from-accent to-primary dark:from-black-dark dark:to-black">
         <div className="s-container mt-12 md:mt-0 py-6 md:py-12">
           <div className="items-center flex flex-wrap mb-0">
             <div className="w-full md:w-7/12 mt-4 md:mt-6">
@@ -24,13 +24,13 @@ export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
             </div>
             <div className="w-full flex  md:w-5/12 mt-10 md:mt-0 justify-center md:justify-end">
               <div className="mt-0 mb-6 flex flex-col md:flex-row flex-wrap md:mb-0 md:space-x-4">
-                {/* <Link href="mailto:sponsor@droidcon.co.ke?Subject=Sponsor flutterconke">
-                  <a className="btn-accent mt-3 md:mt-0 font-semibold rounded-lg">
+                <Link href="mailto:sponsor@droidcon.co.ke?Subject=Sponsor flutterconke">
+                  <a className="btn-secondary mt-3 md:mt-0 font-semibold rounded-lg">
                     Sponsor flutterconke
                   </a>
-                </Link> */}
+                </Link>
                 {/* <Link href="mailto:sponsor@droidcon.co.ke?Subject=Sponsor flutterconke"> */}
-                <a
+                {/* <a
                   className="btn-secondary flex flex-wrap space-x-1 w-[220px] md:w-[250px] justify-center"
                   href="/docs/FlutterconKe-prospectus.pdf"
                   target="_blank"
@@ -42,20 +42,20 @@ export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
                     src="/images/svg/arrow-btn.svg"
                     alt="icon"
                   />
-                </a>
+                </a> */}
                 {/* </Link> */}
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section className="w-full">
+      <section className="w-full dark:bg-black-dark">
         <div className="s-container md:py-10">
           <div className="mx-auto md:py-10">
             <div className="flex flex-wrap">
               <div className="w-full md:w-4/12 mt-4 md:mt-0">
                 <div>
-                  <h3 className="text-left black text-3xl md:text-4xl font-bold w-full mt-4 md:mt-0 underline underline-offset-8 decoration-8 decoration-accent-3 lowercase">
+                  <h3 className="text-left black text-3xl md:text-4xl font-bold w-full mt-4 md:mt-0 underline underline-offset-8 decoration-8 decoration-secondary lowercase">
                     ATTENDEE PROFILE
                   </h3>
                   <p className="text-black  py-10 md:py-8 text-xl md:text-xl">
@@ -127,8 +127,13 @@ export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
                   </h6>
                 </div>
                 <div className="mt-10 md:mt-12 mb-10 md:mb-0 flex justify-center">
+                  {/* <Link href="mailto:sponsor@droidcon.co.ke?Subject=Sponsor flutterconke">
+                    <a className="btn-secondary mt-3 md:mt-0 font-semibold rounded-lg">
+                      Sponsor flutterconke
+                    </a>
+                  </Link> */}
                   {/* <Link href="/sponsors"> */}
-                  <a
+                  {/* <a
                     className="btn-secondary flex flex-wrap space-x-1 w-[220px] md:w-[250px] justify-center"
                     href="/docs/FlutterconKe-prospectus.pdf"
                     target="_blank"
@@ -140,7 +145,7 @@ export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
                       src="/images/svg/arrow-btn.svg"
                       alt="icon"
                     />
-                  </a>
+                  </a> */}
                   {/* </Link> */}
                 </div>
               </div>

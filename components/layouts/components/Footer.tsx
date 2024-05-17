@@ -5,7 +5,13 @@ export const Footer = () => {
 
   return (
     <div>
-      <section className="w-full bg-primary dark:bg-black-dark">
+      <section
+        className="w-full bg-gradient-to-b from-accent to-primary dark:from-black-dark dark:to-black"
+        // style={{
+        //   background:
+        //     'transparent linear-gradient(180deg, #0014E6 0%, #0062FF 100%) 0% 0% no-repeat padding-box;',
+        // }}
+      >
         <div className="l-container py-6 md:py-12">
           <div className="items-center flex flex-wrap md:my-10">
             <div className="w-full md:w-8/12 ml-auto mt-4 md:mt-0">
@@ -81,7 +87,7 @@ export const Footer = () => {
           </div>
         </div>
       </section>
-      <div className="w-full items-center px-4 py-5">
+      <div className="w-full items-center px-4 py-5 dark:bg-black-dark">
         <div className="flex flex-wrap items-center md:justify-between justify-center">
           <div className="w-full md:w-4/12 px-4 mx-auto text-center">
             <div className="mt-0 w-full">

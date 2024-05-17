@@ -19,8 +19,4 @@ To ensure you that your pull request is accepted:
 7. Page responsiveness in a priority, _Tailwind CSS_ is used in the design
 8. Always build with SSR in mind
 
-N/B All the designs will be provided here: https://xd.adobe.com/view/09e7a508-167f-48ee-a2ef-6b907be8fd09-5cb4/
-
-Dark theme designs - https://xd.adobe.com/view/c34af671-643b-4a33-8149-52474fa0b137-9619/
-
-Old Repo https://github.com/droidconKE/droidconKe2020_web
+N/B All the designs will be provided here: https://xd.adobe.com/view/fdf07d1d-1d50-4739-b2d9-191e9268f9d1-a8a3/

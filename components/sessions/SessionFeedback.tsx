@@ -46,7 +46,7 @@ export const SessionFeedback = ({
 
   return (
     <Modal
-      sideImage="/images/svg/feedback-1.svg"
+      // sideImage="/images/svg/feedback-1.svg"
       widthClass="md:w-5/12"
       closeDialog={() => closeDialog()}
     >
