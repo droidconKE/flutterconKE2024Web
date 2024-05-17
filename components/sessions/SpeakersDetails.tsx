@@ -50,7 +50,7 @@ export const SpeakersDetails = ({ session }: { session: Session }) => {
                   </p>
                   <p className="pt-1">
                     <a
-                      href="https://twitter.com/droidconke"
+                      href="https://twitter.com/FlutterconKE"
                       target="_blank"
                       rel="noreferrer"
                       className="text-primary dark:text-accent text-sm lowercase font-medium"

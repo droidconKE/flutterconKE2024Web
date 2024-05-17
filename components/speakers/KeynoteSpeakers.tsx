@@ -5,9 +5,9 @@ export const KeynoteSpeakers = () => {
   const speakers: Speaker[] = [
     {
       name: 'Greg Fawson',
-      tagline: 'Chief Executive Officer at droidcon',
+      tagline: 'Chief Executive Officer at fluttercon',
       biography:
-        'greg_fawson@androiddev.social CEO - Mobile Seasons GmbH I kind of run the whole global droidcon & fluttercon empire.',
+        'greg_fawson@androiddev.social CEO - Mobile Seasons GmbH I kind of run the whole global fluttercon & fluttercon empire.',
       avatar:
         'https://media.licdn.com/dms/image/C5603AQGwKjKNQUyAYQ/profile-displayphoto-shrink_400_400/0/1521486389381?e=1703721600&v=beta&t=SY-bKqz4lh4sL6XIGcxsoUn0gqOtHzzAFhV7uYD2k40',
       twitter: 'https://twitter.com/fawson_greg',

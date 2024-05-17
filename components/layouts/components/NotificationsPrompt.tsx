@@ -57,7 +57,7 @@ export const NotificationsPrompt = () => {
         toggleModal()
         // Get Token
         if (permission === 'granted') {
-          toast.success('You will receive regular updates from droidconKe')
+          toast.success('You will receive regular updates from flutterconKe')
           getToken(messaging, { vapidKey: process.env.FIREBASE_PUBLIC_KEY })
             .then((token) => {
               console.log(token)
@@ -67,7 +67,7 @@ export const NotificationsPrompt = () => {
               console.log('An error occurred while retrieving token. ', err)
             })
         } else if (permission === 'denied') {
-          toast.error("Notifications from droidconKe won't be sent to you")
+          toast.error("Notifications from flutterconKe won't be sent to you")
           console.log('Unable to get permission to notify.')
         }
       })
@@ -77,7 +77,7 @@ export const NotificationsPrompt = () => {
   const rejectPrompt = () => {
     toggleModal()
     setTokenSentToServer(true)
-    toast.error("Notifications from droidconKe won't be sent to you")
+    toast.error("Notifications from flutterconKe won't be sent to you")
   }
 
   const [isMessageSupported, setIsSupported] = useState(false)
@@ -148,7 +148,7 @@ export const NotificationsPrompt = () => {
         <section className="w-full md:px-56 px-4 mt-10 z-40 flex flex-col items-start container mx-auto">
           <div className="bg-black dark:bg-black-dark p-4 md:p-8 justify-center items-center rounded-xl">
             <p className="text-accent dark:text-accent text-sm">
-              DroidconKe want to show notifications!
+              FlutterconKe want to show notifications!
             </p>
             <div className="flex flex-wrap w-full justify-between items-center mt-6">
               <button

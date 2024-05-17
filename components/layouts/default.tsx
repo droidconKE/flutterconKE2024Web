@@ -12,6 +12,7 @@ import { EventFeedback } from './components/EventFeedback'
 
 export default function Layout({ children }: { children: ReactNode }) {
   const gTagCode = process.env.NEXT_PUBLIC_GOOGLE_TAG
+  const isEventReady = process.env.NEXT_PUBLIC_EVENT_READY === 'true' || false
   return (
     <>
       <Head>
@@ -30,7 +31,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                 <main>{children}</main>
               </div>
               <Footer />
-              <EventFeedback />
+              {isEventReady && <EventFeedback />}
               <NotificationsPrompt />
             </div>
           </GoogleOAuthProvider>

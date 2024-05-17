@@ -10,7 +10,7 @@ export const ThemeContext = createContext<ThemeContextType>(
   {} as ThemeContextType
 )
 
-const THEME_NAME = 'droidcon_theme'
+const THEME_NAME = 'fluttercon_theme'
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [isDarkTheme, setIsDarkTheme] = useState(false)

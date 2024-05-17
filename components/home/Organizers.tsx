@@ -19,7 +19,7 @@ function Organizers({ organizers }: { organizers: Organizer[] }) {
                   key={org.created_at}
                   target="_blank"
                   href={org.link}
-                  className="w-24 h-24 p-3 flex rounded border border-green-200 bg-white dark:bg-white-dark justify-center"
+                  className="w-24 h-24 p-3 flex rounded border border-accent-2 bg-white dark:bg-white-dark justify-center"
                   rel="noreferrer"
                 >
                   <img

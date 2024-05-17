@@ -1,18 +1,19 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 export const eventTypes = [
   {
     id: 1,
     eventName: 'Community Day',
     imageName: 'community',
-    lightBG: 'bg-secondary',
-    darkBG: 'dark:bg-secondary-dark',
+    lightBG: 'bg-accent',
+    darkBG: 'dark:bg-accent-dark',
     edgeRadius: 'rounded-l-xl',
   },
   {
     id: 2,
     eventName: 'Workshops',
     imageName: 'workshop',
-    lightBG: 'bg-primary',
-    darkBG: 'dark:bg-primary-dark',
+    lightBG: 'bg-secondary',
+    darkBG: 'dark:bg-secondary-dark',
     edgeRadius: 'md:rounded-none rounded-r-xl',
   },
   {
@@ -27,16 +28,16 @@ export const eventTypes = [
     id: 4,
     eventName: 'Panels',
     imageName: 'panels',
-    lightBG: 'bg-black',
-    darkBG: 'dark:bg-dark ',
+    lightBG: 'bg-secondary',
+    darkBG: 'dark:bg-secondary-dark ',
     edgeRadius: 'md:rounded-none rounded-r-xl',
   },
   {
     id: 5,
     eventName: 'Networking Party',
     imageName: 'party',
-    lightBG: 'bg-accent-2',
-    darkBG: 'dark:bg-accent-2-dark',
+    lightBG: 'bg-accent',
+    darkBG: 'dark:bg-accent-dark',
     edgeRadius: 'md:rounded-none rounded-l-xl',
   },
   {

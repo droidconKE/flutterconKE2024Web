@@ -37,7 +37,7 @@ const Sessions: NextPage<SessionProps> = ({
   return (
     <>
       <div className="w-full mt-10 lg:mt-20 xl:mt-10 mb-0">
-        <section className="w-full bg-dark dark:bg-black-dark">
+        <section className="w-full bg-primary dark:bg-black-dark">
           <div className="l-container mt-8 md:mt-0 py-2 md:py-4">
             <div className="w-full flex justify-between md:flex-row items-center mt-5 md:mt-6">
               <h3 className="lowercase text-2xl md:text-3xl text-white dark:text-white-dark">
@@ -65,7 +65,7 @@ const Sessions: NextPage<SessionProps> = ({
                       className={`w-4/12 px-4 py-2 lg:w-full cursor-pointer rounded-tl-lg rounded-bl-lg rounded-r-lg lg:rounded-r-none ${
                         activeTab === i
                           ? 'bg-secondary dark:bg-secondary-dark'
-                          : 'bg-green-100 dark:bg-black-dark'
+                          : 'bg-accent-2 dark:bg-black-dark'
                       }`}
                       onClick={() => setActiveTab(i)}
                       aria-hidden="true"

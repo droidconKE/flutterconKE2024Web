@@ -2,7 +2,7 @@ export const Value = () => (
   <div className="items-center flex flex-wrap mt-4 md:mt-10 mb-0">
     <div className="w-full md:w-4/12 ml-auto px-2 md:px-8 mt-4 md:mt-0">
       <div className="text-center md:text-left">
-        <h3 className="text-3xl md:text-4xl text-primary dark:text-accent font-medium w-full mt-6 md:mt-0 lowercase">
+        <h3 className="text-3xl md:text-4xl text-primary dark:text-accent-dark font-medium w-full mt-6 md:mt-0 lowercase">
           <span className="font-black">VALUE BUILT</span> BUILT IN EVERY PACKAGE
         </h3>
       </div>

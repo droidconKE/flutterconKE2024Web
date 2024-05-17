@@ -6,11 +6,12 @@ import { AuthContext } from '../../../context/AuthContext'
 import { ThemeContext } from '../../../context/ThemeContext'
 import { Login } from '../../auth/Login'
 import { ToggleTheme } from './ToggleTheme'
-import { PastEventsDropdown } from './PastEventsDropdown'
+// import { PastEventsDropdown } from './PastEventsDropdown'
 import { TICKETS_LINK } from '../../../constant/constants'
 
 export const NavBar = () => {
   const { isDarkTheme, isEventReady } = useContext(ThemeContext)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
   const { currentUser, isAuthenticated, logoutUser } = useContext(AuthContext)
 
   const [navVisible, setNavVisible] = useState(false)
@@ -40,13 +41,13 @@ export const NavBar = () => {
             {!isDarkTheme ? (
               <img
                 className="w-[200px] xl:w-[250px]"
-                src="/images/logo.svg"
+                src="/images/logo.png"
                 alt="logo"
               />
             ) : (
               <img
                 className="w-[200px] md:w-[250px]"
-                src="/images/logo-dark.svg"
+                src="/images/logo-dark.png"
                 alt="logo dark"
               />
             )}
@@ -73,14 +74,14 @@ export const NavBar = () => {
       <ToggleTheme />
       <div
         id="nav-content"
-        className={`w-full flex-grow lg:flex lg:items-center lg:w-auto pt-6 lg:pt-0 xl:pr-24 md:px-5  ${
+        className={`w-full flex-grow lg:flex lg:items-center lg:w-auto pt-6 lg:pt-0 xl:pr-24 md:px-5 md:justify-between  ${
           navVisible ? '' : 'hidden'
         }`}
       >
         <div
-          className={`w-full md:w-8/12 flex-grow lg:flex ${
+          className={`w-full flex-grow lg:flex ${
             navVisible ? 'bg-white dark:bg-dark' : ''
-          } ${isEventReady ? 'md:w-8/12' : 'md:w-7/12'}`}
+          } ${isEventReady ? 'md:w-8/12' : 'md:w-6/12'}`}
         >
           <ul className="list-reset lg:flex justify-end text-base flex-1 items-center space-y-2 md:space-y-0">
             <li className="mr-3 black">
@@ -138,31 +139,31 @@ export const NavBar = () => {
                 </a>
               </Link>
             </li>
-            <li className="mr-3">
+            {/* <li className="mr-3">
               <PastEventsDropdown />
-            </li>
+            </li> */}
           </ul>
         </div>
         <div
           className={`w-full ${
-            isEventReady ? 'md:w-2/12' : 'md:w-3/12'
+            isEventReady ? 'md:w-2/12' : showLogin ? 'md:w-4/12' : 'md:w-6/12'
           } flex md:justify-end mt-4 md:mt-0 px-4 md:px-0`}
         >
-          <Link href="/sponsors">
-            <a
-              className="btn-secondary"
-              href={TICKETS_LINK}
-              target="_blank"
-              rel="noreferrer"
-            >
-              get your ticket
-            </a>
-          </Link>
+          {/* <Link href="/sponsors"> */}
+          <a
+            className="btn-secondary"
+            href={TICKETS_LINK}
+            target="_blank"
+            rel="noreferrer"
+          >
+            get your ticket
+          </a>
+          {/* </Link> */}
         </div>
 
-        <div className="w-2/12 flex-grow lg:flex justify-end">
-          {showLogin &&
-            (!isAuthenticated ? (
+        {showLogin && (
+          <div className="w-2/12 flex-grow lg:flex justify-end">
+            {!isAuthenticated ? (
               <button
                 type="button"
                 id="login-modal"
@@ -224,8 +225,9 @@ export const NavBar = () => {
                   </div>
                 )}
               </div>
-            ))}
-        </div>
+            )}
+          </div>
+        )}
       </div>
       {isLoginOpen && <Login closeDialog={() => setIsLoginOpen(false)} />}
     </nav>

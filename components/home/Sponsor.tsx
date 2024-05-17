@@ -9,19 +9,19 @@ export const Sponsor = () => {
             <div className="text-left md:text-center">
               <h2 className="title dark:text-accent lowercase">
                 <span>sponsor</span>{' '}
-                <span className="font-medium"> droidconke24</span>
+                <span className="font-medium"> flutterconke24</span>
               </h2>
               <div className="w-full">
                 <h6 className="mt-4 text-white text-xl md:text-2xl">
                   To earn a spot here/Meet our partners By sponsoring
-                  {/* droidconke23 you support and bring together{' '}
+                  {/* flutterconke23 you support and bring together{' '}
                   <br className="hidden md:block" />
                   the Android developer community. */}
                 </h6>
               </div>
               <div className="mt-5 md:mt-12 mb-10 md:mb-0">
                 <Link href="/sponsors">
-                  <a className="btn-secondary">sponsor droidconke</a>
+                  <a className="btn-secondary">sponsor flutterconke</a>
                 </Link>
               </div>
             </div>

@@ -44,8 +44,13 @@ export const Modal = ({
                 <div className="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-sm z-50" />
                 <div className="modal-content w-full">
                   <div className="flex flex-wrap lg:flex-no-wrap bg-ash-c justify-center">
-                    <div className="w-full md:w-1/2 img-log hidden md:grid bg-primary dark:bg-primary-dark">
+                    <div className="w-full md:w-1/2 img-lg hidden md:flex justify-center items-center bg-gradient-to-b from-accent to-primary dark:from-black-dark dark:to-black">
                       <img src={sideImage} alt="login" />
+                      <img
+                        src="/images/flutter-bird.png"
+                        className="absolute w-[240px]"
+                        alt="login"
+                      />
                     </div>
                     <div className="w-full md:w-1/2 bg-ash-c mb-24 lg:mb-0 justify-center">
                       <button

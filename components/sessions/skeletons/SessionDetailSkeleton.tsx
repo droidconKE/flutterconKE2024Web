@@ -11,7 +11,7 @@ export const SessionDetailSkeleton = () => {
           className="rounded-lg w-auto md:w-[400px] md:h-[200px] mb-6"
           src={`https://via.placeholder.com/150/${
             isDarkTheme ? '000000' : 'E2E8F0'
-          }?text=droidconKe`}
+          }?text=flutterconKe`}
           alt="session"
         />
       </div>
