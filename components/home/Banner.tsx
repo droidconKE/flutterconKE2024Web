@@ -28,7 +28,7 @@ export const Banner = () => {
           </div>
           <div className="py-3 mb-5">
             <p>
-              One ticket, 2 conferences. When you buy a ticket to FlutteronKe,{' '}
+              One ticket, 2 conferences. When you buy a ticket to FlutterconKe,{' '}
               <br />
               you are automatically registered to attend droidconKe{' '}
             </p>
