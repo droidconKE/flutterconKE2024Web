@@ -15,8 +15,7 @@ export const Banner = () => {
           </h1>
           <div className="mt-12 md:mt-8 text-3xl md:text-4xl lowercase font-light">
             <h3 className="dark:text-white-dark">
-              FIRST EVER FLUTTER FOCUSED <br />
-              DEVELOPER CONFERENCE IN AFRICA.
+              THE FIRST FLUTTERCON IN AFRICA. <br />
             </h3>
           </div>
           <div>

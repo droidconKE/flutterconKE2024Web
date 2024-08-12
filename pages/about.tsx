@@ -79,10 +79,10 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
           <div className="flex flex-wrap mb-10">
             <div className="w-full -mt-28 md:-mt-32 py-2 pb-12">
               <h4 className="title text-3xl text-primary md:text-6xl dark:text-accent-2 pt-6 md:pt-0 lowercase">
-                first ever flutter{' '}
+                the first fluttercon{' '}
                 <small className="font-medium">
-                  focused <br />
-                  developer conference in africa.
+                  <br />
+                  conference in africa.
                 </small>
               </h4>
             </div>
