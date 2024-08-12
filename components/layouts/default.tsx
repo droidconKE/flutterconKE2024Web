@@ -16,7 +16,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <>
       <Head>
-        <title>The First Fluttercon in Africa.</title>
+        <title>FlutterconKe - The First Fluttercon in Africa</title>
       </Head>
       <ThemeProvider>
         <AuthProvider>

@@ -2,6 +2,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 class MyDocument extends Document {
   render() {
+    const title = 'FlutterconKE - First Fluttercon in Africa'
     return (
       <Html>
         <Head>
@@ -114,7 +115,7 @@ class MyDocument extends Document {
           <meta name="twitter:site" content="@FlutterconKE" />
           <meta name="twitter:creator" content="@FlutterconKE" />
           <meta name="twitter:url" content="https://flutterconke.dev" />
-          <meta name="twitter:title" content="FlutterconKE" />
+          <meta name="twitter:title" content={title} />
           {/* <!-- maximum 140 char --> */}
           <meta
             name="twitter:description"
@@ -130,7 +131,7 @@ class MyDocument extends Document {
 	<!-- twitter card ends from here --> */}
 
           {/* <!-- facebook open graph starts from here, if you don't need then delete open graph related  --> */}
-          <meta property="og:title" content="FlutterconKE" />
+          <meta property="og:title" content={title} />
           <meta property="og:url" content="https://flutterconke.dev/" />
           <meta property="og:locale" content="en_US" />
           <meta property="og:site_name" content="FlutterconKE" />
