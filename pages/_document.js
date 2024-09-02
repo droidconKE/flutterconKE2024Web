@@ -114,7 +114,7 @@ class MyDocument extends Document {
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:site" content="@FlutterconKE" />
           <meta name="twitter:creator" content="@FlutterconKE" />
-          <meta name="twitter:url" content="https://flutterconke.dev" />
+          <meta name="twitter:url" content="https://flutterconke.dev/" />
           <meta name="twitter:title" content={title} />
           {/* <!-- maximum 140 char --> */}
           <meta
@@ -126,7 +126,7 @@ class MyDocument extends Document {
             name="twitter:image"
             content="https://flutterconke.dev/images/fluttercon-24-kenya-announcement.png"
           />
-          <meta name="twitter:image:alt" content="droidcon logo" />
+          <meta name="twitter:image:alt" content="flutterconKe logo" />
           {/* <!-- when you post this page url in twitter , this image will be shown -->
 	<!-- twitter card ends from here --> */}
 
