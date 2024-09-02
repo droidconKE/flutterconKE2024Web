@@ -122,6 +122,7 @@ class MyDocument extends Document {
             content="Fluttercon is a global conference focused on the engineering of Mobile applications. Fluttercon provides a forum for developers to network with other developers, share techniques, announce apps and products, and learn and teach."
           />
           {/* <!-- maximum 140 char --> */}
+          {/* // TODO: focing push */}
           <meta
             name="twitter:image"
             content="https://flutterconke.dev/images/fluttercon-24-kenya-announcement.png"
