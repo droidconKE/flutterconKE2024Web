@@ -21,6 +21,8 @@ const SessionListCard = ({
         {Object.keys(schedules)?.map(
           (key, i) =>
             activeTab === i &&
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
             (schedules[key].length ? (
               <div key={key}>
                 {schedules[key]?.map((schedule: Session) => (
@@ -96,7 +98,7 @@ const SessionListCard = ({
                 ))}
               </div>
             ) : (
-              <NoSessions />
+              <NoSessions key={key} />
             ))
         )}
       </div>
