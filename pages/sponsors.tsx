@@ -183,7 +183,7 @@ export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
           </div>
         </div>
       </section>
-      <SponsorsList sponsors={sponsors} showSponsors={false} year={24} />
+      <SponsorsList sponsors={sponsors} showSponsors year={24} />
     </div>
   )
 }
