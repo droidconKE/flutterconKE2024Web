@@ -26,6 +26,7 @@ function SponsorsList({
 
   const getImageClass = useCallback(
     (sponsor: Sponsor) => {
+      if (sponsor.name.includes('Flutter Dev')) return 'max-h-[56px]'
       if (sponsor.name.includes('JetBrains')) return 'max-h-20'
       if (sponsor.name.includes('Composables')) return 'max-h-[48px]'
       if (sponsor.name.includes('JumaAndMiles')) return 'max-h-24'
@@ -51,6 +52,23 @@ function SponsorsList({
     },
     [isDarkTheme]
   )
+
+  const givenOrder: string[] = [
+    'platinum',
+    'gold',
+    'silver',
+    'bronze',
+    'startup',
+    'swag',
+    'venue',
+  ]
+
+  const sortedSponsors = sponsors.sort((a, b) => {
+    return (
+      givenOrder.indexOf(givenOrder.find((g) => a.sponsor_type === g) || '') -
+      givenOrder.indexOf(givenOrder.find((g) => b.sponsor_type === g) || '')
+    )
+  })
 
   return (
     <section className="w-full dark:bg-black">
@@ -123,7 +141,7 @@ function SponsorsList({
 
             {showSponsors && (
               <div className="grid grid-cols-2 md:grid-cols-3 border-t">
-                {sponsors
+                {sortedSponsors
                   .filter((s) => s.sponsor_type !== 'platinum')
                   .map((sponsor) => (
                     <div
