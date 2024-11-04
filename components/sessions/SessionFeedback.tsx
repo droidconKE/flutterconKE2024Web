@@ -85,7 +85,7 @@ export const SessionFeedback = ({
               onChange={(v) => setRating(v)}
             />
             {errors?.rating && (
-              <p className="text-red-500 text-xs italic">
+              <p className="text-red-500 dark:text-red-500 text-xs italic mt-1">
                 {errors?.rating[0]}.
               </p>
             )}
