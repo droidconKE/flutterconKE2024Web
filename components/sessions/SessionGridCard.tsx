@@ -31,7 +31,15 @@ export const SessionGridCard = ({
                       {schedule.is_serviceSession ? (
                         <img
                           className="object-cover md:object-cover"
-                          src={schedule.session_image ?? '/images/all-new.png'}
+                          src={
+                            schedule.session_image ??
+                            // TODO: remove after 2024
+                            (schedule.title.includes(
+                              'Building And Scaling Tech'
+                            )
+                              ? '/images/panel.png'
+                              : '/images/all-new.png')
+                          }
                           alt={schedule.title}
                         />
                       ) : (
