@@ -147,20 +147,20 @@ export const NotificationsPrompt = () => {
 
         <section className="w-full md:px-56 px-4 mt-10 z-40 flex flex-col items-start container mx-auto">
           <div className="bg-black dark:bg-black-dark p-4 md:p-8 justify-center items-center rounded-xl">
-            <p className="text-accent dark:text-accent text-sm">
+            <p className="text-accent dark:text-primary text-sm">
               FlutterconKe want to show notifications!
             </p>
             <div className="flex flex-wrap w-full justify-between items-center mt-6">
               <button
                 type="button"
-                className="btn-secondary px-6"
+                className="btn-accent px-6"
                 onClick={() => promptNotifications()}
               >
                 Allow
               </button>
               <button
                 type="button"
-                className="btn-accent px-6"
+                className="btn-secondary px-6"
                 onClick={() => rejectPrompt()}
               >
                 Block
