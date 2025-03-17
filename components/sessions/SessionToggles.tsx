@@ -57,7 +57,7 @@ export const SessionToggles: NextPage<SessionPageProps> = ({
               My Sessions
             </div>
           </button>
-          <style jsx>
+          <style>
             {`
               .toggle__dot {
                 top: -0.25rem;

@@ -37,10 +37,8 @@ const Home: NextPage<HomeProps> = ({ organizers, sponsors }) => {
               Experts, and seasoned Flutter specialists, all dedicated to
               exploring the latest in Flutter and Dart technologies.
             </p>
-            <Link href="/about">
-              <a className="lowercase text-xl font-bold">
-                more about flutterconke
-              </a>
+            <Link href="/about" className="lowercase text-xl font-bold">
+              more about flutterconke
             </Link>
           </div>
           <div className="flex justify-center items-center w-full md:w-5/12 py-6">

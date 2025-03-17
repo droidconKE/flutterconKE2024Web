@@ -1,4 +1,3 @@
-/* eslint-disable security/detect-object-injection */
 import Link from 'next/link'
 import { Schedule, Session } from '../../types/types'
 import { hour, time, timeAm, truncateString } from '../../utils/helpers'
@@ -25,7 +24,9 @@ const SessionListCard = ({
             // @ts-ignore
             (schedules[key].length ? (
               <div key={key}>
-                {schedules[key]?.map((schedule: Session) => (
+                {// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                schedules[key]?.map((schedule: Session) => (
                   <div key={schedule.id}>
                     <div className="shadow-md px-2 h-auto rounded-md py-4 justify-center content-center bg-white dark:bg-black-dark mb-6">
                       <div className="flex flex-row items-start">
@@ -49,12 +50,10 @@ const SessionListCard = ({
                                 from ? `?from=${from}` : ''
                               }`}
                             >
-                              <a>
-                                <h4 className="font-bold md:text-xl dark:text-white">
-                                  {schedule.is_keynote ? 'Keynote: ' : ''}{' '}
-                                  {schedule.title}
-                                </h4>
-                              </a>
+                              <h4 className="font-bold md:text-xl dark:text-white">
+                                {schedule.is_keynote ? 'Keynote: ' : ''}{' '}
+                                {schedule.title}
+                              </h4>
                             </Link>
                           )}
                           {schedule.description && (
@@ -71,7 +70,7 @@ const SessionListCard = ({
                                   : schedule.session_level}
                               </span>
                               <span className="black"> | </span>{' '}
-                              <span className="text-primary dark:text-secondary-dark">
+                              <span className="text-primary dark:text-accent-dark">
                                 {schedule.session_format}
                               </span>{' '}
                             </p>
@@ -115,7 +114,7 @@ const SessionListCard = ({
             ))
         )}
       </div>
-      <style jsx>
+      <style>
         {`
           .rooms ~ .rooms::before {
             content: ', ';

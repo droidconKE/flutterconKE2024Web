@@ -1,4 +1,3 @@
-/* eslint-disable security/detect-object-injection */
 import Link from 'next/link'
 import { Schedule, Session } from '../../types/types'
 import { hour, truncateString } from '../../utils/helpers'
@@ -9,23 +8,29 @@ export const SessionGridCard = ({
   schedules,
   activeTab,
   from,
+  year = 24,
 }: {
   schedules: Schedule[]
   activeTab: number
   // eslint-disable-next-line react/require-default-props
   from?: string
+  // eslint-disable-next-line react/require-default-props
+  year?: number
 }) => {
   return (
     <>
       <div>
         {Object.keys(schedules)?.map(
-          // eslint-disable-next-line sonarjs/cognitive-complexity
           (key, i) =>
             activeTab === i &&
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
             (schedules[key].length ? (
               <div className="lg:grid gap-4 grid-cols-3" key={key}>
                 {/* component */}
-                {schedules[key]?.map((schedule: Session) => (
+                {// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                schedules[key]?.map((schedule: Session) => (
                   <div className="flex" key={schedule.id}>
                     <div className="max-w-sm rounded-lg shadow-lg overflow-hidden bg-lighter dark:bg-black-dark mb-6 flex flex-col">
                       {schedule.is_serviceSession ? (
@@ -38,7 +43,9 @@ export const SessionGridCard = ({
                               'Building And Scaling Tech'
                             )
                               ? '/images/panel.png'
-                              : '/images/all-new.png')
+                              : year === 24
+                                ? '/images/all-new.png'
+                                : '/images/all.png')
                           }
                           alt={schedule.title}
                         />
@@ -48,15 +55,16 @@ export const SessionGridCard = ({
                             from ? `?from=${from}` : ''
                           }`}
                         >
-                          <a>
-                            <img
-                              className="object-cover md:object-cover"
-                              src={
-                                schedule.session_image ?? 'images/all-new.png'
-                              }
-                              alt={schedule.title}
-                            />
-                          </a>
+                          <img
+                            className="object-cover md:object-cover"
+                            src={
+                              schedule.session_image ??
+                              (year === 24
+                                ? '/images/all-new.png'
+                                : '/images/all.png')
+                            }
+                            alt={schedule.title}
+                          />
                         </Link>
                       )}
                       <div className="m-4 flex flex-1 flex-wrap">
@@ -79,7 +87,7 @@ export const SessionGridCard = ({
                                   : schedule.session_level}
                               </span>
                               <span className="black"> | </span>{' '}
-                              <span className="text-primary dark:text-secondary-dark">
+                              <span className="text-primary dark:text-accent-dark">
                                 {schedule.session_format}
                               </span>{' '}
                             </p>
@@ -95,12 +103,10 @@ export const SessionGridCard = ({
                                 from ? `?from=${from}` : ''
                               }`}
                             >
-                              <a>
-                                <p className="text-sm mt-2 font-bold dark:text-white-dark mb-2">
-                                  {schedule.is_keynote ? 'Keynote: ' : ''}{' '}
-                                  {schedule.title}
-                                </p>
-                              </a>
+                              <p className="text-sm mt-2 font-bold dark:text-white-dark mb-2">
+                                {schedule.is_keynote ? 'Keynote: ' : ''}{' '}
+                                {schedule.title}
+                              </p>
                             </Link>
                           )}
                           {schedule.description && (
@@ -148,7 +154,7 @@ export const SessionGridCard = ({
             ))
         )}
       </div>
-      <style jsx>
+      <style>
         {`
           .rooms ~ .rooms::before {
             content: ', ';

@@ -24,10 +24,11 @@ export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
             </div>
             <div className="w-full flex  md:w-5/12 mt-10 md:mt-0 justify-center md:justify-end">
               <div className="mt-0 mb-6 flex flex-col md:flex-row flex-wrap md:mb-0 md:space-x-4">
-                <Link href="mailto:sponsor@droidcon.co.ke?Subject=Sponsor flutterconke">
-                  <a className="btn-secondary mt-3 md:mt-0 font-semibold rounded-lg">
-                    Sponsor flutterconke
-                  </a>
+                <Link
+                  href="mailto:sponsor@droidcon.co.ke?Subject=Sponsor flutterconke"
+                  className="btn-secondary mt-3 md:mt-0 font-semibold rounded-lg"
+                >
+                  Sponsor flutterconke
                 </Link>
                 {/* <Link href="mailto:sponsor@droidcon.co.ke?Subject=Sponsor flutterconke"> */}
                 {/* <a
@@ -171,10 +172,11 @@ export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
               <div className="grow h-2 bg-secondary" />
             </div>
             <div className="w-8/12 flex md:w-4/12 mb-10 md:mb-0 justify-center px-2">
-              <Link href="mailto:sponsor@droidcon.co.ke?Subject=Sponsor flutterconke">
-                <a className=" text-xs md:text-base btn-accent mt-3 md:mt-0">
-                  Sponsor flutterconke
-                </a>
+              <Link
+                href="mailto:sponsor@droidcon.co.ke?Subject=Sponsor flutterconke"
+                className=" text-xs md:text-base btn-accent mt-3 md:mt-0"
+              >
+                Sponsor flutterconke
               </Link>
             </div>
             <div className="w-2/12 md:w-4/12 ml-auto px-0 md:px-8 mb-8 md:mb-0">
