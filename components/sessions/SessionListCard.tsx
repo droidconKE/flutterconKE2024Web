@@ -49,12 +49,10 @@ const SessionListCard = ({
                                 from ? `?from=${from}` : ''
                               }`}
                             >
-                              <a>
-                                <h4 className="font-bold md:text-xl dark:text-white">
-                                  {schedule.is_keynote ? 'Keynote: ' : ''}{' '}
-                                  {schedule.title}
-                                </h4>
-                              </a>
+                              <h4 className="font-bold md:text-xl dark:text-white">
+                                {schedule.is_keynote ? 'Keynote: ' : ''}{' '}
+                                {schedule.title}
+                              </h4>
                             </Link>
                           )}
                           {schedule.description && (

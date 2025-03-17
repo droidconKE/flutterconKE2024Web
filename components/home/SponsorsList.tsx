@@ -105,8 +105,8 @@ function SponsorsList({
                     help make flutterconke happen and have your logo appear here
                     ...
                   </p>
-                  <Link href="/sponsors">
-                    <a className="btn-secondary w-56">sponsor flutterconke</a>
+                  <Link href="/sponsors" className="btn-secondary w-56">
+                    sponsor flutterconke
                   </Link>
                 </div>
               ) : (
