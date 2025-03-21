@@ -52,7 +52,7 @@ const Home: NextPage<HomeProps> = ({ organizers, sponsors }) => {
       </section>
       <EventTypes />
       <Sponsor />
-      <SponsorsList sponsors={sponsors} year={24} showSponsors />
+      <SponsorsList sponsors={sponsors} year={25} showSponsors={false} />
       <Gallery />
       <Organizers organizers={organizers} />
     </div>

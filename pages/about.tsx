@@ -97,8 +97,8 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
                 apps and products, and learn and teach.
                 <br />
                 <br />
-                The three-day gathering will be held in Nairobi, Kenya, from 6th
-                to 8th November 2024 and will be the first ever in Africa.
+                The three-day gathering will be held in Nairobi, Kenya, from 5th
+                to 7th November 2025 and will be the first ever in Africa.
                 <br />
                 <br />
                 The conference will include workshops, codelabs and talks geared
@@ -125,10 +125,10 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
                 Droidcons worldwide.
                 <br />
                 <br />
-                We are thrilled to host Africa's inaugural Fluttercon Kenya,
-                bringing together Flutter and Dart developers in the region.
-                This initiative is led by a seasoned team with a proven track
-                record of organizing four successful events!
+                We are thrilled to host Africa's 2nd Fluttercon Kenya, bringing
+                together Flutter and Dart developers in the region. This
+                initiative is led by a seasoned team with a proven track record
+                of organizing four successful events!
               </p>
             </div>
             <div className="w-full mt-2 -mb-32 md:-mb-32 pb-20 md:pb-0 flex justify-center pr-0 md:pr-20">

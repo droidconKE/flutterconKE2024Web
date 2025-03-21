@@ -6,22 +6,27 @@ import { SessionToggles } from '../../components/sessions/SessionToggles'
 import { FilterSessions } from '../../components/sessions/FilterSessions'
 import axios from '../../utils/axios'
 import { SessionGridCard } from '../../components/sessions/SessionGridCard'
-import { Event, Schedule, Sponsor } from '../../types/types'
+import { Event, Schedule, Session, Speaker, Sponsor } from '../../types/types'
 import { timeDay } from '../../utils/helpers'
 import { SessionsSkeleton } from '../../components/sessions/skeletons/SessionsSkeleton'
 import { useSession } from '../../hooks/useSession'
 import SponsorsList from '../../components/home/SponsorsList'
+import { SpeakersList } from '../../components/speakers/SpeakersList'
 
 interface SessionProps {
   schedules: Schedule[]
   event: Event
   sponsors: Sponsor[]
+  speakers: Speaker[]
+  sessions: Session[]
 }
 
-const Home2022: NextPage<SessionProps> = ({
+const Home2024: NextPage<SessionProps> = ({
   schedules: allSchedules,
   event,
   sponsors,
+  sessions,
+  speakers,
 }) => {
   const {
     schedules,
@@ -44,7 +49,7 @@ const Home2022: NextPage<SessionProps> = ({
           <div className="l-container mt-8 md:mt-0 py-2 md:py-4">
             <div className="w-full flex justify-between md:flex-row items-center mt-5 md:mt-6">
               <h3 className="lowercase text-2xl md:text-3xl text-white dark:text-white-dark">
-                dcke22 Sessions
+                dcKe23 Sessions
               </h3>
               <SessionToggles
                 setShowFilterSession={setShowFilterSession}
@@ -93,13 +98,14 @@ const Home2022: NextPage<SessionProps> = ({
                     <SessionGridCard
                       schedules={schedules}
                       activeTab={activeTab}
-                      from="/past-events/2022"
+                      from="/past-events/2024"
+                      year={24}
                     />
                   ) : (
                     <SessionListCard
                       schedules={schedules}
                       activeTab={activeTab}
-                      from="/past-events/2022"
+                      from="/past-events/2024"
                     />
                   )}
                 </div>
@@ -109,7 +115,10 @@ const Home2022: NextPage<SessionProps> = ({
             <SessionsSkeleton />
           )}
         </section>
-        <SponsorsList sponsors={sponsors} showSponsors year={22} />
+        <div className="l-container py-8 md:py-10">
+          <SpeakersList sessions={sessions} speakers={speakers} />
+        </div>
+        <SponsorsList sponsors={sponsors} showSponsors year={24} />
       </div>
       {showFilterSession && (
         <FilterSessions
@@ -122,7 +131,7 @@ const Home2022: NextPage<SessionProps> = ({
   )
 }
 
-export default Home2022
+export default Home2024
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function getServerSideProps({ req, res }: { req: any; res: any }) {
@@ -132,7 +141,7 @@ export async function getServerSideProps({ req, res }: { req: any; res: any }) {
   })}`
   const schedules = await axios
     .get(
-      `/events/${process.env.NEXT_PUBLIC_EVENT_SLUG_2022}/schedule?grouped=true`
+      `/events/${process.env.NEXT_PUBLIC_EVENT_SLUG_2024}/schedule?grouped=true`
     )
     .then((response) => {
       return response.data.data
@@ -142,7 +151,7 @@ export async function getServerSideProps({ req, res }: { req: any; res: any }) {
     })
 
   const event = await axios
-    .get(`/events/${process.env.NEXT_PUBLIC_EVENT_SLUG_2022}`)
+    .get(`/events/${process.env.NEXT_PUBLIC_EVENT_SLUG_2024}`)
     .then((response) => {
       return response.data.data
     })
@@ -151,7 +160,23 @@ export async function getServerSideProps({ req, res }: { req: any; res: any }) {
     })
 
   const sponsors = await axios
-    .get(`/events/${process.env.NEXT_PUBLIC_EVENT_SLUG_2022}/sponsors`)
+    .get(`/events/${process.env.NEXT_PUBLIC_EVENT_SLUG_2024}/sponsors`)
+    .then((response) => {
+      return response.data.data
+    })
+
+  const speakers = await axios
+    .get(
+      `/events/${process.env.NEXT_PUBLIC_EVENT_SLUG_2024}/speakers?per_page=100`
+    )
+    .then((response) => {
+      return response.data.data
+    })
+
+  const sessions = await axios
+    .get(
+      `/events/${process.env.NEXT_PUBLIC_EVENT_SLUG_2024}/sessions?per_page=100`
+    )
     .then((response) => {
       return response.data.data
     })
@@ -162,5 +187,5 @@ export async function getServerSideProps({ req, res }: { req: any; res: any }) {
     }
   }
 
-  return { props: { schedules, event, sponsors } }
+  return { props: { schedules, event, sponsors, speakers, sessions } }
 }
