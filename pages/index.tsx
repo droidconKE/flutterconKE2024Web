@@ -29,13 +29,10 @@ const Home: NextPage<HomeProps> = ({ organizers, sponsors }) => {
               <span className="font-medium">flutterconke</span>
             </h2>
             <p className="dark:text-lighter-dark py-5 md:py-8 text-xl md:text-2xl">
-              Fluttercon Kenya stands as the pioneering event of its kind in
-              Africa, marking the debut of the Fluttercon conference on the
-              continent. Designed to be a hub of innovation and learning,
-              Fluttercon Kenya will offer a rich program of tech talks,
-              workshops, and panels led by industry experts, Google Developer
-              Experts, and seasoned Flutter specialists, all dedicated to
-              exploring the latest in Flutter and Dart technologies.
+              Fluttercon is a global conference focused on the engineering of
+              Mobile applications. Fluttercon provides a forum for developers to
+              network with other developers, share techniques, announce apps and
+              products, and learn and teach.
             </p>
             <Link href="/about" className="lowercase text-xl font-bold">
               more about flutterconke

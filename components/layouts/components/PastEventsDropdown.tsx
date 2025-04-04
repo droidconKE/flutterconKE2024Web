@@ -72,12 +72,12 @@ export const PastEventsDropdown = () => {
         >
           <div className="py-1 text-sm" role="none">
             <Link
-              href="/past-events/2023"
+              href="/past-events/2024"
               className={
-                router.pathname === '/past-events/2023' ? 'active-link' : 'link'
+                router.pathname === '/past-events/2024' ? 'active-link' : 'link'
               }
             >
-              flutterconKe 2023
+              flutterconKe 2024
             </Link>
           </div>
         </div>
