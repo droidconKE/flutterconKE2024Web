@@ -7,6 +7,7 @@ import { Login } from '../../auth/Login'
 import { ToggleTheme } from './ToggleTheme'
 // import { PastEventsDropdown } from './PastEventsDropdown'
 import { TICKETS_LINK } from '../../../constant/constants'
+import { PastEventsDropdown } from './PastEventsDropdown'
 
 export const NavBar = () => {
   const { isDarkTheme, isEventReady } = useContext(ThemeContext)
@@ -132,9 +133,9 @@ export const NavBar = () => {
                 Sponsors
               </Link>
             </li>
-            {/* <li className="mr-3">
+            <li className="mr-3">
               <PastEventsDropdown />
-            </li> */}
+            </li>
           </ul>
         </div>
         <div

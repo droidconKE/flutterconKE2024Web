@@ -25,7 +25,7 @@ const Session: NextPage<SessionPageProp> = ({ session }) => {
           name="twitter:image"
           content={
             session.session_image ??
-            'https://flutterconke.dev/images/fluttercon-24-kenya-announcement.png'
+            'https://fluttercondev.ke/images/fluttercon-25-kenya-announcement.png'
           }
         />
       </Head>
