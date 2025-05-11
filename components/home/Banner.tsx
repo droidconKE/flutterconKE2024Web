@@ -1,6 +1,5 @@
-/* eslint-disable jsx-a11y/media-has-caption */
 import Link from 'next/link'
-import { TICKETS_LINK } from '../../constant/constants'
+import { CFS_LINK } from '../../constant/constants'
 
 export const Banner = () => {
   return (
@@ -10,7 +9,7 @@ export const Banner = () => {
           <h1 className="font-light text-3xl md:text-4xl black px-0">
             <span className="lowercase">welcome to</span> <br />
             <span className="font-black text-4xl md:text-5xl text-primary">
-              FLUTTERCONKE24
+              FLUTTERCONKE25
             </span>
           </h1>
           <div className="mt-12 md:mt-8 text-3xl md:text-4xl lowercase font-light">
@@ -34,25 +33,25 @@ export const Banner = () => {
           </div>
           <div>
             <div className="flex flex-wrap space-x-2 md:space-x-4">
-              <a
+              {/* <a
                 className="btn-secondary mt-3 md:mt-0"
                 href={TICKETS_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 get your ticket
-              </a>
+              </a> */}
 
-              {/* <a
+              <a
                 href={CFS_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary mt-3 md:mt-0"
               >
                 submit a talk
-              </a> */}
-              <Link href="/sponsors">
-                <a className="btn-accent mt-3 md:mt-0">sponsor flutterconke</a>
+              </a>
+              <Link href="/sponsors" className="btn-accent mt-3 md:mt-0">
+                sponsor flutterconke
               </Link>
             </div>
             <div className="flex flex-wrap mt-6 md:mt-8 items-center">
@@ -62,7 +61,7 @@ export const Banner = () => {
                 alt="droid alt"
               /> */}
               <div className="text-accent dark:text-accent-dark font-black text-base md:text-3xl mt-3 md:mt-4 lowercase">
-                <span>06TH - 8TH</span> NOVEMBER 2024
+                <span>05TH - 7TH</span> NOVEMBER 2025
               </div>
             </div>
           </div>

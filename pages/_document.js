@@ -114,7 +114,7 @@ class MyDocument extends Document {
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:site" content="@FlutterconKE" />
           <meta name="twitter:creator" content="@FlutterconKE" />
-          <meta name="twitter:url" content="https://flutterconke.dev/" />
+          <meta name="twitter:url" content="https://fluttercondev.ke/" />
           <meta name="twitter:title" content={title} />
           {/* <!-- maximum 140 char --> */}
           <meta
@@ -125,7 +125,7 @@ class MyDocument extends Document {
           {/* // TODO: focing push */}
           <meta
             name="twitter:image"
-            content="https://flutterconke.dev/images/fluttercon-24-kenya-announcement.png"
+            content="https://fluttercondev.ke/images/fluttercon-25-kenya-announcement.png"
           />
           <meta name="twitter:image:alt" content="flutterconKe logo" />
           {/* <!-- when you post this page url in twitter , this image will be shown -->
@@ -133,14 +133,14 @@ class MyDocument extends Document {
 
           {/* <!-- facebook open graph starts from here, if you don't need then delete open graph related  --> */}
           <meta property="og:title" content={title} />
-          <meta property="og:url" content="https://flutterconke.dev/" />
+          <meta property="og:url" content="https://fluttercondev.ke/" />
           <meta property="og:locale" content="en_US" />
           <meta property="og:site_name" content="FlutterconKE" />
           {/* <!--meta property="fb:admins" content="" /-->  <!-- use this if you have  --> */}
           <meta property="og:type" content="website" />
           <meta
             property="og:image"
-            content="https://flutterconke.dev/images/fluttercon-24-kenya-announcement.png"
+            content="https://fluttercondev.ke/images/fluttercon-25-kenya-announcement.png"
           />
           <meta
             property="og:description"

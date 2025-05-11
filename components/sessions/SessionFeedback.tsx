@@ -32,6 +32,7 @@ export const SessionFeedback = ({
       .then((response) => {
         toast.success(response.data.message)
         setLoading(false)
+        closeDialog()
       })
       .catch((error) => {
         if (error.response.status === 422) {
@@ -46,7 +47,7 @@ export const SessionFeedback = ({
 
   return (
     <Modal
-      // sideImage="/images/svg/feedback-1.svg"
+      sideImage="/images/svg/feedback-1.svg"
       widthClass="md:w-5/12"
       closeDialog={() => closeDialog()}
     >
@@ -68,7 +69,7 @@ export const SessionFeedback = ({
             onChange={(e) => setMessage(e.target.value)}
           />
           {errors?.feedback && (
-            <p className="text-red-500 text-xs italic">
+            <p className="text-red-500 dark:text-red-500 text-xs italic mt-1">
               {errors?.feedback[0]}.
             </p>
           )}
@@ -85,7 +86,7 @@ export const SessionFeedback = ({
               onChange={(v) => setRating(v)}
             />
             {errors?.rating && (
-              <p className="text-red-500 dark:text-red-500 text-xs italic mt-1">
+              <p className="text-red-500 text-xs italic">
                 {errors?.rating[0]}.
               </p>
             )}
@@ -101,8 +102,8 @@ export const SessionFeedback = ({
             {loading
               ? 'Sending Feedback ...'
               : sessionSlug
-              ? 'Session Feedback'
-              : 'Event Feedback'}
+                ? 'Session Feedback'
+                : 'Event Feedback'}
           </button>
         </div>
       </>

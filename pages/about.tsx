@@ -35,25 +35,27 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
                 <p className="dark:text-lighter-dark pt-2 text-base md:text-xl pr-0 md:pr-0 md:pb-16">
                   Fluttercon Kenya stands as the pioneering event of its kind in
                   Africa, marking the debut of the Fluttercon conference on the
-                  continent. Designed to be a hub of innovation and learning,
-                  Fluttercon Kenya will offer a rich program of tech talks,
-                  workshops, and panels led by industry experts, Google
+                  continent in 2024. Designed to be a hub of innovation and
+                  learning, Fluttercon Kenya offers a rich program of tech
+                  talks, workshops, and panels led by industry experts, Google
                   Developer Experts, and seasoned Flutter specialists, all
                   dedicated to exploring the latest in Flutter and Dart
-                  technologies. <br />
+                  technologies.
+                  <br />
                   <br />
                   Spearheaded by the accomplished team behind Droidcon Kenya,
-                  renowned for orchestrating four highly successful editions of
+                  renowned for orchestrating five highly successful editions of
                   Droidcon Kenya, Fluttercon Kenya promises to uphold the same
                   standard of excellence. With a track record of hosting over
                   3000 attendees and curating 200 sessions, the team brings
                   unparalleled expertise and organizational prowess to the
-                  table. <br />
+                  table.
+                  <br />
                   <br />
                   By co-locating with Droidcon Kenya, Africa's premier Android
                   developer conference with a five-year legacy, Fluttercon Kenya
                   maximizes its reach and impact. Set to take place from
-                  November 6th to 8th, 2024, this joint event will unite Flutter
+                  November 5th to 7th, 2025, this joint event will unite Flutter
                   and Dart experts, Google Developer Experts, and hundreds of
                   Flutter developers with their Android counterparts. Together,
                   they will form one of the largest gatherings of mobile
@@ -86,7 +88,7 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
                 </small>
               </h4>
             </div>
-            <div className="w-full md:w-12/12 ml-auto pr-0 md:pr-20">
+            {/* <div className="w-full md:w-12/12 ml-auto pr-0 md:pr-20">
               <h3 className="title font-medium border-b-8 border-b-secondary lowercase">
                 Fluttercon
               </h3>
@@ -97,8 +99,8 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
                 apps and products, and learn and teach.
                 <br />
                 <br />
-                The three-day gathering will be held in Nairobi, Kenya, from 6th
-                to 8th November 2024 and will be the first ever in Africa.
+                The three-day gathering will be held in Nairobi, Kenya, from 5th
+                to 7th November 2025 and will be the first ever in Africa.
                 <br />
                 <br />
                 The conference will include workshops, codelabs and talks geared
@@ -107,7 +109,7 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
                 network and connect with their fellow Mobile enthusiasts from
                 the African and continental communities.
               </p>
-            </div>
+            </div> */}
 
             <div className="w-full md:w-12/12 ml-auto pr-0 md:pr-20 md:mt-10">
               <h3 className="title font-medium border-b-8 border-b-secondary mt-4 md:mt-0 lowercase">
@@ -125,10 +127,10 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
                 Droidcons worldwide.
                 <br />
                 <br />
-                We are thrilled to host Africa's inaugural Fluttercon Kenya,
-                bringing together Flutter and Dart developers in the region.
-                This initiative is led by a seasoned team with a proven track
-                record of organizing four successful events!
+                We were thrilled to host Africa's inaugural Fluttercon Kenya in
+                2024, which brought together Flutter and Dart developers in the
+                region. This initiative was led by a seasoned team with a proven
+                track record of organizing four successful events!
               </p>
             </div>
             <div className="w-full mt-2 -mb-32 md:-mb-32 pb-20 md:pb-0 flex justify-center pr-0 md:pr-20">
