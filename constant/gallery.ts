@@ -1,5 +1,11 @@
 export const gallery = [
   {
+    imageTitle: 'Memories Five',
+    imageName: '10_144',
+    imageWidth: 3600,
+    imageHeight: 2400,
+  },
+  {
     imageTitle: 'Memories One',
     imageName: '20191',
     imageWidth: 3600,
@@ -7,16 +13,11 @@ export const gallery = [
   },
   {
     imageTitle: 'Memories Two',
-    imageName: '20192',
+    imageName: 'TTDCON_KEN_2',
     imageWidth: 2400,
     imageHeight: 3600,
   },
-  {
-    imageTitle: 'Memories Three',
-    imageName: '20193',
-    imageWidth: 3600,
-    imageHeight: 2400,
-  },
+
   {
     imageTitle: 'Memories Four',
     imageName: '20194',
@@ -25,13 +26,13 @@ export const gallery = [
   },
   {
     imageTitle: 'Memories Four',
-    imageName: '20195',
+    imageName: '8_96',
     imageWidth: 3600,
     imageHeight: 2400,
   },
   {
     imageTitle: 'Memories Five',
-    imageName: '20196',
+    imageName: '8_116',
     imageWidth: 3600,
     imageHeight: 2400,
   },
@@ -41,21 +42,22 @@ export const gallery = [
   //   imageWidth: 3600,
   //   imageHeight: 2400,
   // },
+
   {
-    imageTitle: 'Memories Five',
-    imageName: '20198',
+    imageTitle: 'Memories Three',
+    imageName: '8_47',
     imageWidth: 3600,
     imageHeight: 2400,
   },
   {
     imageTitle: 'Memories Six',
-    imageName: '20199',
+    imageName: '11_55',
     imageWidth: 3600,
     imageHeight: 2400,
   },
   {
     imageTitle: 'Memories Two',
-    imageName: '201910',
+    imageName: 'TAMZ9254',
     imageWidth: 2400,
     imageHeight: 3600,
   },
