@@ -36,13 +36,6 @@ export const gallery = [
     imageWidth: 3600,
     imageHeight: 2400,
   },
-  // {
-  //   imageTitle: 'Memories Six',
-  //   imageName: '20197',
-  //   imageWidth: 3600,
-  //   imageHeight: 2400,
-  // },
-
   {
     imageTitle: 'Memories Three',
     imageName: '8_47',
@@ -60,5 +53,11 @@ export const gallery = [
     imageName: 'TAMZ9254',
     imageWidth: 2400,
     imageHeight: 3600,
+  },
+  {
+    imageTitle: 'Memories Six',
+    imageName: '7_189',
+    imageWidth: 3600,
+    imageHeight: 2400,
   },
 ]
