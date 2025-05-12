@@ -13,7 +13,7 @@ export const Gallery = () => {
         <div className="w-full text-center p-6 md:py-10 items-center justify-center">
           <h2 className="title lowercase dark:text-accent-dark">
             <span>Photos From</span>{' '}
-            <span className="font-medium">past DroidconKe</span>
+            <span className="font-medium">past FlutterConKe</span>
           </h2>
         </div>
         <div className="w-full items-center flex flex-wrap">
