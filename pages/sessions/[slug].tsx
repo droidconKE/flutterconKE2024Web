@@ -11,9 +11,10 @@ import axios from '../../utils/axios'
 
 interface SessionPageProp {
   session: SessionProp
+  fullUrl: string
 }
 
-const Session: NextPage<SessionPageProp> = ({ session }) => {
+const Session: NextPage<SessionPageProp> = ({ session, fullUrl }) => {
   const router = useRouter()
 
   const navBackLink = router.query?.from ? router.query?.from : '/sessions'
@@ -27,6 +28,8 @@ const Session: NextPage<SessionPageProp> = ({ session }) => {
       <Head>
         <meta name="twitter:image" content={image} />
         <meta property="og:image" content={image} />
+        <meta property="og:url" content={fullUrl} />
+        <meta name="twitter:url" content={fullUrl} />
       </Head>
       <div className="w-full mt-10 lg:mt-20 xl:mt-10 mb-0">
         <section className="w-full bg-primary dark:bg-black-dark">
@@ -78,6 +81,15 @@ export async function getServerSideProps({
     res,
   })}`
 
+  // Get protocol
+  const protocol = req.headers['x-forwarded-proto'] || 'https'
+  // Get host (includes domain and port)
+  const { host } = req.headers
+  // Get path
+  const urlPath = req.url
+  // Full URL
+  const fullUrl = `${protocol}://${host}${urlPath}`
+
   const session = await axios
     .get(`/events/${process.env.NEXT_PUBLIC_EVENT_SLUG}/schedule/${slug}`)
     .then((response) => {
@@ -94,6 +106,6 @@ export async function getServerSideProps({
       notFound: true,
     }
   }
-  return { props: { session } }
+  return { props: { session, fullUrl } }
 }
 export default Session
