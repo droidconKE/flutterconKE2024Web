@@ -20,16 +20,19 @@ function SponsorsList({
     if (sponsor.name.includes('Composables')) return 'Product Sponsor'
     if (sponsor.name.includes('JumaAndMiles')) return 'Ticket Sponsor'
     if (sponsor.name.includes('DnD Gifts')) return 'Speaker Gift Sponsor'
+    if (sponsor.name.includes('Typesense')) return 'All Coffee & Snacks Sponsor'
     return `${sponsor.sponsor_type} Sponsor`
   }, [])
 
   const getImageClass = useCallback(
     (sponsor: Sponsor) => {
-      if (sponsor.name.includes('Flutter Dev')) return 'max-h-[56px]'
+      if (sponsor.name.includes('Flutter')) return 'max-h-14'
       if (sponsor.name.includes('JetBrains')) return 'max-h-20'
       if (sponsor.name.includes('Composables')) return 'max-h-[48px]'
       if (sponsor.name.includes('JumaAndMiles')) return 'max-h-24'
       if (sponsor.name.includes('Daystar University')) return 'max-h-[43px]'
+      if (sponsor.name.includes('Typesense')) return 'bg-white max-h-12'
+      if (sponsor.name.includes('Kopo Kopo')) return 'h-14'
       if (year === 22) return 'max-h-20'
       return 'max-h-10'
     },
