@@ -26,7 +26,7 @@ function SponsorsList({
 
   const getImageClass = useCallback(
     (sponsor: Sponsor) => {
-      if (sponsor.name.includes('Flutter')) return 'max-h-14'
+      if (sponsor.name.includes('Flutter')) return 'max-h-16'
       if (sponsor.name.includes('JetBrains')) return 'max-h-20'
       if (sponsor.name.includes('Composables')) return 'max-h-[48px]'
       if (sponsor.name.includes('JumaAndMiles')) return 'max-h-24'
