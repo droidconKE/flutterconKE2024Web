@@ -94,7 +94,7 @@ export const Footer = () => {
             <Link
               href="https://drive.google.com/file/d/16WloZF2c6y5cqj3Ea67KaRJBzsfFSbY1/view?usp=sharing"
               target="_blank"
-              className="text-white dark:text-white-dark text-base hover:text-secondary"
+              className="text-white dark:text-white-dark text-base hover:text-secondary dark:hover:text-secondary"
             >
               See the Flutterconke Code of Conduct
             </Link>
