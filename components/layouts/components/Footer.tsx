@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { TICKETS_LINK } from '../../../constant/constants'
 
 export const Footer = () => {
@@ -84,6 +85,19 @@ export const Footer = () => {
                 )}
               </div>
             </div>
+          </div>
+          <div className="">
+            <h2 className="title-w lowercase text-secondary dark:text-secondary-dark">
+              <span>Code of</span> <span className="font-medium"> Conduct</span>
+            </h2>
+            <br />
+            <Link
+              href="https://drive.google.com/file/d/16WloZF2c6y5cqj3Ea67KaRJBzsfFSbY1/view?usp=sharing"
+              target="_blank"
+              className="text-white dark:text-white-dark text-base hover:text-secondary"
+            >
+              See the Flutterconke Code of Conduct
+            </Link>
           </div>
         </div>
       </section>
