@@ -6,13 +6,7 @@ export const Footer = () => {
 
   return (
     <div>
-      <section
-        className="w-full bg-gradient-to-b from-accent to-primary dark:from-black-dark dark:to-black"
-        // style={{
-        //   background:
-        //     'transparent linear-gradient(180deg, #0014E6 0%, #0062FF 100%) 0% 0% no-repeat padding-box;',
-        // }}
-      >
+      <section className="w-full bg-gradient-to-b from-accent to-primary dark:from-black-dark dark:to-black">
         <div className="l-container py-6 md:py-12">
           <div className="items-center flex flex-wrap md:my-10">
             <div className="w-full md:w-8/12 ml-auto mt-4 md:mt-0">
@@ -39,7 +33,7 @@ export const Footer = () => {
           <div className="flex flex-wrap">
             <div className="w-full">
               <div className="flex flex-wrap items-top mb-14 md:mb-6 text-left">
-                <div className="w-full md:w-4/12 xl:w-4/12 pt-6 md:pt-0">
+                <div className="w-full sm:w-6/12 md:w-3/12 xl:w-3/12 pt-6 md:pt-0">
                   <span className="text-accent-2 dark:text-accent-2-dark lowercase text-2xl">
                     Venue
                   </span>
@@ -47,7 +41,6 @@ export const Footer = () => {
                     <p className="text-white dark:text-white-dark text-base">
                       Golden Tulip Westlands Nairobi
                     </p>
-
                     <a
                       href="https://maps.app.goo.gl/r3AQbUKjmpggvi2m6"
                       target="_blank"
@@ -60,7 +53,7 @@ export const Footer = () => {
                 </div>
                 {showExtraInfo && (
                   <>
-                    <div className="w-full md:w-4/12 xl:w-4/12 pt-6 md:pt-0 md:px-4">
+                    <div className="w-full sm:w-6/12 md:w-3/12 xl:w-3/12 pt-6 md:pt-0 md:px-4">
                       <span className="text-accent-2 dark:text-accent-2-dark lowercase text-2xl">
                         Transport
                       </span>
@@ -71,7 +64,7 @@ export const Footer = () => {
                         </p>
                       </ul>
                     </div>
-                    <div className="w-full md:w-4/12 xl:w-4/12 pt-6 md:pt-0 md:px-4">
+                    <div className="w-full sm:w-6/12 md:w-3/12 xl:w-3/12 pt-6 md:pt-0 md:px-4">
                       <span className="text-accent-2 dark:text-accent-2-dark lowercase text-2xl">
                         Parking
                       </span>
@@ -83,21 +76,22 @@ export const Footer = () => {
                     </div>
                   </>
                 )}
+                <div className="w-full sm:w-6/12 md:w-3/12 xl:w-3/12 pt-6 md:pt-0 md:px-4">
+                  <span className="text-accent-2 dark:text-accent-2-dark lowercase text-2xl">
+                    Code of Conduct
+                  </span>
+                  <ul className="list-unstyled mt-3">
+                    <Link
+                      href="https://drive.google.com/file/d/16WloZF2c6y5cqj3Ea67KaRJBzsfFSbY1/view?usp=sharing"
+                      target="_blank"
+                      className="text-white dark:text-white-dark text-base hover:text-secondary dark:hover:text-secondary"
+                    >
+                      See the Flutterconke Code of Conduct
+                    </Link>
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="">
-            <h2 className="title-w lowercase text-secondary dark:text-secondary-dark">
-              <span>Code of</span> <span className="font-medium"> Conduct</span>
-            </h2>
-            <br />
-            <Link
-              href="https://drive.google.com/file/d/16WloZF2c6y5cqj3Ea67KaRJBzsfFSbY1/view?usp=sharing"
-              target="_blank"
-              className="text-white dark:text-white-dark text-base hover:text-secondary dark:hover:text-secondary"
-            >
-              See the Flutterconke Code of Conduct
-            </Link>
           </div>
         </div>
       </section>
