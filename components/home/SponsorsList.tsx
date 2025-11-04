@@ -78,7 +78,7 @@ function SponsorsList({
         <div className="items-center text-center py-10 md:py-20">
           <div className="w-full py-10">
             <h2 className="title lowercase dark:text-accent-dark">
-              <span>{year === 24 ? '' : `dcKe${year}`} sponsored</span>{' '}
+              <span>{year === 24 ? '' : `flutterconke${year}`} sponsored</span>{' '}
               <span className="font-medium"> by;</span>
             </h2>
             {showSponsors && (
