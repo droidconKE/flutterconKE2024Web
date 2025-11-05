@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { TICKETS_LINK } from '../../constant/constants'
+import { SWAG_LINK, TICKETS_LINK } from '../../constant/constants'
 
 export const Banner = () => {
   return (
@@ -54,7 +54,7 @@ export const Banner = () => {
                 sponsor flutterconke
               </Link> */}
               <Link
-                href="https://paystack.shop/dcke-fcke-merch-store"
+                href={SWAG_LINK}
                 className="btn-accent mt-3 md:mt-0"
                 target="_blank"
               >
