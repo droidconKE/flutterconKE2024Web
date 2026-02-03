@@ -9,7 +9,7 @@ export const Banner = () => {
           <h1 className="font-light text-3xl md:text-4xl black px-0">
             <span className="lowercase">welcome to</span> <br />
             <span className="font-black text-4xl md:text-5xl text-primary">
-              FLUTTERCONKE25
+              FLUTTERCONKE26
             </span>
           </h1>
           <div className="mt-12 md:mt-8 text-3xl md:text-4xl lowercase font-light">
@@ -68,7 +68,7 @@ export const Banner = () => {
                 alt="droid alt"
               /> */}
               <div className="text-accent dark:text-accent-dark font-black text-base md:text-3xl mt-3 md:mt-4 lowercase">
-                <span>05TH - 7TH</span> NOVEMBER 2025
+                <span>04TH - 06TH</span> NOVEMBER 2026
               </div>
             </div>
           </div>
