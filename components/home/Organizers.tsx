@@ -12,6 +12,20 @@ function Organizers({ organizers }: { organizers: Organizer[] }) {
                 <span className="font-medium"> partners;</span>
               </h2>
             </div>
+            <div className="mt-4 md:mt-8 mb-10 md:mb-0">
+              <h4 className="title font-medium text-secondary md:text-3xl dark:text-secondary mt-6 md:mt-10 lowercase">
+                <span>Flutter Kenya</span>
+              </h4>
+              <p className="mt-4 text-base md:text-xl">
+                Established in 2020, Flutter Kenya is the leading Flutter
+                community in Kenya with over 4,000 members. It aims to foster a
+                vibrant ecosystem of Flutter developers through monthly meetups,
+                offering education, inspiration, and networking opportunities.
+                With over 65 physical meetups organized, it attracts over 50
+                attendees each month, empowering developers to leverage Flutter
+                for mobile, web, and desktop app development.
+              </p>
+            </div>
           </div>
           <div className="w-full md:w-6/12 mr-auto pt-4 sm:mt-10 md:pt-0 justify-end">
             <div className="w-full md:p-10 sm:p-0  grid md:grid-cols-4 grid-cols-3 gap-4 lg:gap-8">
