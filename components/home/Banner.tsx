@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { SWAG_LINK, TICKETS_LINK } from '../../constant/constants'
+import { TICKETS_LINK } from '../../constant/constants'
 
 export const Banner = () => {
   return (
@@ -9,7 +9,7 @@ export const Banner = () => {
           <h1 className="font-light text-3xl md:text-4xl black px-0">
             <span className="lowercase">welcome to</span> <br />
             <span className="font-black text-4xl md:text-5xl text-primary">
-              FLUTTERCONKE25
+              FLUTTERCONKE26
             </span>
           </h1>
           <div className="mt-12 md:mt-8 text-3xl md:text-4xl lowercase font-light">
@@ -50,16 +50,16 @@ export const Banner = () => {
               >
                 submit a talk
               </a> */}
-              {/* <Link href="/sponsors" className="btn-accent mt-3 md:mt-0">
+              <Link href="/sponsors" className="btn-accent mt-3 md:mt-0">
                 sponsor flutterconke
-              </Link> */}
-              <Link
+              </Link>
+              {/* <Link
                 href={SWAG_LINK}
                 className="btn-accent mt-3 md:mt-0"
                 target="_blank"
               >
                 get your swag
-              </Link>
+              </Link> */}
             </div>
             <div className="flex flex-wrap mt-6 md:mt-8 items-center">
               {/* <img
@@ -68,13 +68,13 @@ export const Banner = () => {
                 alt="droid alt"
               /> */}
               <div className="text-accent dark:text-accent-dark font-black text-base md:text-3xl mt-3 md:mt-4 lowercase">
-                <span>05TH - 7TH</span> NOVEMBER 2025
+                <span>04TH - 06TH</span> NOVEMBER 2026
               </div>
             </div>
           </div>
         </div>
         <div className="mt-16 md:mt-0">
-          <video
+          {/* <video
             id="video"
             className="rounded-xl aspect-video  w-full  md:w-[670px] "
             loop
@@ -86,7 +86,7 @@ export const Banner = () => {
             controlsList="nodownload nofullscreen noremoteplayback"
           >
             <source type="video/mp4" src="/video/dcke25_report.mp4" />
-          </video>
+          </video> */}
           {/* <iframe
             className="rounded-xl aspect-video h-[250px] w-full md:h-[400px] md:w-[630px] -mt-20"
             src="https://www.youtube.com/embed/AO-j2kLvKJw?start=5&controls=0&showinfo=0&modestbranding=1&rel=0"
