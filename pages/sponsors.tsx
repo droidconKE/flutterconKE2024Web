@@ -81,7 +81,7 @@ export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
                         400+
                       </h4>
                       <h5 className="text-primary font-bold -mt-3 text-sm md:text-base">
-                        2025 Attendees Target
+                        2026 Attendees Target
                       </h5>
                     </div>
                     <div className="flex justify-end -mt-5">
