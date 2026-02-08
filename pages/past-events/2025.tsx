@@ -99,7 +99,7 @@ const Home2025: NextPage<SessionProps> = ({
                       schedules={schedules}
                       activeTab={activeTab}
                       from="/past-events/2025"
-                      year={24}
+                      year={25}
                     />
                   ) : (
                     <SessionListCard
