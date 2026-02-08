@@ -185,7 +185,7 @@ export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
           </div>
         </div>
       </section>
-      <SponsorsList sponsors={sponsors} showSponsors year={25} />
+      <SponsorsList sponsors={sponsors} showSponsors={false} year={26} />
     </div>
   )
 }
