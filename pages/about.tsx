@@ -61,7 +61,7 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
                   By co-locating with Droidcon Kenya, Sub-Saharan Africa's
                   premier Android developer conference with a seven-edition
                   legacy, Fluttercon Kenya maximizes its reach and impact. Set
-                  to take place from November 4th to 6th, 2026, this joint event
+                  to take place from November 5th to 6th, 2026, this joint event
                   will unite Flutter and Dart experts, Google Developer Experts,
                   and hundreds of Flutter developers with their Android
                   counterparts. Together, they will form one of the largest
@@ -156,24 +156,20 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
                 </span>
                 <ul className="list-disc pl-5 marker:text-accent-2">
                   <li className="dark:text-white text-xl mb-2">
-                    3 days of immersive Android content (1 Workshop Day + 2
-                    Developer Days)
+                    2 days of immersive Flutter content
                   </li>
                   <li className="dark:text-white text-xl mb-2">
-                    4 intensive, 4-hour hands-on workshops
+                    2 Keynote sessions
                   </li>
+                  <li className="dark:text-white text-xl mb-2">15+ sessions</li>
                   <li className="dark:text-white text-xl mb-2">
-                    2 Developer Keynotes
-                  </li>
-                  <li className="dark:text-white text-xl mb-2">26+ sessions</li>
-                  <li className="dark:text-white text-xl mb-2">
-                    300+ Android & Kotlin Developers
+                    100+ Flutter & Dart Developers
                   </li>
                   <li className="dark:text-white text-xl mb-2">
                     Enhanced networking opportunities
                   </li>
                   <li className="dark:text-white text-xl mb-2">
-                    Advanced practical skill development
+                    Enhanced networking Advanced practical skill development
                   </li>
                 </ul>
               </p>
