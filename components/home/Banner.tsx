@@ -68,7 +68,7 @@ export const Banner = () => {
                 alt="droid alt"
               /> */}
               <div className="text-accent dark:text-accent-dark font-black text-base md:text-3xl mt-3 md:mt-4 lowercase">
-                <span>04TH - 06TH</span> NOVEMBER 2026
+                <span>05TH - 06TH</span> NOVEMBER 2026
               </div>
             </div>
           </div>
