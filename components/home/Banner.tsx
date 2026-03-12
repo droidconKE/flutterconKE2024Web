@@ -45,7 +45,7 @@ export const Banner = () => {
                 href={CFS_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-secondary mt-3 md:mt-0"
+                className="btn-primary mt-3 md:mt-0"
               >
                 submit a talk
               </a>
