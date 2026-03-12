@@ -34,7 +34,7 @@ export const Banner = () => {
           <div>
             <div className="flex flex-wrap space-x-2 md:space-x-4">
               <a
-                className="btn-secondary mt-3 md:mt-0"
+                className="btn-accent mt-3 md:mt-0"
                 href={TICKETS_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -45,7 +45,7 @@ export const Banner = () => {
                 href={CFS_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary mt-3 md:mt-0"
+                className="btn-secondary mt-3 md:mt-0"
               >
                 submit a talk
               </a>
