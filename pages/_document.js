@@ -125,7 +125,7 @@ class MyDocument extends Document {
           {/* // TODO: focing push */}
           <meta
             name="twitter:image"
-            content="https://fluttercondev.ke/images/fluttercon-25-kenya-announcement.png"
+            content="https://fluttercondev.ke/images/fluttercon-26-kenya-announcement.png"
           />
           <meta name="twitter:image:alt" content="flutterconKe logo" />
           {/* <!-- when you post this page url in twitter , this image will be shown -->
@@ -140,7 +140,7 @@ class MyDocument extends Document {
           <meta property="og:type" content="website" />
           <meta
             property="og:image"
-            content="https://fluttercondev.ke/images/fluttercon-25-kenya-announcement.png"
+            content="https://fluttercondev.ke/images/fluttercon-26-kenya-announcement.png"
           />
           <meta
             property="og:description"
