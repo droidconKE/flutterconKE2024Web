@@ -41,12 +41,12 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
                   <br />
                   Fluttercon Kenya stands as the pioneering event of its kind in
                   Africa, having debuted the Fluttercon conference on the
-                  continent in 2024. Now entering its 3rd edition, Fluttercon
-                  Kenya is designed to be a hub of innovation and learning,
-                  offering a rich program of tech talks, workshops, and panels
-                  led by industry experts, Google Developer Experts, and
-                  seasoned Flutter specialists, all dedicated to exploring the
-                  latest in Flutter and Dart technologies.
+                  continent in 2024. Now in its 3rd edition, Fluttercon designed
+                  to be a hub of innovation and learning, offering a rich
+                  program of tech talks, workshops, and panels led by industry
+                  experts, Google Developer Experts, and seasoned seasoned
+                  Flutter specialists, all dedicated to exploring the latest in
+                  Flutter and Dart technologies.
                   <br />
                   <br />
                   Spearheaded by the accomplished team behind Droidcon Kenya,
@@ -156,12 +156,23 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
                 </span>
                 <ul className="list-disc pl-5 marker:text-accent-2">
                   <li className="dark:text-white text-xl mb-2">
-                    2 days of immersive Flutter content
+                    2 days of immersive Flutter & Dart content
                   </li>
                   <li className="dark:text-white text-xl mb-2">
-                    2 Keynote sessions
+                    Developer keynotes
                   </li>
-                  <li className="dark:text-white text-xl mb-2">15+ sessions</li>
+                  <li className="dark:text-white text-xl mb-2">
+                    Curated sessions in a dedicated Fluttercon Kenya track
+                  </li>
+                  <li className="dark:text-white text-xl mb-2">
+                    Panel discussions with Flutter industry leaders
+                  </li>
+                  <li className="dark:text-white text-xl mb-2">
+                    Unconference track (shared across both conferences)
+                  </li>
+                  <li className="dark:text-white text-xl mb-2">
+                    Interactive morning engagement sessions
+                  </li>
                   <li className="dark:text-white text-xl mb-2">
                     100+ Flutter & Dart Developers
                   </li>
@@ -169,7 +180,7 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
                     Enhanced networking opportunities
                   </li>
                   <li className="dark:text-white text-xl mb-2">
-                    Enhanced networking Advanced practical skill development
+                    Advanced practical skill development
                   </li>
                 </ul>
               </p>
@@ -180,17 +191,17 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
                 <span className="font-medium">Highlights</span>
               </h3>
               <h4 className="title font-medium text-secondary md:text-3xl dark:text-secondary mt-6 md:mt-10 lowercase">
-                <span>1. Workshop Day</span>
+                <span>1. Interactive Sessions & Workshops</span>
               </h4>
               <p className="mt-2 md:mt-4 mb-4 md:mb-0 text-xl">
-                Building on the success of 2025, the conference kicks off with
-                an immersive Workshop Day featuring four 4-hour hands-on
-                workshops. These in-depth, practical sessions allow participants
-                to gain valuable skills through guided instruction and real-time
-                application development. Led by Android and Kotlin experts,
-                these workshops provide an unparalleled opportunity for
-                developers to enhance their technical capabilities in a focused,
-                collaborative environment.
+                The 2026 program goes beyond talks with an unconference track
+                shared across both conferences for attendee-driven discussions
+                and lightning talks. Panel discussions bring together Flutter
+                engineering leaders to discuss the evolving cross-platform
+                landscape. Morning engagement sessions kick off each day with
+                interactive formats including speed interviewing, resume and
+                LinkedIn profile reviews, multiplatform deep dives, AI-powered
+                development workflows, and many more.
               </p>
               <h4 className="title font-medium text-secondary md:text-3xl dark:text-secondary mt-6 md:mt-10 lowercase">
                 <span>2. Developer Days (2 Days)</span>
@@ -202,16 +213,6 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
                 with sessions curated around the &quot;Building for Africa&quot;
                 theme featuring speakers from leading Sub-Saharan African tech
                 companies.
-              </p>
-              <h4 className="title font-medium text-secondary md:text-3xl dark:text-secondary mt-6 md:mt-10 lowercase">
-                <span>3. After-Event Party</span>
-              </h4>
-              <p className="mt-2 md:mt-4 mb-4 md:mb-0 text-xl">
-                Continuing the tradition established in previous editions, the
-                closing celebration will be co-shared with Fluttercon Kenya,
-                creating the perfect atmosphere for attendees from both
-                conferences to network, celebrate, and forge new connections in
-                the mobile development community.
               </p>
             </div>
             <div className="w-full mt-2 -mb-32 md:-mb-32 pb-20 md:pb-0 flex justify-center pr-0 md:pr-20">
