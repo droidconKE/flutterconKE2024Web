@@ -50,19 +50,38 @@ All in [`public/images/new-design/`](../../public/images/new-design/):
 
 ## 3. Design language changes
 
-| Element      | Current (flutterconKE)                                                  | New                                                              |
-| ------------ | ----------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| Logo         | `fluttercon` flat                                                       | Flutter-blue `con` mark (SVG)                                    |
-| Color system | Flutter blue `#0062FF` + amber `#FFAB00`, accents `#0014E6` / `#54C4F7` | **Replaced** by fluttercon Figma export (event-relevant palette) |
-| Display type | Montserrat bold                                                         | **Rauschen B** (heavy grotesque), solid + **outline**            |
-| Images       | Plain photos                                                            | **Halftone / dot-pattern** overlays                              |
-| Layout       | Stacked sections                                                        | **Rounded card system** + stat cards (6TH, 2ND, 200+, 3000+)     |
-| Footer       | Gradient block                                                          | **City skyline** illustration                                    |
+| Element      | Current (flutterconKE)                         | New                                                          |
+| ------------ | ---------------------------------------------- | ------------------------------------------------------------ |
+| Logo         | `fluttercon` flat                              | Flutter-blue `con` mark (SVG)                                |
+| Primary      | Flutter blue `#0062FF`                         | **Flutter-blue** `#008BFF` (matches logo SVG)                |
+| Brand accent | amber `#FFAB00`, accents `#0014E6` / `#54C4F7` | **Magenta** `#F73EDE`                                        |
+| Display type | Montserrat bold                                | **Rauschen B** (heavy grotesque), solid + **outline**        |
+| Images       | Plain photos                                   | **Halftone / dot-pattern** overlays                          |
+| Layout       | Stacked sections                               | **Rounded card system** + stat cards (6TH, 2ND, 200+, 3000+) |
+| Footer       | Gradient block                                 | **City skyline** illustration                                |
+
+### Color tokens (from Figma variable export)
+
+Source exports committed at `public/docs/colors/` (`Flutter-1` = magenta, `Flutter-2` = blue). Full Tailwind-style ramps — map straight into `tailwind.config.js`. Distinct from droidcon (magenta + flutter-blue, not green):
+
+| Step | **Magenta** (brand accent) | **Blue** (primary)   |
+| ---- | -------------------------- | -------------------- |
+| 50   | `#FFF3FE`                  | `#EDFAFF`            |
+| 100  | `#FFE7FE`                  | `#D6F3FF`            |
+| 200  | `#FFCEFC`                  | `#B5EBFF`            |
+| 300  | `#FFA7F5`                  | `#83E1FF`            |
+| 400  | `#FF57E9`                  | `#48CEFF`            |
+| 500  | `#F73EDE` ◀ accent        | `#1EB3FF`            |
+| 600  | `#DB1EBE`                  | `#069AFF`            |
+| 700  | `#B6159A`                  | `#008BFF` ◀ primary |
+| 800  | `#95137D`                  | `#086AC5`            |
+| 900  | `#791664`                  | `#0D5A9B`            |
+
+**Neutrals & dark mode** (not in the export — inferred from the mockups): text/ink `#20201E`, white `#FFFFFF`, muted `#707070`, surface `#F5F5F5`; dark-mode background near-black `#0A0A0A` / `#000000` with the blue/magenta accents popping.
 
 ### Confirmed decisions (2026-06-19)
 
-- **Colors:** replace fully — the fluttercon Figma export defines the new palette (event-relevant), retiring the old flutter blue/amber tokens.
-- **Scope:** plan only for now (no code yet).
+- **Colors:** replace fully — **flutter-blue `#008BFF` + magenta `#F73EDE`** become the system (retiring flutter blue/amber). Use the full ramps above as Tailwind color scales.
 - **Halftone images:** use provided PNGs **as-is** (no dynamic CSS overlay).
 
 ---
