@@ -23,7 +23,7 @@ This is a **rebrand**, not just a home-page reshuffle: new logo, new color syste
 
 | Source                                                                    | Reference                                            |
 | ------------------------------------------------------------------------- | ---------------------------------------------------- |
-| Figma variables export (fluttercon palette)                               | ⏳ **Pending** — to be provided by the team          |
+| Figma variables export (fluttercon palette)                               | ✅ Received — `public/docs/colors/` (see §3 ramps)   |
 | Full-page mockup (light) — _shared droidcon layout, color reference only_ | [docs/design/light.png](./light.png)                 |
 | Full-page mockup (dark) — _shared droidcon layout, color reference only_  | [docs/design/dark.png](./dark.png)                   |
 | Combined half view                                                        | [docs/design/combined-half.png](./combined-half.png) |
