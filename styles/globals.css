@@ -1,3 +1,5 @@
+/* @import "tailwindcss"; */
+
 /* Rauschen B — licensed droidcon brand display font, fetched at build time
    into public/fonts/ (see scripts/fetch-font.sh). Falls back to the stack
    in --font-display if the file is absent (no font access). */
@@ -99,7 +101,7 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .carousel .control-dots .dot {
-  background: #0062FF!important;
+  background: #000CEB!important;
   height: 10px!important;
   width: 10px!important;
 }
@@ -111,7 +113,17 @@ video::-webkit-media-controls-fullscreen-button {
 @tailwind components;
 @tailwind utilities;
 
-/*  reusable */
+@layer utilities {
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+  }
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+}
+
+ /* reusable */
 
 @layer components {
   .black,
@@ -122,7 +134,7 @@ video::-webkit-media-controls-fullscreen-button {
     @apply py-2 px-4 black
   }
   .active-link {
-    @apply text-primary dark:text-accent-dark px-4;
+    @apply text-primary dark:text-primary-dark px-4;
   }
   .l-container {
     @apply container mx-auto px-4 md:px-12 lg:px-40;
@@ -131,18 +143,21 @@ video::-webkit-media-controls-fullscreen-button {
     @apply container mx-auto md:px-24 px-4 sm:px-10 sm:p-5;
   }
   .btn-primary {
-    @apply bg-primary dark:bg-primary-dark lowercase text-white text-sm md:text-base dark:text-white-dark px-4 md:px-5 py-1.5 md:py-2.5 rounded;
+    @apply bg-primary dark:bg-primary uppercase text-white text-sm md:text-base font-medium px-8 py-3 hover:opacity-90 transition-opacity inline-flex items-center justify-center;
+  }
+  .btn-outline {
+    @apply bg-transparent border border-gray-300 dark:border-gray-600 text-black dark:text-white uppercase text-sm md:text-base font-medium px-8 py-3 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors inline-flex items-center justify-center;
   }
   .btn-secondary {
     @apply bg-secondary dark:bg-secondary-dark lowercase text-black text-sm md:text-base dark:text-black px-4 md:px-5 py-1.5 md:py-2.5 rounded;
   }
   .btn-accent {
-    @apply bg-accent dark:bg-accent-dark lowercase text-white text-sm md:text-base dark:text-white px-4 md:px-5 py-1.5 md:py-2.5 rounded;
+    @apply bg-accent dark:bg-accent-dark lowercase text-black text-sm md:text-base dark:text-black px-4 md:px-5 py-1.5 md:py-2.5 rounded;
   }
   .title {
     @apply uppercase font-black text-3xl md:text-5xl text-primary dark:text-primary-dark
   }
-  
+
   .title-w {
     @apply uppercase font-black text-3xl md:text-5xl text-white
   }
@@ -153,15 +168,3 @@ video::-webkit-media-controls-fullscreen-button {
     @apply uppercase font-light text-2xl md:text-4xl black
   }
 }
-
-
-/* --unnamed-color-3067bf: #3067BF;
---unnamed-color-ff2100: #FF2100;
---unnamed-color-00b704: #00B704;
---unnamed-color-cccccc: #CCCCCC;
---unnamed-color-ffffff: #FFFFFF;
---unnamed-color-1a1a1a: #1A1A1A;
---unnamed-color-0062ff: #0062FF;
---unnamed-color-0014e6: #0014E6;
---unnamed-color-ffab00: #FFAB00;
---unnamed-color-54c4f7: #54C4F7; */

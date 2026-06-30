@@ -1,21 +1,20 @@
 import Link from 'next/link'
 import { Router, useRouter } from 'next/router'
 import { useContext, useEffect, useState } from 'react'
-import { AuthContext } from '../../../context/AuthContext'
+// import { AuthContext } from '../../../context/AuthContext'
 import { ThemeContext } from '../../../context/ThemeContext'
-import { Login } from '../../auth/Login'
+// import { Login } from '../../auth/Login'
 import { ToggleTheme } from './ToggleTheme'
-// import { PastEventsDropdown } from './PastEventsDropdown'
-import { TICKETS_LINK } from '../../../constant/constants'
 import { PastEventsDropdown } from './PastEventsDropdown'
+import { TICKETS_LINK } from '../../../constant/constants'
 
 export const NavBar = () => {
   const { isDarkTheme, isEventReady } = useContext(ThemeContext)
-  const { currentUser, isAuthenticated, logoutUser } = useContext(AuthContext)
+  // const { currentUser, isAuthenticated, logoutUser } = useContext(AuthContext)
 
   const [navVisible, setNavVisible] = useState(false)
-  const [isLoginOpen, setIsLoginOpen] = useState(false)
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  // const [isLoginOpen, setIsLoginOpen] = useState(false)
+  // const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const router = useRouter()
 
   const toggleNav = () => {
@@ -33,19 +32,19 @@ export const NavBar = () => {
   }, [])
 
   return (
-    <nav className="flex items-center justify-between flex-wrap nav-bg px-2 py-4 md:py-3 md:px-5 fixed w-full z-10 top-0">
+    <nav className="flex items-center justify-between flex-wrap nav-bg px-2 py-6 md:py-3 md:px-5 fixed w-full z-10 top-0 border-b border-gray-200 dark:border-gray-600 mb-4">
       <div className="flex items-center flex-shrink-0 text-white mr-6 xl:pl-24">
         <Link href="/">
           {!isDarkTheme ? (
             <img
               className="w-[200px] xl:w-[250px]"
-              src="/images/logo.png"
+              src="/images/new-design/logo-light.png"
               alt="logo"
             />
           ) : (
             <img
               className="w-[200px] md:w-[250px]"
-              src="/images/logo-dark.png"
+              src="/images/new-design/logo-dark.png"
               alt="logo dark"
             />
           )}
@@ -57,6 +56,7 @@ export const NavBar = () => {
           id="nav-toggle"
           className="flex items-center px-3 py-2 border rounded text-primary dark:text-secondary-dark border-primary dark:border-secondary-dark"
           onClick={() => toggleNav()}
+          aria-label="menu-button"
         >
           <svg
             className="fill-primary dark:fill-secondary-dark h-3 w-3"
@@ -71,17 +71,17 @@ export const NavBar = () => {
       <ToggleTheme />
       <div
         id="nav-content"
-        className={`w-full flex-grow lg:flex lg:items-center lg:w-auto pt-6 lg:pt-0 xl:pr-24 md:px-5 md:justify-between  ${
+        className={`w-full flex-grow lg:flex lg:items-center lg:w-auto pt-6 lg:pt-0 xl:pr-24 md:px-5  ${
           navVisible ? '' : 'hidden'
         }`}
       >
         <div
           className={`w-full flex-grow lg:flex ${
             navVisible ? 'bg-white dark:bg-dark' : ''
-          } ${isEventReady ? 'md:w-8/12' : 'md:w-6/12'}`}
+          } ${isEventReady ? 'md:w-8/12' : 'md:w-7/12'}`}
         >
           <ul className="list-reset lg:flex justify-end text-base flex-1 items-center space-y-2 md:space-y-0">
-            <li className="mr-3 black">
+            <li className="mr-3 black text-xl">
               <Link
                 href="/"
                 className={router.pathname === '/' ? 'active-link' : 'link'}
@@ -90,7 +90,7 @@ export const NavBar = () => {
               </Link>
             </li>
             {showSessions && (
-              <li className="mr-3">
+              <li className="mr-3 text-xl">
                 <Link
                   href="/sessions"
                   className={
@@ -102,7 +102,7 @@ export const NavBar = () => {
               </li>
             )}
             {showSpeakers && (
-              <li className="mr-3">
+              <li className="mr-3 text-xl">
                 <Link
                   href="/speakers"
                   className={
@@ -113,7 +113,7 @@ export const NavBar = () => {
                 </Link>
               </li>
             )}
-            <li className="mr-3">
+            <li className="mr-3 text-xl">
               <Link
                 href="/about"
                 className={
@@ -123,7 +123,7 @@ export const NavBar = () => {
                 About
               </Link>
             </li>
-            <li className="mr-3">
+            <li className="mr-3 text-xl">
               <Link
                 href="/sponsors"
                 className={
@@ -133,19 +133,19 @@ export const NavBar = () => {
                 Sponsors
               </Link>
             </li>
-            <li className="mr-3">
+            <li className="mr-3 text-xl">
               <PastEventsDropdown />
             </li>
           </ul>
         </div>
         <div
           className={`w-full ${
-            isEventReady ? 'md:w-2/12' : showLogin ? 'md:w-4/12' : 'md:w-6/12'
+            isEventReady ? 'md:w-2/12' : showLogin ? 'md:w-3/12' : 'md:w-5/12'
           } flex md:justify-end mt-4 md:mt-0 px-4 md:px-0`}
         >
           {/* <Link href="/sponsors"> */}
           <Link
-            className="btn-secondary"
+            className="btn-primary uppercase"
             href={TICKETS_LINK}
             target="_blank"
             rel="noreferrer"
@@ -163,7 +163,7 @@ export const NavBar = () => {
           {/* </Link> */}
         </div>
 
-        {showLogin && (
+        {/* {showLogin && (
           <div className="w-2/12 flex-grow lg:flex justify-end">
             {!isAuthenticated ? (
               <button
@@ -172,7 +172,7 @@ export const NavBar = () => {
                 className="px-4 md:px-0 relative flex items-center my-2 md:my-0"
                 onClick={() => setIsLoginOpen(true)}
               >
-                <span className="cursor-pointer inline-flex items-center justify-between transition-all duration-500 rounded-full h-8 w-8 p-2 bg-accent dark:bg-accent-dark mr-2">
+                <span className="cursor-pointer inline-flex items-center justify-between transition-all duration-500 rounded-full h-8 w-8 p-2 bg-blue-50 dark:bg-[#00E2C3] mr-2">
                   <img className="w-4" src="/images/svg/lock.svg" alt="icon" />
                 </span>
                 <span className="black">Login</span>
@@ -183,13 +183,13 @@ export const NavBar = () => {
                   type="button"
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 >
-                  <span className="cursor-pointer inline-flex items-center justify-between transition-all duration-500 rounded-full h-9 w-9 border bg-accent dark:bg-accent-dark">
+                  <span className="cursor-pointer inline-flex items-center justify-between transition-all duration-500 rounded-full h-9 w-9 border bg-blue-50 dark:bg-[#00E2C3]">
                     <img
                       className="rounded-full"
                       src="/images/svg/maasai_male.svg"
                       alt="avatar icon"
                     />
-                    <span className="text-xs text-accent ml-2 block md:hidden">
+                    <span className="text-xs text-blue-50 ml-2 block md:hidden">
                       {currentUser?.name}
                     </span>
                   </span>
@@ -208,7 +208,7 @@ export const NavBar = () => {
                             <p>
                               <small className="text-xs">Logged in as</small>
                             </p>
-                            <span className="text-xs text-accent">
+                            <span className="text-xs text-blue-50">
                               {currentUser?.name}
                             </span>
                           </div>
@@ -229,9 +229,10 @@ export const NavBar = () => {
               </div>
             )}
           </div>
-        )}
+        )} */}
       </div>
-      {isLoginOpen && <Login closeDialog={() => setIsLoginOpen(false)} />}
+      {/* {isLoginOpen && <Login closeDialog={() => setIsLoginOpen(false)} />} */}
+      {/* <hr className="border-gray-200 dark:border-gray-600" /> */}
     </nav>
   )
 }
