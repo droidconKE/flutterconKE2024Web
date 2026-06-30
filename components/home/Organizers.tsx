@@ -1,4 +1,6 @@
-function Organizers() {
+import { Organizer } from '../../types/types'
+
+function Organizers({ organizers }: { organizers: Organizer[] }) {
   // Pattern overlay style using radial-gradient to simulate the Figma dot pattern
   const patternOverlayStyle = {
     backgroundImage: 'radial-gradient(circle, #008BFF 15%, transparent 15%)',
@@ -49,6 +51,27 @@ function Organizers() {
           <div className="absolute inset-0 z-10" style={patternOverlayStyle} />
         </div>
       </div>
+
+      {/* Organizers loaded from the API — sponsor-style logo grid */}
+      {organizers?.length > 0 && (
+        <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6 pb-16">
+          {organizers.map((org) => (
+            <a
+              key={org.created_at || org.name}
+              href={org.link}
+              target="_blank"
+              rel="noreferrer"
+              className="w-full aspect-square p-6 flex items-center justify-center rounded-2xl bg-lighter dark:bg-black-dark border border-primary hover:scale-105 transition-transform"
+            >
+              <img
+                className="w-full h-full object-contain"
+                src={org.photo || '/images/icon.png'}
+                alt={org.name}
+              />
+            </a>
+          ))}
+        </div>
+      )}
     </section>
   )
 }

@@ -210,7 +210,7 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
         </div>
       </section>
       <OrganizingTeam organizers={team} />
-      <Organizers />
+      <Organizers organizers={organizers} />
     </div>
   )
 }
