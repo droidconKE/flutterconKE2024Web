@@ -71,11 +71,11 @@ function Organizers({ organizers }: { organizers: Organizer[] }) {
                 href={org.link}
                 target="_blank"
                 rel="noreferrer"
-                className="bg-white w-full flex items-center justify-center p-5 min-h-[100px] md:min-h-[120px]"
+                className="bg-white w-full flex items-center justify-center p-3 min-h-[100px] md:min-h-[120px]"
                 style={cardClipStyle}
               >
                 <img
-                  className="object-contain w-auto max-h-10 md:max-h-14"
+                  className="object-contain w-auto max-h-16 md:max-h-20"
                   src={org.photo || '/images/icon.png'}
                   alt={org.name}
                 />
