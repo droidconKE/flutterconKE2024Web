@@ -23,7 +23,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           <GoogleOAuthProvider
             clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!}
           >
-            <div className="w-full min-h-screen bg-white dark:bg-dark">
+            <div className="w-full min-h-screen bg-white dark:bg-black-dark">
               <UpdatesAvailablePrompt />
               <NavBar />
               <div className="pt-[60px] md:pt-[80px]">

@@ -29,7 +29,7 @@ export const Gallery = () => {
   const displayImages = allImages
 
   return (
-    <section className="s-container w-full h-auto bg-white dark:bg-dark py-10 md:py-20 transition-colors">
+    <section className="s-container w-full h-auto bg-white dark:bg-black-dark py-10 md:py-20 transition-colors">
       {/* Header Block */}
       <div className="w-full bg-primary dark:bg-primary-dark rounded-[20px] p-8 mb-12 md:mb-16">
         <div className="flex items-center text-white text-sm md:text-base font-medium mb-4 md:mb-6 opacity-90">

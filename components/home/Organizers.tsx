@@ -17,7 +17,7 @@ function Organizers({ organizers }: { organizers: Organizer[] }) {
   }
 
   return (
-    <section className="s-container w-full h-auto bg-white dark:bg-dark pt-10 md:pt-20 transition-colors">
+    <section className="s-container w-full h-auto bg-white dark:bg-black-dark pt-10 md:pt-20 transition-colors">
       {/* Header Block */}
       <div className="w-full bg-accent rounded-3xl p-8 mb-8 md:mb-12">
         <div className="flex items-center text-black text-sm md:text-base font-medium mb-4 md:mb-6 opacity-90">

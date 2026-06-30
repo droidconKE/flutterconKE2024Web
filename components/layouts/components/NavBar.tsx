@@ -21,7 +21,6 @@ export const NavBar = () => {
     setNavVisible((prev) => !prev)
   }
 
-  const showLogin = isEventReady
   const showSessions = isEventReady
   const showSpeakers = isEventReady
 
@@ -77,7 +76,7 @@ export const NavBar = () => {
       >
         <div
           className={`w-full flex-grow lg:flex ${
-            navVisible ? 'bg-white dark:bg-dark' : ''
+            navVisible ? 'bg-white dark:bg-black-dark' : ''
           } ${isEventReady ? 'md:w-8/12' : 'md:w-7/12'}`}
         >
           <ul className="list-reset lg:flex justify-end text-base flex-1 items-center space-y-2 md:space-y-0">
@@ -138,11 +137,7 @@ export const NavBar = () => {
             </li>
           </ul>
         </div>
-        <div
-          className={`w-full ${
-            isEventReady ? 'md:w-2/12' : showLogin ? 'md:w-3/12' : 'md:w-5/12'
-          } flex md:justify-end mt-4 md:mt-0 px-4 md:px-0`}
-        >
+        <div className="w-full md:w-auto flex md:justify-end mt-4 md:mt-0 px-4 md:px-0 md:ml-8">
           {/* <Link href="/sponsors"> */}
           <Link
             className="btn-primary uppercase whitespace-nowrap"
@@ -201,7 +196,7 @@ export const NavBar = () => {
                     onMouseLeave={() => setIsDropdownOpen(false)}
                   >
                     <div className="absolute top-0 lg:right-0 lg:mr-0 w-10 h-2 mt-1 origin-center transform rotate-45 translate-x-5 -translate-y-2 pinn pointer-events-none" />
-                    <ul className="w-[230px] bg-white dark:bg-dark rounded">
+                    <ul className="w-[230px] bg-white dark:bg-black-dark rounded">
                       <li>
                         <div className="flex-wrap flex p-2 w-full items-center">
                           <div className="w-7/12 flex-wrap flex border-r border-bg-black">
