@@ -34,7 +34,7 @@ const SponsorCard = ({
         className={`bg-white w-full flex items-center justify-center ${
           large
             ? 'p-8 md:p-12 min-h-[120px] md:min-h-[180px]'
-            : 'p-6 min-h-[120px] md:min-h-[160px]'
+            : 'p-4 min-h-[100px] md:min-h-[130px]'
         }`}
         style={clipPathStyle}
       >
