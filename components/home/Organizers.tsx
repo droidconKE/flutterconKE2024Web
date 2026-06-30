@@ -10,6 +10,12 @@ function Organizers({ organizers }: { organizers: Organizer[] }) {
     maskImage: 'linear-gradient(to bottom, transparent 10%, black 90%)',
   }
 
+  // Cut-corner clip-path matching the sponsor cards (smaller 16px notch)
+  const cardClipStyle = {
+    clipPath:
+      'polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px))',
+  }
+
   return (
     <section className="s-container w-full h-auto bg-white dark:bg-dark pt-10 md:pt-20 transition-colors">
       {/* Header Block */}
@@ -52,25 +58,29 @@ function Organizers({ organizers }: { organizers: Organizer[] }) {
         </div>
       </div>
 
-      {/* Organizers loaded from the API — sponsor card design, smaller */}
+      {/* Organizers loaded from the API — same cut-corner sponsor card, smaller */}
       {organizers?.length > 0 && (
-        <div className="w-full grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 lg:gap-4 pb-16">
+        <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-5 pb-16">
           {organizers.map((org) => (
-            <a
+            <div
               key={org.created_at || org.name}
-              href={org.link}
-              target="_blank"
-              rel="noreferrer"
-              className="p-[3px] bg-gradient-to-br from-accent to-primary w-full hover:scale-105 transition-transform"
+              className="p-[4px] bg-gradient-to-br from-accent to-primary w-full hover:scale-105 transition-transform"
+              style={cardClipStyle}
             >
-              <div className="bg-white w-full aspect-square flex items-center justify-center p-4">
+              <a
+                href={org.link}
+                target="_blank"
+                rel="noreferrer"
+                className="bg-white w-full flex items-center justify-center p-5 min-h-[100px] md:min-h-[120px]"
+                style={cardClipStyle}
+              >
                 <img
-                  className="object-contain w-auto max-h-10 md:max-h-12"
+                  className="object-contain w-auto max-h-10 md:max-h-14"
                   src={org.photo || '/images/icon.png'}
                   alt={org.name}
                 />
-              </div>
-            </a>
+              </a>
+            </div>
           ))}
         </div>
       )}
