@@ -52,22 +52,24 @@ function Organizers({ organizers }: { organizers: Organizer[] }) {
         </div>
       </div>
 
-      {/* Organizers loaded from the API — sponsor-style logo grid */}
+      {/* Organizers loaded from the API — sponsor card design, smaller */}
       {organizers?.length > 0 && (
-        <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6 pb-16">
+        <div className="w-full grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 lg:gap-4 pb-16">
           {organizers.map((org) => (
             <a
               key={org.created_at || org.name}
               href={org.link}
               target="_blank"
               rel="noreferrer"
-              className="w-full aspect-square p-6 flex items-center justify-center rounded-2xl bg-lighter dark:bg-black-dark border border-primary hover:scale-105 transition-transform"
+              className="p-[3px] bg-gradient-to-br from-accent to-primary w-full hover:scale-105 transition-transform"
             >
-              <img
-                className="w-full h-full object-contain"
-                src={org.photo || '/images/icon.png'}
-                alt={org.name}
-              />
+              <div className="bg-white w-full aspect-square flex items-center justify-center p-4">
+                <img
+                  className="object-contain w-auto max-h-10 md:max-h-12"
+                  src={org.photo || '/images/icon.png'}
+                  alt={org.name}
+                />
+              </div>
             </a>
           ))}
         </div>

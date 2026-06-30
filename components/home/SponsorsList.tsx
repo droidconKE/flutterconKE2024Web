@@ -106,16 +106,22 @@ function SponsorsList({
       <div className="flex flex-col items-center text-center mb-10">
         <div className="flex items-center text-primary dark:text-secondary text-sm md:text-base font-semibold ">
           <div className="w-8 h-px bg-primary dark:bg-secondary mr-3" />
-          dcke{year} sponsored by
+          fcke{year} sponsored by
           <div className="w-8 h-px bg-primary dark:bg-secondary ml-3" />
         </div>
         <h2 className="text-black dark:text-white text-4xl md:text-6xl lg:text-7xl font-display mb-2">
-          dcke{year} sponsored by
+          fcke{year} sponsored by
         </h2>
         <div className="text-primary dark:text-secondary  text-base md:text-2xl font-display ">
           &#47;&#47; help make flutterconke happen and have your logo appear
           here...
         </div>
+        <Link
+          href="/sponsors"
+          className="btn-primary uppercase whitespace-nowrap mt-6 w-fit"
+        >
+          sponsor flutterconke
+        </Link>
       </div>
 
       {showSponsors ? (

@@ -38,7 +38,7 @@ export const Banner = () => {
               href={TICKETS_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary"
+              className="btn-primary whitespace-nowrap"
             >
               GET YOUR TICKET
               <svg
