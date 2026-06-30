@@ -1,8 +1,8 @@
 import React from 'react'
 
 const statsBoxes = [
-  { value: '6TH', label: 'DROIDCON EDITION', isPrimary: true },
-  { value: '2ND', label: 'FLUTTER EDITION', isPrimary: false },
+  { value: '3RD', label: 'FLUTTERCON EDITION', isPrimary: true },
+  { value: '7TH', label: 'DROIDCON EDITION', isPrimary: false },
   { value: '200+', label: 'SESSIONS', isPrimary: false },
   { value: '3000+', label: 'ATTENDEES', isPrimary: false },
 ]
@@ -15,18 +15,19 @@ const About = () => {
         <div className="w-full md:w-[55%] bg-primary p-8 flex flex-col justify-center">
           <div className="flex items-center text-white text-sm md:text-base font-medium mb-6">
             <div className="w-6 h-px bg-white mr-3" />
-            About droidconke
+            About flutterconke
           </div>
           <h2 className="text-accent text-5xl md:text-7xl font-display leading-none mb-8">
             About
             <br />
-            DroidconKe
+            FlutterconKE
           </h2>
           <p className="text-white text-lg md:text-xl leading-relaxed">
-            This 6th in-person event will include several tech communities from
-            the East African Region and continental members. Participants will
-            have an excellent chance to learn about Android development and
-            opportunities and to network with Android experts in the ecosystem.
+            Now in its 3rd edition, FlutterconKE brings together Flutter and
+            Dart experts, Google Developer Experts, and hundreds of Mobile
+            developers from across the continent. Co-located with DroidconKE,
+            participants get an excellent chance to learn, network, and shape
+            the future of Mobile development in Africa.
           </p>
         </div>
 

@@ -34,11 +34,11 @@ export const Gallery = () => {
       <div className="w-full bg-primary dark:bg-primary-dark rounded-[20px] p-8 mb-12 md:mb-16">
         <div className="flex items-center text-white text-sm md:text-base font-medium mb-4 md:mb-6 opacity-90">
           <div className="w-6 md:w-8 h-px bg-white mr-3" />
-          Past droidcon events
+          Past fluttercon events
         </div>
         {/* Sized to always fit on one line up to extra large screens */}
         <h2 className="text-accent text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[72px] leading-tight font-display whitespace-nowrap">
-          Past droidcon events
+          Past fluttercon events
         </h2>
       </div>
 

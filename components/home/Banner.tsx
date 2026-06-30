@@ -20,16 +20,16 @@ export const Banner = () => {
               className="h-[120px] md:h-[240px] lg:h-[320px] hidden dark:block object-contain"
             />
             <img
-              src="/images/new-design/droidcon_icon.png"
-              alt="Droidcon Icon"
+              src="/images/new-design/flutter_icon.png"
+              alt="Flutter Icon"
               className="h-[80px] md:h-[160px] lg:h-[200px] object-contain"
             />
           </div>
 
           {/* Subtitle */}
           <p className="text-gray-700 dark:text-gray-200 text-lg md:text-xl lg:text-2xl font-medium max-w-3xl mb-8 leading-snug mx-auto text-center">
-            Africa&apos;s largest Android developer conference. Two days. One
-            ticket. DroidconKE + FlutterconKE. Nairobi, November 2026.
+            Africa&apos;s largest Mobile developer conference. Two days. One
+            ticket. FlutterconKE + DroidconKE. Nairobi, November 2026.
           </p>
 
           {/* Buttons */}
@@ -64,7 +64,7 @@ export const Banner = () => {
               SUBMIT A TALK
             </a>
             <Link href="/sponsors" className="btn-outline">
-              SPONSOR DROIDCONKE
+              SPONSOR FLUTTERCONKE
             </Link>
           </div>
         </div>
@@ -94,7 +94,7 @@ export const Banner = () => {
               EDITION
             </p>
             <p className="font-bold text-sm md:text-base text-black dark:text-accent-dark uppercase">
-              6TH &middot; ANNUAL
+              3RD &middot; ANNUAL
             </p>
           </div>
           <div className="py-6 px-4 md:px-6">
@@ -102,7 +102,7 @@ export const Banner = () => {
               CONFERENCES
             </p>
             <p className="font-bold text-sm md:text-base text-black dark:text-accent-dark uppercase">
-              DROIDCON &middot; FLUTTER
+              FLUTTER &middot; DROIDCON
             </p>
           </div>
         </div>

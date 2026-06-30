@@ -113,7 +113,7 @@ function SponsorsList({
           dcke{year} sponsored by
         </h2>
         <div className="text-primary dark:text-secondary  text-base md:text-2xl font-display ">
-          &#47;&#47; help make droidconke happen and have your logo appear
+          &#47;&#47; help make flutterconke happen and have your logo appear
           here...
         </div>
       </div>
@@ -178,7 +178,7 @@ function SponsorsList({
       ) : (
         <div className="flex justify-center mt-12">
           <Link href="/sponsors" className="btn-secondary w-56">
-            sponsor droidconke
+            sponsor flutterconke
           </Link>
         </div>
       )}

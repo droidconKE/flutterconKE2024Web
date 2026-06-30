@@ -29,12 +29,12 @@ export const Footer = () => {
               <div className="col-span-1">
                 <Link href="/">
                   <img
-                    src="/images/new-design/logo-light.png"
+                    src="/images/new-design/logo-light.svg"
                     alt="logo"
                     className="w-[200px] md:w-[280px] dark:hidden block"
                   />
                   <img
-                    src="/images/new-design/logo-dark.png"
+                    src="/images/new-design/logo-dark.svg"
                     alt="logo"
                     className="w-[200px] md:w-[280px] hidden dark:block"
                   />
@@ -77,6 +77,14 @@ export const Footer = () => {
                   <br />
                   Westlands
                 </p>
+                <a
+                  href="https://maps.app.goo.gl/Q2ZQ77s6cCJAmDiP7"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-primary dark:text-accent-dark text-sm mt-2 inline-block"
+                >
+                  <i className="fa fa-map-marker" /> View Map location
+                </a>
               </div>
 
               {showExtraInfo && (
@@ -121,7 +129,7 @@ export const Footer = () => {
             <div className="flex flex-col items-center justify-center space-y-4">
               <div className="flex space-x-6">
                 <a
-                  href="https://www.instagram.com/droidconke/"
+                  href="https://www.instagram.com/fluttercon_ke/"
                   target="_blank"
                   rel="noreferrer"
                   className="text-primary dark:text-secondary-dark hover:opacity-80 transition-opacity"
@@ -129,7 +137,7 @@ export const Footer = () => {
                   <i className="fa fa-instagram text-2xl" />
                 </a>
                 <a
-                  href="https://twitter.com/droidconke"
+                  href="https://twitter.com/FlutterconKE"
                   target="_blank"
                   rel="noreferrer"
                   className="text-primary dark:text-secondary-dark hover:opacity-80 transition-opacity"
@@ -137,7 +145,7 @@ export const Footer = () => {
                   <i className="fa fa-twitter text-2xl" />
                 </a>
                 <a
-                  href="https://www.linkedin.com/company/droidconke/"
+                  href="https://www.linkedin.com/company/flutterconke/"
                   target="_blank"
                   rel="noreferrer"
                   className="text-primary dark:text-secondary-dark hover:opacity-80 transition-opacity"
