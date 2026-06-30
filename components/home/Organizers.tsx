@@ -1,53 +1,89 @@
 import { Organizer } from '../../types/types'
 
 function Organizers({ organizers }: { organizers: Organizer[] }) {
+  // Pattern overlay style using radial-gradient to simulate the Figma dot pattern
+  const patternOverlayStyle = {
+    backgroundImage: 'radial-gradient(circle, #008BFF 15%, transparent 15%)',
+    backgroundSize: '16px 16px',
+    opacity: 0.8,
+    WebkitMaskImage: 'linear-gradient(to bottom, transparent 10%, black 90%)',
+    maskImage: 'linear-gradient(to bottom, transparent 10%, black 90%)',
+  }
+
+  // Cut-corner clip-path matching the sponsor cards (smaller 16px notch)
+  const cardClipStyle = {
+    clipPath:
+      'polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px))',
+  }
+
   return (
-    <section className="bg-lighter dark:bg-black">
-      <div className="s-container pb-6 md:pb-12">
-        <div className="items-center flex flex-wrap">
-          <div className="w-full md:w-6/12 ml-auto">
-            <div className="md:pr-12 text-left mt-3 md:mt-0">
-              <h2 className="title lowercase dark:text-accent-dark">
-                <span>community</span>{' '}
-                <span className="font-medium"> partners;</span>
-              </h2>
-            </div>
-            <div className="mt-4 md:mt-8 mb-10 md:mb-0">
-              <h4 className="title font-medium text-secondary md:text-3xl dark:text-secondary mt-6 md:mt-10 lowercase">
-                <span>Flutter Kenya</span>
-              </h4>
-              <p className="mt-4 text-base md:text-xl">
-                Established in 2020, Flutter Kenya is the leading Flutter
-                community in Kenya with over 4,000 members. It aims to foster a
-                vibrant ecosystem of Flutter developers through monthly meetups,
-                offering education, inspiration, and networking opportunities.
-                With over 65 physical meetups organized, it attracts over 50
-                attendees each month, empowering developers to leverage Flutter
-                for mobile, web, and desktop app development.
-              </p>
-            </div>
-          </div>
-          <div className="w-full md:w-6/12 mr-auto pt-4 sm:mt-10 md:pt-0 justify-end">
-            <div className="w-full md:p-10 sm:p-0  grid md:grid-cols-4 grid-cols-3 gap-4 lg:gap-8">
-              {organizers.map((org) => (
-                <a
-                  key={org.created_at}
-                  target="_blank"
-                  href={org.link}
-                  className="w-24 h-24 p-3 flex rounded border border-accent-2 bg-white dark:bg-white-dark justify-center"
-                  rel="noreferrer"
-                >
-                  <img
-                    className="p-0 w-full object-scale-down"
-                    src={org.photo === null ? '/images/icon.png' : org.photo}
-                    alt={org.name}
-                  />
-                </a>
-              ))}
-            </div>
-          </div>
+    <section className="s-container w-full h-auto bg-white dark:bg-black-dark pt-10 md:pt-20 transition-colors">
+      {/* Header Block */}
+      <div className="w-full bg-accent rounded-3xl p-8 mb-8 md:mb-12">
+        <div className="flex items-center text-black text-sm md:text-base font-medium mb-4 md:mb-6 opacity-90">
+          <div className="w-6 md:w-8 h-px bg-black mr-3" />
+          Community Partner
+        </div>
+        <h2 className="text-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[72px] leading-tight font-display whitespace-nowrap">
+          Community Partner
+        </h2>
+      </div>
+
+      {/* Flutter Kenya */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 mb-16">
+        <div className="w-full bg-primary rounded-[24px] md:rounded-[20px] p-8 md:p-12 flex flex-col justify-center">
+          <h4 className="font-display font-black capitalize text-accent text-5xl md:text-6xl mb-6">
+            Flutter Kenya
+          </h4>
+          <p className="text-white text-base md:text-lg leading-relaxed opacity-90">
+            Established in 2020, Flutter Kenya is the leading Flutter community
+            in Kenya with over 4,000 members. It aims to foster a vibrant
+            ecosystem of Flutter developers through monthly meetups, offering
+            education, inspiration, and networking opportunities. With over 65
+            physical meetups organized, it attracts over 50 attendees each
+            month, empowering developers to leverage Flutter for mobile, web,
+            and desktop app development.
+          </p>
+        </div>
+        <div className="w-full min-h-[300px] md:min-h-[400px] relative rounded-[24px] md:rounded-[32px] overflow-hidden">
+          <img
+            src="/images/gallery/1.jpg"
+            alt="Flutter Kenya Community"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          {/* Blue Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/90 to-primary/10 mix-blend-multiply" />
+          {/* Polka Dot Pattern Overlay */}
+          <div className="absolute inset-0 z-10" style={patternOverlayStyle} />
         </div>
       </div>
+
+      {/* Organizers loaded from the API — same cut-corner sponsor card, smaller */}
+      {organizers?.length > 0 && (
+        <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-5 pb-16">
+          {organizers.map((org) => (
+            <div
+              key={org.created_at || org.name}
+              className="p-[4px] bg-gradient-to-br from-accent to-primary w-full hover:scale-105 transition-transform"
+              style={cardClipStyle}
+            >
+              <a
+                href={org.link}
+                target="_blank"
+                rel="noreferrer"
+                className="bg-white w-full flex items-center justify-center p-3 min-h-[100px] md:min-h-[120px]"
+                style={cardClipStyle}
+              >
+                <img
+                  className="object-contain w-auto max-h-16 md:max-h-20"
+                  src={org.photo || '/images/icon.png'}
+                  alt={org.name}
+                />
+              </a>
+            </div>
+          ))}
+        </div>
+      )}
     </section>
   )
 }
