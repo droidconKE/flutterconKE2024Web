@@ -1,14 +1,12 @@
 import type { NextPage } from 'next'
-import { useContext } from 'react'
 import Link from 'next/link'
-import { AuthContext } from '../../context/AuthContext'
 
 interface SessionPageProps {
   setShowFilterSession: (showFilterSession: boolean) => void
   onChangeViewType: (viewType: boolean) => void
-  onMySessions: (val: boolean) => void
+  onMySessions?: (val: boolean) => void
   isGridView: boolean
-  isMySessions: boolean
+  isMySessions?: boolean
   reportLink?: string
 }
 
@@ -20,8 +18,6 @@ export const SessionToggles: NextPage<SessionPageProps> = ({
   isMySessions,
   reportLink,
 }) => {
-  const { isAuthenticated } = useContext(AuthContext)
-
   return (
     <div className="space-x-4 md:space-x-8 w-full md:w-1/3 flex justify-end items-center">
       {reportLink && (
@@ -48,7 +44,7 @@ export const SessionToggles: NextPage<SessionPageProps> = ({
           }`}
         />
       </button>
-      {isAuthenticated && (
+      {onMySessions && (
         <div className="sm:px-5">
           <button
             type="button"

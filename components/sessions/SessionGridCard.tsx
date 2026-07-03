@@ -9,6 +9,7 @@ export const SessionGridCard = ({
   activeTab,
   from,
   year = 25,
+  showStar = false,
 }: {
   schedules: Schedule[]
   activeTab: number
@@ -16,6 +17,8 @@ export const SessionGridCard = ({
   from?: string
   // eslint-disable-next-line react/require-default-props
   year?: number
+  // eslint-disable-next-line react/require-default-props
+  showStar?: boolean
 }) => {
   return (
     <>
@@ -139,13 +142,15 @@ export const SessionGridCard = ({
                                   </div>
                                 ))}
                             </div>
-                            <div className="w-full flex items-center justify-end">
-                              <span>
-                                {!schedule.is_serviceSession && (
-                                  <StarIcon session={schedule} />
-                                )}
-                              </span>
-                            </div>
+                            {showStar && (
+                              <div className="w-full flex items-center justify-end">
+                                <span>
+                                  {!schedule.is_serviceSession && (
+                                    <StarIcon session={schedule} />
+                                  )}
+                                </span>
+                              </div>
+                            )}
                           </div>
                         )}
                       </div>
