@@ -1,4 +1,3 @@
-import { getCookie } from 'cookies-next'
 import { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
@@ -64,22 +63,14 @@ const Session: NextPage<SessionPageProp> = ({ session, fullUrl }) => {
 }
 export async function getServerSideProps({
   query,
-  res,
   req,
 }: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   query: any
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  res: any
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   req: any
 }) {
   const { slug } = query
-
-  axios.defaults.headers.common.Authorization = `Bearer ${getCookie('token', {
-    req,
-    res,
-  })}`
 
   // Get protocol
   const protocol = req.headers['x-forwarded-proto'] || 'https'
