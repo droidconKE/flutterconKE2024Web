@@ -3,6 +3,7 @@ import { Organizer } from '../types/types'
 import OrganizingTeam from '../components/about/Team'
 import axios from '../utils/axios'
 import Organizers from '../components/home/Organizers'
+import Divider from '../components/shared/Divider'
 
 interface AboutProps {
   organizers: Organizer[]
@@ -25,11 +26,7 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
                   <span>about</span>{' '}
                   <span className="font-medium">droidconke</span>
                 </h2>
-                <img
-                  className="w-[450px] my-4 md:my-4"
-                  src="/images/lines.png"
-                  alt="line"
-                />
+                <Divider className="my-4 md:my-4" />
                 <p className="dark:text-lighter-dark pt-2 text-base md:text-xl pr-0 md:pr-10 md:pb-16">
                   Droidcon is a global conference focused on the engineering of
                   Android applications. It provides a forum for developers to
@@ -74,7 +71,7 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
           </div> */}
         </div>
       </section>
-      <section className="w-full bg-lighter dark:bg-black-dark">
+      <section className="w-full bg-white dark:bg-black-dark">
         <div className="s-container md:py-12">
           <div className="flex flex-wrap mb-10">
             <div className="w-full -mt-28 md:-mt-32 py-2 pb-12">
