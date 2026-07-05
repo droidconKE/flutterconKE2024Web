@@ -15,7 +15,7 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
   return (
     <div
       className="min-h-screen bg-[length:0%] md:bg-[length:88%] bg-[top_360px_left_115%] md:bg-[top_140px_left_148%] bg-no-repeat"
-      style={{ backgroundImage: 'url(/images/svg/about-bg.svg)' }}
+      style={{ backgroundImage: 'url(/images/svg/fluttercon-about-bg.svg)' }}
     >
       <section className="s-container pb-32">
         <div className="w-full flex flex-wrap min-h-screen pt-16 lg:pt-28 xl:pt-16 md:px-0 py-8 lg:py-12">
