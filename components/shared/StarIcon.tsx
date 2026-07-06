@@ -7,9 +7,9 @@ export const StarIcon = ({ isStar = true, session }: StarIconProps) => {
   const isStared = isStarred(session.id)
   const bookmark = () => toggleStar(session.id)
 
-  const color = isStared ? '#FFAB00' : 'none'
-  const stroke = isStared ? '#FFAB00' : '#0062FF'
-  const fill = isStared ? '#FFAB00' : '#0062FF'
+  const color = isStared ? '#F73EDE' : 'none'
+  const stroke = isStared ? '#F73EDE' : '#008BFF'
+  const fill = isStared ? '#F73EDE' : '#008BFF'
 
   return isStar ? (
     <svg
