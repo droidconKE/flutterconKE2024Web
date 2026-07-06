@@ -154,7 +154,7 @@ export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
           </div>
         </div>
       </section>
-      <section className="w-full bg-lighter dark:bg-black-dark md:px-32 sm:px-10">
+      <section className="w-full bg-white dark:bg-black-dark md:px-32 sm:px-10">
         <div className="s-container md:-mt-10 md:py-12">
           <div className="flex flex-wrap">
             <div className="w-full text-center mb-2 md:mb-0 mt-4 md:mt-0 items-center justify-center">
@@ -169,7 +169,15 @@ export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
           </div>
           <div className="items-center flex flex-wrap py-4 mt-4">
             <div className="w-2/12 md:w-4/12 ml-auto px-0 md:px-8 mb-8 md:mb-0">
-              <div className="grow h-2 bg-secondary" />
+              <div
+                className="grow h-2 bg-secondary"
+                style={{
+                  maskImage:
+                    'repeating-linear-gradient(45deg, black, black 2px, transparent 2px, transparent 8px)',
+                  WebkitMaskImage:
+                    'repeating-linear-gradient(45deg, black, black 2px, transparent 2px, transparent 8px)',
+                }}
+              />
             </div>
             <div className="w-8/12 flex md:w-4/12 mb-10 md:mb-0 justify-center px-2">
               <Link
@@ -180,7 +188,15 @@ export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
               </Link>
             </div>
             <div className="w-2/12 md:w-4/12 ml-auto px-0 md:px-8 mb-8 md:mb-0">
-              <div className="grow h-2 bg-secondary" />
+              <div
+                className="grow h-2 bg-secondary"
+                style={{
+                  maskImage:
+                    'repeating-linear-gradient(45deg, black, black 2px, transparent 2px, transparent 8px)',
+                  WebkitMaskImage:
+                    'repeating-linear-gradient(45deg, black, black 2px, transparent 2px, transparent 8px)',
+                }}
+              />
             </div>
           </div>
         </div>
