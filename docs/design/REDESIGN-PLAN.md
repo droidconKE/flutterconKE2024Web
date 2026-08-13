@@ -134,3 +134,42 @@ Next.js · TypeScript · Tailwind (`darkMode: 'class'`) · custom `ThemeContext`
 
 - ⏳ **fluttercon Figma variables export** (the event-relevant color palette) — needed before Phase 0 tokens.
 - ⚠️ Confirm Rauschen B weight (Book vs. heavier) for the headline, and the body font.
+
+---
+
+## 9. Revised landing page (2026-08-14)
+
+Ported from droidconKE, which carries the authoritative write-up: see **section 8** of [droidconKE's REDESIGN-PLAN.md](https://github.com/droidconKE/droidconKE2022Web/blob/feat/home-redesign-plan/docs/design/REDESIGN-PLAN.md). There is **no separate Figma for the flutter landing page** — this mirrors the droidcon layout with flutter branding, so droidcon stays the source of truth for structure.
+
+### Assets
+
+| Asset                                                                              | Origin                                                         |
+| ---------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| `revised/fcke-square.png` (2524²)                                                  | Flutter-specific — feeds the whole `public/images/icons/` set  |
+| `revised/fcke-cover.png` (2400×800)                                                | Flutter-specific — `og:image` / `twitter:image`                |
+| `revised/beyond-sessions.png` · `dev-days.png` · `stacks.png` · `new-footer-2.png` | **Shared with droidconKE** — conference-neutral, keep in step  |
+| `logo-light.svg` / `logo-dark.svg`                                                 | Footer wordmark (droidcon uses `droidcon-large-*.svg` instead) |
+
+The cover was exported at 4501px and is **resized to 2400** — Twitter rejects `summary_large_image` above 4096px. Its 3:1 ratio is wider than OG's 1.91:1, so keep key content vertically centred.
+
+Brand colours that were still pre-rebrand and are now `#008BFF`: `manifest.json` `theme_color` (was `#FFAB00`), `background_color` (was `#54C4F7`), the `theme-color` meta, and `browserconfig.xml` `TileColor`.
+
+### Flutter-specific decisions
+
+- **Editions:** `3RD · ANNUAL`, stats `3RD FLUTTERCON EDITION` / `7TH DROIDCON EDITION`. Conferences read `FLUTTER · DROIDCON`.
+- **Hero gradient** uses the flutter ramp (`#008BFF → #F73EDE`) rather than droidcon's `#0055FF → #FF57E9`.
+- **"Beyond Stacks"** is the shared 2026 theme and is deliberately identical across both sites.
+- **CFP / Speakers commented out**, same as droidcon — both return next year.
+- **Conf. Highlights copy is drafted, not designed.** The joint-track line points at DroidconKE, and "Developer Days" was rewritten around Flutter/Dart. Needs a content review.
+- **Code of Conduct stays app-specific.**
+
+### Carried-over gotchas
+
+Both apply here identically — see droidcon section 8 for the full reasoning:
+
+- `styles/globals.css` styles bare `p` with `dark:text-lighter-dark`, and `.dark p` outranks a single utility class. Cards with a fixed brand background must pin text with an explicit `dark:` variant.
+- The nav is `fixed … z-10`. Anything else using `z-10` ties with it and wins on DOM order — wrap in `isolate`.
+
+### Hero cube
+
+Same live Spline scene as droidcon (`@splinetool/runtime`, lazily imported). ⚠️ **Its loop is unresolved** — the scene is authored `start-once` and stops after one 30s pass; droidcon section 8 documents five failed approaches. Cost is ~546 KB gz. Dropping `<SplineCube />` from the hero is a one-line change if the download is not worth it.

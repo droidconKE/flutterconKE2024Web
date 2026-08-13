@@ -20,7 +20,7 @@ const Session: NextPage<SessionPageProp> = ({ session, fullUrl }) => {
 
   const image =
     session.session_image ??
-    'https://fluttercondev.ke/images/svg/fluttercon-kenya-26-1920x1080.svg'
+    'https://fluttercondev.ke/images/new-design/revised/fcke-cover.png'
 
   return (
     <>
