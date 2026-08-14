@@ -9,7 +9,7 @@ const highlights = [
     image: '/images/new-design/revised/beyond-sessions.png',
     imageAlt: 'Two toy robots shaking hands',
     cardClass: 'bg-primary',
-    titleClass: 'text-accent',
+    titleClass: 'text-white dark:text-white',
     // Card colours are fixed in both themes, so dark: variants pin the text
     // against the global `p` rule.
     bodyClass: 'text-white dark:text-white',
@@ -21,9 +21,11 @@ const highlights = [
     body: 'Level up across two days of hardcore Flutter and Dart sessions. From cross-platform performance to AI agents and tooling, get real-world insights from top-tier engineers shaping the ecosystem.',
     image: '/images/new-design/revised/dev-days.png',
     imageAlt: 'Two astronauts holding hands',
-    cardClass: 'bg-accent',
-    titleClass: 'text-primary',
-    bodyClass: 'text-black dark:text-black',
+    // Inverts between themes in the design: black card with a magenta
+    // heading in light, magenta card with a black heading in dark.
+    cardClass: 'bg-black-dark dark:bg-accent',
+    titleClass: 'text-accent dark:text-black',
+    bodyClass: 'text-white dark:text-black',
     imageFirst: true,
   },
 ]

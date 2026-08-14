@@ -143,12 +143,14 @@ Ported from droidconKE, which carries the authoritative write-up: see **section 
 
 ### Assets
 
-| Asset                                                                              | Origin                                                         |
-| ---------------------------------------------------------------------------------- | -------------------------------------------------------------- |
-| `revised/fcke-square.png` (2524²)                                                  | Flutter-specific — feeds the whole `public/images/icons/` set  |
-| `revised/fcke-cover.png` (2400×800)                                                | Flutter-specific — `og:image` / `twitter:image`                |
-| `revised/beyond-sessions.png` · `dev-days.png` · `stacks.png` · `new-footer-2.png` | **Shared with droidconKE** — conference-neutral, keep in step  |
-| `logo-light.svg` / `logo-dark.svg`                                                 | Footer wordmark (droidcon uses `droidcon-large-*.svg` instead) |
+| Asset                                          | Origin                                                                                 |
+| ---------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `revised/fcke-square.png` (2524²)              | Flutter-specific — feeds the whole `public/images/icons/` set                          |
+| `revised/fcke-cover.png` (2400×800)            | Flutter-specific — `og:image` / `twitter:image`                                        |
+| `revised/beyond-sessions.png` · `dev-days.png` | **Flutter-only** — magenta halftones. droidconKE's are blue; do NOT copy between repos |
+| `revised/new-footer-pink.png`                  | **Flutter-only** — dark-mode KICC. Light mode uses the shared blue `new-footer-2.png`  |
+| `revised/stacks.png` · `new-footer-2.png`      | **Shared with droidconKE** — keep in step                                              |
+| `logo-light.svg` / `logo-dark.svg`             | Footer wordmark (droidcon uses `droidcon-large-*.svg` instead)                         |
 
 The cover was exported at 4501px and is **resized to 2400** — Twitter rejects `summary_large_image` above 4096px. Its 3:1 ratio is wider than OG's 1.91:1, so keep key content vertically centred.
 
@@ -158,6 +160,12 @@ Brand colours that were still pre-rebrand and are now `#008BFF`: `manifest.json`
 
 - **Editions:** `3RD · ANNUAL`, stats `3RD FLUTTERCON EDITION` / `7TH DROIDCON EDITION`. Conferences read `FLUTTER · DROIDCON`.
 - **Hero gradient** uses the flutter ramp (`#008BFF → #F73EDE`) rather than droidcon's `#0055FF → #FF57E9`.
+- **Two blocks invert between themes** — this is deliberate in the design, not a dark-mode bug:
+  - About stats panel: black with magenta figures in light, magenta with white figures in dark.
+  - Developer Days card: black with a magenta heading in light, magenta with a black heading in dark.
+- **Beyond the Sessions** has a **white** heading, not the accent colour droidcon uses.
+- **Community Partners** heading is black on the magenta card, not blue.
+- **Conf. Essentials icons** were recoloured from droidcon green `#01FF4F` to `#F73EDE` in `public/images/svg/`.
 - **"Beyond Stacks"** is the shared 2026 theme and is deliberately identical across both sites.
 - **CFP / Speakers commented out**, same as droidcon — both return next year.
 - **Conf. Highlights copy is drafted, not designed.** The joint-track line points at DroidconKE, and "Developer Days" was rewritten around Flutter/Dart. Needs a content review.

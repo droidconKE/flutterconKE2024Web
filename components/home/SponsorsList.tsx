@@ -113,7 +113,7 @@ function SponsorsList({
         <div className="flex flex-col w-full">
           {/* Platinum Tier */}
           {platinumSponsors.length > 0 && (
-            <div className="flex flex-col items-center gap-4 border-t border-dotted border-green-500 pt-8 pb-10">
+            <div className="flex flex-col items-center gap-4 border-t border-dotted border-accent pt-8 pb-10">
               <h3 className="text-black dark:text-white text-lg md:text-xl font-semibold mb-2 capitalize">
                 Platinum
               </h3>
@@ -131,7 +131,7 @@ function SponsorsList({
 
           {/* Gold Tier */}
           {goldSponsors.length > 0 && (
-            <div className="flex flex-col items-center border-t border-dotted border-green-500 pt-8 pb-10 w-full">
+            <div className="flex flex-col items-center border-t border-dotted border-accent pt-8 pb-10 w-full">
               <h3 className="text-black dark:text-white text-lg md:text-xl font-semibold mb-4 capitalize">
                 Gold
               </h3>
@@ -154,7 +154,7 @@ function SponsorsList({
 
           {/* Everything else — silver, then bronze, then snack */}
           {remainingSponsors.length > 0 && (
-            <div className="flex flex-wrap justify-center gap-6 w-full border-t border-dotted border-green-500 pt-8 pb-10">
+            <div className="flex flex-wrap justify-center gap-6 w-full border-t border-dotted border-accent pt-8 pb-10">
               {remainingSponsors.map((sponsor) => (
                 <div
                   key={sponsor.name}
@@ -173,7 +173,7 @@ function SponsorsList({
             </div>
           )}
 
-          <div className="flex justify-center border-t border-dotted border-green-500 pt-10">
+          <div className="flex justify-center border-t border-dotted border-accent pt-10">
             <Link href="/sponsors" className="btn-accent whitespace-nowrap">
               SPONSOR FLUTTERCONKE
             </Link>
