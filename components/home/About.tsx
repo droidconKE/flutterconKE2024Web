@@ -13,7 +13,7 @@ const About = () => {
       <div className="flex flex-col md:flex-row w-full rounded-3xl overflow-hidden shadow-xl">
         {/* Left Column (Blue) */}
         <div className="w-full md:w-[55%] bg-primary p-8 md:p-10 lg:p-12 flex flex-col justify-center">
-          <h2 className="text-accent text-5xl md:text-7xl font-display leading-none mb-8">
+          <h2 className="text-accent dark:text-white text-5xl md:text-7xl font-display leading-none mb-8">
             About
             <br />
             FlutterconKE
@@ -31,19 +31,21 @@ const About = () => {
           </p>
         </div>
 
-        {/* Right Column (Accent) — 2x2 split by hairlines */}
-        <div className="w-full md:w-[45%] bg-accent grid grid-cols-2">
+        {/* Right Column — 2x2 split by blue hairlines. Inverts between themes
+            in the design: black panel with magenta figures in light, magenta
+            panel with white figures in dark. */}
+        <div className="w-full md:w-[45%] bg-black-dark dark:bg-accent grid grid-cols-2">
           {statsBoxes.map((box, index) => (
             <div
               key={box.value}
               className={`p-6 md:p-8 lg:p-10 flex flex-col justify-center ${
-                index % 2 === 0 ? 'border-r border-primary' : ''
-              } ${index < 2 ? 'border-b border-primary' : ''}`}
+                index < 2 ? 'border-b border-primary' : ''
+              }`}
             >
-              <div className="text-primary text-3xl md:text-5xl lg:text-6xl font-display mb-2">
+              <div className="text-accent dark:text-white text-3xl md:text-5xl lg:text-6xl font-display mb-2">
                 {box.value}
               </div>
-              <div className="text-primary text-[10px] md:text-xs uppercase">
+              <div className="text-accent dark:text-white text-[10px] md:text-xs uppercase">
                 {box.label}
               </div>
             </div>

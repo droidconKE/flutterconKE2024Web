@@ -43,7 +43,13 @@ export const Footer = () => {
                 src="/images/new-design/revised/new-footer-2.png"
                 alt=""
                 aria-hidden="true"
-                className="w-[80%] md:w-[70%] h-auto mx-auto object-contain"
+                className="w-[80%] md:w-[70%] h-auto mx-auto object-contain dark:hidden block"
+              />
+              <img
+                src="/images/new-design/revised/new-footer-pink.png"
+                alt=""
+                aria-hidden="true"
+                className="w-[80%] md:w-[70%] h-auto mx-auto object-contain hidden dark:block"
               />
               <img
                 src="/images/new-design/logo-light.svg"

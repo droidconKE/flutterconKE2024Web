@@ -4,7 +4,7 @@ function Organizers({ organizers }: { organizers: Organizer[] }) {
   return (
     <section className="s-container w-full h-auto bg-white dark:bg-dark pt-10 md:pt-20 pb-16 transition-colors">
       <div className="w-full bg-accent rounded-[32px] p-8 md:p-12">
-        <h2 className="text-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight font-display mb-8 md:mb-12">
+        <h2 className="text-black dark:text-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight font-display mb-8 md:mb-12">
           Our Community Partners
         </h2>
 
