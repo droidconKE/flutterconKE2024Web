@@ -1,89 +1,33 @@
 import { Organizer } from '../../types/types'
 
 function Organizers({ organizers }: { organizers: Organizer[] }) {
-  // Pattern overlay style using radial-gradient to simulate the Figma dot pattern
-  const patternOverlayStyle = {
-    backgroundImage: 'radial-gradient(circle, #008BFF 15%, transparent 15%)',
-    backgroundSize: '16px 16px',
-    opacity: 0.8,
-    WebkitMaskImage: 'linear-gradient(to bottom, transparent 10%, black 90%)',
-    maskImage: 'linear-gradient(to bottom, transparent 10%, black 90%)',
-  }
-
-  // Cut-corner clip-path matching the sponsor cards (smaller 16px notch)
-  const cardClipStyle = {
-    clipPath:
-      'polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px))',
-  }
-
   return (
-    <section className="s-container w-full h-auto bg-white dark:bg-black-dark pt-10 md:pt-20 transition-colors">
-      {/* Header Block */}
-      <div className="w-full bg-accent rounded-3xl p-8 mb-8 md:mb-12">
-        <div className="flex items-center text-black text-sm md:text-base font-medium mb-4 md:mb-6 opacity-90">
-          <div className="w-6 md:w-8 h-px bg-black mr-3" />
-          Community Partner
-        </div>
-        <h2 className="text-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[72px] leading-tight font-display whitespace-nowrap">
-          Community Partner
+    <section className="s-container w-full h-auto bg-white dark:bg-dark pt-10 md:pt-20 pb-16 transition-colors">
+      <div className="w-full bg-accent rounded-[32px] p-8 md:p-12">
+        <h2 className="text-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight font-display mb-8 md:mb-12">
+          Our Community Partners
         </h2>
-      </div>
 
-      {/* Flutter Kenya */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 mb-16">
-        <div className="w-full bg-primary rounded-[24px] md:rounded-[20px] p-8 md:p-12 flex flex-col justify-center">
-          <h4 className="font-display font-black capitalize text-accent text-5xl md:text-6xl mb-6">
-            Flutter Kenya
-          </h4>
-          <p className="text-white text-base md:text-lg leading-relaxed opacity-90">
-            Established in 2020, Flutter Kenya is the leading Flutter community
-            in Kenya with over 4,000 members. It aims to foster a vibrant
-            ecosystem of Flutter developers through monthly meetups, offering
-            education, inspiration, and networking opportunities. With over 65
-            physical meetups organized, it attracts over 50 attendees each
-            month, empowering developers to leverage Flutter for mobile, web,
-            and desktop app development.
-          </p>
-        </div>
-        <div className="w-full min-h-[300px] md:min-h-[400px] relative rounded-[24px] md:rounded-[32px] overflow-hidden">
-          <img
-            src="/images/gallery/1.jpg"
-            alt="Flutter Kenya Community"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          {/* Blue Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/90 to-primary/10 mix-blend-multiply" />
-          {/* Polka Dot Pattern Overlay */}
-          <div className="absolute inset-0 z-10" style={patternOverlayStyle} />
-        </div>
-      </div>
-
-      {/* Organizers loaded from the API — same cut-corner sponsor card, smaller */}
-      {organizers?.length > 0 && (
-        <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-5 pb-16">
-          {organizers.map((org) => (
-            <div
-              key={org.created_at || org.name}
-              className="p-[4px] bg-gradient-to-br from-accent to-primary w-full hover:scale-105 transition-transform"
-              style={cardClipStyle}
-            >
+        {organizers?.length > 0 && (
+          <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4">
+            {organizers.map((org) => (
               <a
+                key={org.created_at || org.name}
                 href={org.link}
                 target="_blank"
                 rel="noreferrer"
-                className="bg-white w-full flex items-center justify-center p-3 min-h-[100px] md:min-h-[120px]"
-                style={cardClipStyle}
+                className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center p-3 hover:scale-105 transition-transform"
               >
                 <img
-                  className="object-contain w-auto max-h-16 md:max-h-20"
+                  className="object-contain w-auto max-h-14 md:max-h-16"
                   src={org.photo || '/images/icon.png'}
                   alt={org.name}
                 />
               </a>
-            </div>
-          ))}
-        </div>
-      )}
+            ))}
+          </div>
+        )}
+      </div>
     </section>
   )
 }

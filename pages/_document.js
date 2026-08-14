@@ -96,7 +96,7 @@ class MyDocument extends Document {
             name="msapplication-TileImage"
             content="/images/icons/ms-icon-144x144.png"
           />
-          <meta name="theme-color" content="#FFAB00" />
+          <meta name="theme-color" content="#008BFF" />
 
           {/* SEO Headers */}
           <meta
@@ -125,9 +125,12 @@ class MyDocument extends Document {
           {/* // TODO: focing push */}
           <meta
             name="twitter:image"
-            content="https://fluttercondev.ke/images/svg/fluttercon-kenya-26-1920x1080.svg"
+            content="https://fluttercondev.ke/images/new-design/revised/fcke-cover.png"
           />
-          <meta name="twitter:image:alt" content="flutterconKe logo" />
+          <meta
+            name="twitter:image:alt"
+            content="FlutterconKE 2026 — Nov 5-6, Nairobi"
+          />
           {/* <!-- when you post this page url in twitter , this image will be shown -->
 	<!-- twitter card ends from here --> */}
 
@@ -140,7 +143,7 @@ class MyDocument extends Document {
           <meta property="og:type" content="website" />
           <meta
             property="og:image"
-            content="https://fluttercondev.ke/images/svg/fluttercon-kenya-26-1920x1080.svg"
+            content="https://fluttercondev.ke/images/new-design/revised/fcke-cover.png"
           />
           <meta
             property="og:description"
