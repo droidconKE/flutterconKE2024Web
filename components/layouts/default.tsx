@@ -13,7 +13,10 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <>
       <Head>
-        <title>FlutterconKe - The First Fluttercon in Africa</title>
+        <title>
+          FlutterconKE - The Largest Mobile Developers&apos; Conference in
+          Africa
+        </title>
       </Head>
       <ThemeProvider>
         <div className="w-full min-h-screen bg-white dark:bg-black-dark">
