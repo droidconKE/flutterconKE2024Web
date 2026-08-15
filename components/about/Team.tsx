@@ -32,9 +32,9 @@ function Team({ organizers: unOrderedOrgs }: { organizers: Organizer[] }) {
             <span>organizing</span> <span>team</span>
           </h2>
           <p className="mt-4 text-white text-lg md:text-xl leading-relaxed lg:w-10/12">
-            Fluttercon Kenya is a Codescape Limited product, organized by the
-            same seasoned team behind Droidcon Kenya, ensuring seamless
-            integration between the two conferences.
+            Fluttercon Kenya is organized by the same team behind Droidcon
+            Kenya, now in its seventh edition, ensuring the two conferences work
+            as one experience.
           </p>
         </div>
       </section>
