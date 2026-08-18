@@ -1,13 +1,15 @@
-import { useStarSession } from '../../hooks/useStarSession'
+import { useStarredSessions } from '../../hooks/useStarredSessions'
 import { StarIconProps } from '../../types/types'
 import { SaveSession } from '../sessions/SaveSession'
 
 export const StarIcon = ({ isStar = true, session }: StarIconProps) => {
-  const { bookmark, isStared } = useStarSession({ session })
+  const { isStarred, toggleStar } = useStarredSessions()
+  const isStared = isStarred(session.id)
+  const bookmark = () => toggleStar(session.id)
 
-  const color = isStared ? '#FFAB00' : 'none'
-  const stroke = isStared ? '#FFAB00' : '#0062FF'
-  const fill = isStared ? '#FFAB00' : '#0062FF'
+  const color = isStared ? '#F73EDE' : 'none'
+  const stroke = isStared ? '#F73EDE' : '#008BFF'
+  const fill = isStared ? '#F73EDE' : '#008BFF'
 
   return isStar ? (
     <svg
@@ -15,7 +17,11 @@ export const StarIcon = ({ isStar = true, session }: StarIconProps) => {
       width="27.895"
       height="27"
       className="cursor-pointer"
-      onClick={() => bookmark()}
+      onClick={(e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        bookmark()
+      }}
     >
       <g data-name="Layer 2">
         <g data-name="Layer 1">

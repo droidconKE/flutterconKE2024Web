@@ -1,52 +1,42 @@
 import { Organizer } from '../../types/types'
 
-function Organizers({ organizers }: { organizers: Organizer[] }) {
+function Organizers({
+  organizers,
+  compact,
+}: {
+  organizers: Organizer[]
+  compact: boolean
+}) {
   return (
-    <section className="bg-lighter dark:bg-black">
-      <div className="s-container pb-6 md:pb-12">
-        <div className="items-center flex flex-wrap">
-          <div className="w-full md:w-6/12 ml-auto">
-            <div className="md:pr-12 text-left mt-3 md:mt-0">
-              <h2 className="title lowercase dark:text-accent-dark">
-                <span>community</span>{' '}
-                <span className="font-medium"> partners;</span>
-              </h2>
-            </div>
-            <div className="mt-4 md:mt-8 mb-10 md:mb-0">
-              <h4 className="title font-medium text-secondary md:text-3xl dark:text-secondary mt-6 md:mt-10 lowercase">
-                <span>Flutter Kenya</span>
-              </h4>
-              <p className="mt-4 text-base md:text-xl">
-                Established in 2020, Flutter Kenya is the leading Flutter
-                community in Kenya with over 4,000 members. It aims to foster a
-                vibrant ecosystem of Flutter developers through monthly meetups,
-                offering education, inspiration, and networking opportunities.
-                With over 65 physical meetups organized, it attracts over 50
-                attendees each month, empowering developers to leverage Flutter
-                for mobile, web, and desktop app development.
-              </p>
-            </div>
+    <section
+      className={`s-container w-full h-auto bg-white dark:bg-dark transition-colors ${
+        compact ? 'pt-4 md:pt-6 pb-6 md:pb-8' : 'pt-10 md:pt-20 pb-16'
+      }`}
+    >
+      <div className="w-full bg-accent rounded-[32px] p-8 md:p-12">
+        <h2 className="text-black dark:text-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight font-display mb-8 md:mb-12">
+          Our Community Partners
+        </h2>
+
+        {organizers?.length > 0 && (
+          <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4">
+            {organizers.map((org) => (
+              <a
+                key={org.created_at || org.name}
+                href={org.link}
+                target="_blank"
+                rel="noreferrer"
+                className="bg-white rounded-2xl w-full aspect-square flex items-center justify-center p-3 hover:scale-105 transition-transform"
+              >
+                <img
+                  className="object-contain w-auto max-h-14 md:max-h-16"
+                  src={org.photo || '/images/icon.png'}
+                  alt={org.name}
+                />
+              </a>
+            ))}
           </div>
-          <div className="w-full md:w-6/12 mr-auto pt-4 sm:mt-10 md:pt-0 justify-end">
-            <div className="w-full md:p-10 sm:p-0  grid md:grid-cols-4 grid-cols-3 gap-4 lg:gap-8">
-              {organizers.map((org) => (
-                <a
-                  key={org.created_at}
-                  target="_blank"
-                  href={org.link}
-                  className="w-24 h-24 p-3 flex rounded border border-accent-2 bg-white dark:bg-white-dark justify-center"
-                  rel="noreferrer"
-                >
-                  <img
-                    className="p-0 w-full object-scale-down"
-                    src={org.photo === null ? '/images/icon.png' : org.photo}
-                    alt={org.name}
-                  />
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
+        )}
       </div>
     </section>
   )

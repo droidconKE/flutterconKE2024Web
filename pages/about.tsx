@@ -1,5 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
-
 import type { NextPage } from 'next'
 import { Organizer } from '../types/types'
 import OrganizingTeam from '../components/about/Team'
@@ -14,219 +12,197 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
   const team = organizers.filter((o) => o.type === 'individual')
   const company = organizers.filter((o) => o.type === 'company')
   return (
-    <div
-      className="min-h-screen bg-[length:0%] md:bg-[length:88%] bg-[top_360px_left_115%] md:bg-[top_140px_left_148%] bg-no-repeat"
-      style={{ backgroundImage: 'url(/images/about-bg.png)' }}
-    >
-      <section className="s-container pb-32">
-        <div className="w-full flex flex-wrap min-h-screen pt-16 lg:pt-28 xl:pt-16 md:px-0 py-8 lg:py-12">
-          <div className="w-full lg:w-9/12 flex items-center">
-            <div className="w-full bg-no-repeat bg-center">
-              <div className="w-full flex flex-wrap text-left">
-                <h2 className="title lowercase dark:text-white-dark w-full">
-                  <span>about</span>{' '}
-                  <span className="font-medium">flutterconke</span>
+    <div className="min-h-screen">
+      <section className="s-container pt-6 md:pt-12 sm:pb-0">
+        <div className="w-full rounded-4xl md:rounded-5xl bg-gradient-to-b from-primary from-85% to-accent px-6 py-8 md:px-10 md:py-12">
+          <div>
+            <div className="flex flex-wrap md:flex-nowrap items-start gap-8">
+              <div className="w-full md:flex-1 md:min-w-0">
+                <h1 className="sr-only">about fluterconke</h1>
+                <h2 className="font-display text-white dark:text-white text-3xl md:text-5xl lg:text-6xl leading-tight md:leading-[0.92] tracking-tight">
+                  Largest
+                  <br />
+                  Mobile Focused
+                  <br />
+                  Developer
+                  <br />
+                  Conference in Africa.
                 </h2>
+              </div>
+              <div className="w-full md:w-auto flex justify-center md:justify-end shrink-0">
                 <img
-                  className="w-[500px] my-4 md:my-4"
-                  src="/images/lines.png"
-                  alt="line"
+                  className="w-32 md:w-56 lg:w-72 xl:w-[22rem] h-auto object-contain"
+                  src="/images/new-design/fcke-icon.png"
+                  alt=""
                 />
-                <p className="dark:text-lighter-dark pt-2 text-base md:text-xl pr-0 md:pr-0 md:pb-16">
-                  Fluttercon is a global conference focused on the engineering
-                  of mobile applications. Fluttercon provides a forum for
-                  developers to network with other developers, share techniques,
-                  announce apps and products, and learn and teach.
-                  <br />
-                  <br />
-                  Fluttercon Kenya stands as the pioneering event of its kind in
-                  Africa, having debuted the Fluttercon conference on the
-                  continent in 2024. Now in its 3rd edition, Fluttercon designed
-                  to be a hub of innovation and learning, offering a rich
-                  program of tech talks, workshops, and panels led by industry
-                  experts, Google Developer Experts, and seasoned seasoned
-                  Flutter specialists, all dedicated to exploring the latest in
-                  Flutter and Dart technologies.
-                  <br />
-                  <br />
-                  Spearheaded by the accomplished team behind Droidcon Kenya,
-                  renowned for orchestrating seven highly successful editions of
-                  Droidcon Kenya, Fluttercon Kenya promises to uphold the same
-                  standard of excellence. With a track record of hosting over
-                  3,000 attendees and curating 230+ sessions across all
-                  editions, the team brings unparalleled expertise and
-                  organizational prowess to the table.
-                  <br />
-                  <br />
-                  By co-locating with Droidcon Kenya, Sub-Saharan Africa's
-                  premier Android developer conference with a seven-edition
-                  legacy, Fluttercon Kenya maximizes its reach and impact. Set
-                  to take place from November 5th to 6th, 2026, this joint event
-                  will unite Flutter and Dart experts, Google Developer Experts,
-                  and hundreds of Flutter developers with their Android
-                  counterparts. Together, they will form one of the largest
-                  gatherings of mobile developers on the continent, offering
-                  multiple tracks of in-depth tech talks, workshops, panels, and
-                  more. Join us in shaping the future of mobile development in
-                  Africa at Fluttercon Kenya!
-                </p>
               </div>
             </div>
+            <div className="mt-6 md:mt-8 lg:columns-2 lg:gap-10">
+              <p className="text-white dark:text-white text-sm md:text-base leading-relaxed">
+                Fluttercon is a global conference focused on the engineering of
+                mobile applications, part of next.app devCon. It provides a
+                forum for developers to network, share techniques, announce apps
+                and products, and learn and teach.
+                <br />
+                <br />
+                Fluttercon Kenya brought Fluttercon to the African continent for
+                the first time in 2024. Now in its 3rd edition, it takes place
+                November 5th and 6th, 2026, at PrideInn Azure Hotel in Nairobi.
+                <br />
+                <br />
+                Fluttercon Kenya is part of next.app devCon, the global home of
+                Fluttercon, Droidcon and the wider mobile developer community.
+                <br /> <br />
+                Our 2026 theme is Beyond Stacks. Cross-platform work no longer
+                stops at one codebase, and the interesting problems sit at the
+                edges, in tooling, in AI-assisted workflows, in what runs
+                natively underneath. Fluttercon Kenya is where the Flutter side
+                of that conversation happens.
+                <br />
+                <br />
+                The 2025 edition proved the demand: Fluttercon grew to 34.2% of
+                total attendance, and Flutter submissions (92) outnumbered
+                Android submissions (89) for the first time. Co-located with
+                Droidcon Kenya, Sub-Saharan Africa&apos;s premier Android
+                developer conference, the two events form one of the largest
+                gatherings of mobile developers on the continent.
+              </p>
+            </div>
           </div>
-          {/* <div className="w-full lg:w-6/12 lg:h-auto flex items-center justify-end bg-no-repeat bg-cover mt-6 md:mt-0">
-            <img
-              alt="sponsors img"
-              className="w-full sponsor-img"
-              src="/images/groupphoto.png"
-            />
-          </div> */}
         </div>
       </section>
-      <section className="w-full bg-lighter dark:bg-black-dark">
-        <div className="s-container md:py-12">
-          <div className="flex flex-wrap mb-10">
-            <div className="w-full -mt-28 md:-mt-32 py-2 pb-12">
-              <h4 className="title text-3xl text-primary md:text-6xl dark:text-accent-2 pt-6 md:pt-0 lowercase">
-                the first fluttercon{' '}
-                <small className="font-medium">
-                  <br />
-                  conference in africa.
-                </small>
-              </h4>
-            </div>
-            {/* <div className="w-full md:w-12/12 ml-auto pr-0 md:pr-20">
-              <h3 className="title font-medium border-b-8 border-b-secondary lowercase">
-                Fluttercon
-              </h3>
-              <p className="mt-2 md:mt-4 mb-4 md:mb-0 text-xl">
-                Fluttercon is a global conference focused on the engineering of
-                Mobile applications. Fluttercon provides a forum for developers
-                to network with other developers, share techniques, announce
-                apps and products, and learn and teach.
-                <br />
-                <br />
-                The three-day gathering will be held in Nairobi, Kenya, from 5th
-                to 7th November 2025 and will be the first ever in Africa.
-                <br />
-                <br />
-                The conference will include workshops, codelabs and talks geared
-                towards Mobile development to help developers stay ahead of the
-                curve. It will be an excellent chance for participants to
-                network and connect with their fellow Mobile enthusiasts from
-                the African and continental communities.
-              </p>
-            </div> */}
 
-            <div className="w-full md:w-12/12 ml-auto pr-0 md:pr-20 md:mt-10">
-              <h3 className="title font-medium border-b-8 border-b-secondary mt-4 md:mt-0 lowercase">
-                how it started…
+      <section className="s-container mt-4 md:mt-6 sm:pt-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+          <img
+            className="w-full h-auto object-contain"
+            src="/images/new-design/revised/happy-smiley.png"
+            alt="Fluttercon Kenya attendees posing together"
+          />
+          <img
+            className="w-full h-auto object-contain"
+            src="/images/new-design/revised/sponsor-booth.png"
+            alt="Attendees at a sponsor booth during Fluttercon Kenya"
+          />
+        </div>
+      </section>
+
+      <section className="s-container mt-4 md:mt-6">
+        <div className="w-full rounded-4xl md:rounded-5xl bg-primary px-6 py-8 md:px-10 md:py-12">
+          <div className="flex flex-wrap items-center gap-8 md:gap-12">
+            <div className="w-full md:flex-1">
+              <h3 className="font-display text-2xl md:text-4xl leading-tight md:leading-none text-white dark:text-white">
+                HOW IT STARTED
               </h3>
-              <p className="mt-2 md:mt-4 mb-4 md:mb-0 text-xl">
-                Notably, during the 3rd and 4th editions of Droidcon Kenya, we
-                observed significant growth in the Flutter community, both
-                locally and at the conference. The increasing number of
-                Flutter-related sessions and attendees evidences this growth. In
-                2023, Droidcon Kenya received 67 Flutter submissions, of which
-                17 were selected—comprising 12 sessions, 3 workshops, and 2
-                lightning talks. Inspired by this momentum, we decided to
-                introduce Fluttercon to Africa, aligning with the trend of other
-                Droidcons worldwide.
-                <br />
-                <br />
-                We were thrilled to host Africa's inaugural Fluttercon Kenya in
-                2024, followed by a successful 2nd edition in 2025 that saw
-                Fluttercon's share of attendance grow to 34.2%, with Flutter
-                submissions (92) surpassing Android submissions (89) for the
-                first time. This growth demonstrates the healthy momentum of the
-                Flutter ecosystem in Sub-Saharan Africa.
+              <p className="mt-4 text-white dark:text-white text-sm md:text-base leading-relaxed">
+                The signal came from our own stage. During the 3rd and 4th
+                editions of Droidcon Kenya, Flutter sessions and Flutter
+                attendees grew sharply. In 2023, Droidcon Kenya received 67
+                Flutter submissions and selected 17 of them: 12 sessions, 3
+                workshops and 2 lightning talks.
+                <br /> <br /> The community had outgrown a few slots on someone
+                else&apos;s agenda, so in 2024 we gave it a conference.
+                Africa&apos;s first Fluttercon.
               </p>
             </div>
-            <div className="w-full md:w-12/12 ml-auto pr-0 md:pr-20 md:mt-10">
-              <h3 className="title font-medium border-b-8 border-b-secondary mt-4 md:mt-0 lowercase">
-                Tickets
-              </h3>
-              <p className="mt-2 md:mt-4 mb-4 md:mb-0 text-xl">
-                One ticket → Two conferences! When you buy a ticket to
-                Fluttercon Kenya, you are automatically registered to attend the
-                co-located Droidcon Kenya event.
-                <br />
-                <br />
-                <span className="font-medium text-secondary md:text-3xl dark:text-secondary mt-6 md:mt-10 ">
-                  In 2026, Expect:
-                </span>
-                <ul className="list-disc pl-5 marker:text-accent-2">
-                  <li className="dark:text-white text-xl mb-2">
-                    2 days of immersive Flutter & Dart content
-                  </li>
-                  <li className="dark:text-white text-xl mb-2">
-                    Developer keynotes
-                  </li>
-                  <li className="dark:text-white text-xl mb-2">
-                    Curated sessions in a dedicated Fluttercon Kenya track
-                  </li>
-                  <li className="dark:text-white text-xl mb-2">
-                    Panel discussions with Flutter industry leaders
-                  </li>
-                  <li className="dark:text-white text-xl mb-2">
-                    Unconference track (shared across both conferences)
-                  </li>
-                  <li className="dark:text-white text-xl mb-2">
-                    Interactive morning engagement sessions
-                  </li>
-                  <li className="dark:text-white text-xl mb-2">
-                    100+ Flutter & Dart Developers
-                  </li>
-                  <li className="dark:text-white text-xl mb-2">
-                    Enhanced networking opportunities
-                  </li>
-                  <li className="dark:text-white text-xl mb-2">
-                    Advanced practical skill development
-                  </li>
-                </ul>
-              </p>
-            </div>
-            <div className="w-full md:w-12/12 ml-auto pr-0 md:pr-20 md:mt-10">
-              <h3 className="title font-medium border-b-8  border-b-accent-2 mt-4 md:mt-4 lowercase">
-                <span>Event</span>{' '}
-                <span className="font-medium">Highlights</span>
-              </h3>
-              <h4 className="title font-medium text-secondary md:text-3xl dark:text-secondary mt-6 md:mt-10 lowercase">
-                <span>1. Interactive Sessions & Workshops</span>
-              </h4>
-              <p className="mt-2 md:mt-4 mb-4 md:mb-0 text-xl">
-                The 2026 program goes beyond talks with an unconference track
-                shared across both conferences for attendee-driven discussions
-                and lightning talks. Panel discussions bring together Flutter
-                engineering leaders to discuss the evolving cross-platform
-                landscape. Morning engagement sessions kick off each day with
-                interactive formats including speed interviewing, resume and
-                LinkedIn profile reviews, multiplatform deep dives, AI-powered
-                development workflows, and many more.
-              </p>
-              <h4 className="title font-medium text-secondary md:text-3xl dark:text-secondary mt-6 md:mt-10 lowercase">
-                <span>2. Developer Days (2 Days)</span>
-              </h4>
-              <p className="mt-2 md:mt-4 mb-4 md:mb-0 text-xl">
-                The core of the conference features comprehensive Android and
-                Kotlin sessions across multiple tracks. The 2026 program offers
-                diverse content tailored for mid-level and senior developers,
-                with sessions curated around the &quot;Building for Africa&quot;
-                theme featuring speakers from leading Sub-Saharan African tech
-                companies.
-              </p>
-            </div>
-            <div className="w-full mt-2 -mb-32 md:-mb-32 pb-20 md:pb-0 flex justify-center pr-0 md:pr-20">
+            <div className="w-full md:w-[28%] flex justify-center shrink-0">
               <img
-                className="w-20 md:w-36"
-                src="/images/element_left_2.png"
-                alt=""
+                className="w-36 md:w-full max-w-[220px] h-auto object-contain"
+                src="/images/new-design/revised/legacy-dcke-logo.png"
+                alt="The original droidcon Kenya logo"
               />
             </div>
           </div>
         </div>
       </section>
+
+      {/* Hidden for now — confirmed out, may return. Do not delete. */}
+      {/*
+      <section className="s-container mt-4 md:mt-6">
+        <div className="w-full rounded-4xl md:rounded-5xl bg-primary px-6 py-8 md:px-10 md:py-12">
+          <h3 className="font-display text-2xl md:text-4xl leading-tight md:leading-none text-white dark:text-white">
+            Tickets
+          </h3>
+          <p className="mt-4 text-white dark:text-white text-sm md:text-base leading-relaxed max-w-3xl">
+            One ticket, two conferences. A ticket to Fluttercon Kenya
+            automatically registers you for the co-located Droidcon Kenya.
+          </p>
+          <p className="font-display text-white dark:text-white text-xl md:text-2xl mt-6 md:mt-8">
+            In 2026, Expect:
+          </p>
+          <ul className="mt-4 md:mt-6 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-3 list-disc pl-5 marker:text-white/70">
+            <li className="text-white dark:text-white text-sm md:text-base">
+              2 days of Flutter and Dart content
+            </li>
+            <li className="text-white dark:text-white text-sm md:text-base">
+              Developer Keynotes
+            </li>
+            <li className="text-white dark:text-white text-sm md:text-base">
+              A dedicated Fluttercon Kenya track
+            </li>
+            <li className="text-white dark:text-white text-sm md:text-base">
+              An unconference track, shared across both conferences
+            </li>
+            <li className="text-white dark:text-white text-sm md:text-base">
+              Panel discussions with Flutter engineering leaders
+            </li>
+            <li className="text-white dark:text-white text-sm md:text-base">
+              Interactive morning engagement sessions
+            </li>
+            <li className="text-white dark:text-white text-sm md:text-base">
+              Networking with Flutter and Dart developers from across the region
+            </li>
+            <li className="text-white dark:text-white text-sm md:text-base">
+              Advanced, practical skill development
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section className="s-container mt-4 md:mt-6">
+        <div className="w-full rounded-4xl md:rounded-5xl bg-primary px-6 py-8 md:px-10 md:py-12">
+          <h3 className="font-display text-2xl md:text-4xl leading-tight md:leading-none text-white dark:text-white">
+            <span>Event</span> <span>Highlights</span>
+          </h3>
+          <div className="mt-8 md:mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            <div>
+              <h4 className="font-display text-white dark:text-white text-xl md:text-2xl">
+                <span>1. Beyond the Sessions</span>
+              </h4>
+              <p className="mt-3 text-white dark:text-white text-sm md:text-base leading-relaxed">
+                The unconference track, shared with Droidcon Kenya, opens the
+                floor to attendee-driven discussions and lightning talks, with
+                agentic engineering as the anchor theme. Panels bring Flutter
+                engineering leaders together on the evolving cross-platform
+                landscape. Morning engagement sessions open each day with speed
+                interviewing, resume and LinkedIn reviews, multiplatform deep
+                dives, AI-powered development workflows, and more.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-display text-white dark:text-white text-xl md:text-2xl">
+                <span>2. Developer Days</span>
+              </h4>
+              <p className="mt-3 text-white dark:text-white text-sm md:text-base leading-relaxed">
+                Two days of Flutter and Dart sessions in a dedicated track,
+                curated for professional developers building cross-platform
+                applications for African markets.
+              </p>
+            </div>
+          </div>
+          <div className="w-full mt-10 flex justify-center">
+            <img
+              className="w-20 md:w-36"
+              src="/images/element_left.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </section>
+      */}
+
       <OrganizingTeam organizers={team} />
-      <Organizers organizers={company} />
+      <Organizers organizers={company} compact />
     </div>
   )
 }
