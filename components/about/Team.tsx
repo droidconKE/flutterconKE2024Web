@@ -23,12 +23,12 @@ function Team({ organizers: unOrderedOrgs }: { organizers: Organizer[] }) {
   return (
     <>
       <section className="s-container mt-8 md:mt-12">
-        <div className="w-full bg-primary rounded-4xl md:rounded-5xl px-6 py-8 md:px-12 md:py-12 text-left">
+        <div className="w-full bg-gradient-to-b from-primary from-55% to-accent rounded-4xl md:rounded-5xl px-6 py-8 md:px-12 md:py-12 text-left">
           <div className="flex items-center text-white/80 text-sm md:text-base font-medium mb-3">
             <div className="w-6 h-px bg-white/80 mr-3" />
             meet the team
           </div>
-          <h2 className="font-display capitalize text-accent text-3xl md:text-5xl">
+          <h2 className="font-display capitalize text-white text-3xl md:text-5xl">
             <span>organizing</span> <span>team</span>
           </h2>
           <p className="mt-4 text-white text-lg md:text-xl leading-relaxed lg:w-10/12">
@@ -49,7 +49,7 @@ function Team({ organizers: unOrderedOrgs }: { organizers: Organizer[] }) {
                     target="_blank"
                     href={org.link}
                     rel="noreferrer"
-                    className="group flex flex-col h-full rounded-2xl overflow-hidden bg-white dark:bg-darker-dark border border-primary dark:border-primary shadow-md hover:shadow-xl hover:border-accent transition-all duration-200"
+                    className="group flex flex-col h-full rounded-2xl overflow-hidden bg-white dark:bg-darker-dark border-2 border-accent dark:border-accent shadow-md hover:shadow-xl transition-all duration-200"
                   >
                     <div className="relative overflow-hidden bg-blue-600">
                       <img
