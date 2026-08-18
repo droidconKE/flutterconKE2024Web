@@ -165,10 +165,10 @@ export const Banner = () => {
             </div>
 
             <img
-              src="/images/new-design/flutter_icon.png"
+              src="/images/new-design/fcke-icon.png"
               alt=""
               aria-hidden="true"
-              className="absolute right-0 -top-4 md:-top-10 w-16 md:w-28 lg:w-36 object-contain pointer-events-none select-none"
+              className="absolute right-0 -top-2 md:-top-6 lg:-top-9 w-20 md:w-28 lg:w-40 object-contain pointer-events-none select-none"
             />
 
             <h1 className="relative z-10 font-display leading-none py-8 md:py-16 text-5xl md:text-7xl lg:text-[110px] bg-[linear-gradient(90deg,#008BFF_0%,#7FC5FF_28%,#FFD9F6_50%,#FF8AEE_74%,#F73EDE_100%)] bg-clip-text text-transparent">
