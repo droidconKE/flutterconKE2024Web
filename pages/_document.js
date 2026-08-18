@@ -101,7 +101,7 @@ class MyDocument extends Document {
           {/* SEO Headers */}
           <meta
             name="description"
-            content="Fluttercon is a global conference focused on the engineering of Mobile applications. Fluttercon provides a forum for developers to network with other developers, share techniques, announce apps and products, and learn and teach."
+            content="Fluttercon is a global conference focused on the engineering of mobile applications, part of next.app devCon. It provides a forum for developers to network, share techniques, announce apps and products, and learn and teach."
           />
           <meta
             name="keywords"
@@ -119,7 +119,7 @@ class MyDocument extends Document {
           {/* <!-- maximum 140 char --> */}
           <meta
             name="twitter:description"
-            content="Fluttercon is a global conference focused on the engineering of Mobile applications. Fluttercon provides a forum for developers to network with other developers, share techniques, announce apps and products, and learn and teach."
+            content="Fluttercon is a global conference focused on the engineering of mobile applications, part of next.app devCon. It provides a forum for developers to network, share techniques, announce apps and products, and learn and teach."
           />
           {/* <!-- maximum 140 char --> */}
           {/* // TODO: focing push */}
@@ -147,8 +147,7 @@ class MyDocument extends Document {
           />
           <meta
             property="og:description"
-            content="Fluttercon is a global conference focused on the engineering of Mobile applications. Fluttercon provides a forum for developers to network with other developers, share techniques, announce apps and products, and learn and teach.
-"
+            content="Fluttercon is a global conference focused on the engineering of mobile applications, part of next.app devCon. It provides a forum for developers to network, share techniques, announce apps and products, and learn and teach."
           />
           {/* <!-- when you post this page url in facebook , this image will be shown -->
 	<!-- facebook open graph ends from here --></meta> */}
