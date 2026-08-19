@@ -66,12 +66,28 @@ export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
                 </div>
                 <div className="w-full md:w-8/12">
                   <p className="text-white text-sm md:text-base leading-relaxed">
-                    The event targets students, professional software developers
-                    who work in mid to large sized organizations and who develop
-                    systems of all sizes for enterprise companies. The event
-                    aims to attract attendees across industries such as
-                    financial services, media houses, telco’s etc.
+                    The event attracts professional software developers who work
+                    in mid to large sized organizations and who develop systems
+                    of all sizes for enterprise companies. The event aims to
+                    attract attendees across industries such as financial
+                    services, media houses, telco’s etc.
                   </p>
+                  <div className="mt-6 grid grid-cols-3 gap-x-6 gap-y-6">
+                    {[
+                      { value: '80.6%', label: 'Professional Developers' },
+                      { value: '4.6/5', label: 'Satisfaction Score' },
+                      { value: '9.3/10', label: 'Net Promoter Score' },
+                    ].map((stat) => (
+                      <div key={stat.label}>
+                        <p className="font-display leading-none text-3xl md:text-4xl text-white dark:text-white">
+                          {stat.value}
+                        </p>
+                        <p className="mt-1.5 text-[11px] md:text-xs font-semibold text-white dark:text-white">
+                          {stat.label}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
               <div className="rounded-3xl md:rounded-4xl bg-white border-[3px] md:border-4 border-accent px-7 py-6 md:px-[3.75rem] md:py-12 -mb-20 md:-mb-28">
@@ -134,7 +150,7 @@ export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
               To earn a spot here/Meet our partners By sponsoring
             </h6>
             <h3 className="font-display capitalize text-2xl md:text-3xl text-primary dark:text-primary mt-10 md:mt-12">
-              <span>To Sponsor</span> Flutterconke 2026 Contacts us at?
+              <span>To Sponsor</span> flutterconke 2026, contact us at:
             </h3>
             <Link
               href="mailto:sponsor@droidcon.co.ke?Subject=Sponsor flutterconKe"
