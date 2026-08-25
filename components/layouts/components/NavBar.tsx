@@ -86,7 +86,7 @@ export const NavBar = () => {
             navVisible ? 'bg-white dark:bg-black-dark' : ''
           } ${isEventReady ? 'md:w-8/12' : 'md:w-7/12'}`}
         >
-          <ul className="list-reset lg:flex justify-end text-base flex-1 items-center space-y-2 md:space-y-0">
+          <ul className="list-reset lg:flex justify-end text-base flex-1 items-center pt-2 lg:pt-0 space-y-2 md:space-y-0">
             <li className="mr-3 black text-xl">
               <Link
                 href="/"
