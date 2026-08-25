@@ -13,9 +13,9 @@ export const gallery = [
   },
   {
     imageTitle: 'Memories Two',
-    imageName: 'TTDCON_KEN_2',
-    imageWidth: 2400,
-    imageHeight: 3600,
+    imageName: 'CLN06479',
+    imageWidth: 2617,
+    imageHeight: 2617,
   },
 
   {
@@ -50,9 +50,9 @@ export const gallery = [
   },
   {
     imageTitle: 'Memories Two',
-    imageName: 'TAMZ9254',
-    imageWidth: 2400,
-    imageHeight: 3600,
+    imageName: 'CLN06742',
+    imageWidth: 3048,
+    imageHeight: 3048,
   },
   {
     imageTitle: 'Memories Six',
