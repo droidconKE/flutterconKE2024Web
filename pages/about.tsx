@@ -18,15 +18,15 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
           <div>
             <div className="flex flex-wrap md:flex-nowrap items-start gap-8">
               <div className="w-full md:flex-1 md:min-w-0">
-                <h1 className="sr-only">about fluterconke</h1>
+                <h1 className="sr-only">about flutterconke</h1>
                 <h2 className="font-display text-white dark:text-white text-3xl md:text-5xl lg:text-6xl leading-tight md:leading-[0.92] tracking-tight">
-                  Largest
+                  Africa&apos;s
                   <br />
-                  Mobile Focused
+                  Largest Mobile
                   <br />
                   Developer
                   <br />
-                  Conference in Africa.
+                  Conference.
                 </h2>
               </div>
               <div className="w-full md:w-auto flex justify-center md:justify-end shrink-0">
@@ -63,9 +63,8 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
                 The 2025 edition proved the demand: Fluttercon grew to 34.2% of
                 total attendance, and Flutter submissions (92) outnumbered
                 Android submissions (89) for the first time. Co-located with
-                Droidcon Kenya, Sub-Saharan Africa&apos;s premier Android
-                developer conference, the two events form one of the largest
-                gatherings of mobile developers on the continent.
+                Droidcon Kenya, the two events form Africa&apos;s largest
+                gathering of mobile developers.
               </p>
             </div>
           </div>
