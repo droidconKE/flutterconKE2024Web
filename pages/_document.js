@@ -2,7 +2,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 class MyDocument extends Document {
   render() {
-    const title = `FlutterconKE - Sub-Saharan Africa's premier mobile development conference`
+    const title = `FlutterconKE - Africa's Largest Mobile Developer Conference`
     return (
       <Html>
         <Head>
