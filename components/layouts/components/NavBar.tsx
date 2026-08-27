@@ -33,19 +33,19 @@ export const NavBar = () => {
   return (
     <nav
       ref={ref}
-      className="flex items-center justify-between flex-wrap lg:flex-nowrap nav-bg px-2 py-6 md:py-3 md:px-5 fixed w-full z-10 top-0 border-b border-gray-200 dark:border-gray-600 mb-4"
+      className="flex items-center justify-between flex-wrap lg:flex-nowrap nav-bg min-h-[var(--nav-h)] px-3 py-2 md:px-5 fixed w-full z-10 top-0 border-b border-gray-200 dark:border-gray-600"
     >
-      <div className="flex items-center flex-shrink-0 text-white mr-6 xl:pl-24">
+      <div className="flex items-center flex-shrink-0 text-white mr-4 xl:pl-24">
         <Link href="/">
           {!isDarkTheme ? (
             <img
-              className="w-[200px] xl:w-[250px]"
+              className="w-[150px] md:w-[200px] xl:w-[250px]"
               src="/images/new-design/logo-light.svg"
               alt="logo"
             />
           ) : (
             <img
-              className="w-[200px] md:w-[250px]"
+              className="w-[150px] md:w-[200px] xl:w-[250px]"
               src="/images/new-design/logo-dark.svg"
               alt="logo dark"
             />
