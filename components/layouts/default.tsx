@@ -14,8 +14,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     <>
       <Head>
         <title>
-          FlutterconKE - Sub-Saharan Africa&apos;s premier mobile development
-          conference
+          FlutterconKE - Africa&apos;s Largest Mobile Developer Conference
         </title>
       </Head>
       <ThemeProvider>
