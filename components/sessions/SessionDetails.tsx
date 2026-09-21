@@ -66,7 +66,7 @@ export const SessionDetails = ({ session }: { session: Session }) => {
                 href={session.recording_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-2 text-primary dark:text-primary text-sm font-semibold hover:underline"
+                className="inline-block mt-2 text-black dark:text-black text-sm font-semibold hover:underline"
               >
                 <i className="fa fa-youtube-play mr-2" />
                 Watch on YouTube
@@ -97,7 +97,7 @@ export const SessionDetails = ({ session }: { session: Session }) => {
                   href={session.slides_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary dark:text-primary font-semibold hover:underline"
+                  className="text-black dark:text-black font-semibold hover:underline"
                 >
                   <i className="fa fa-file-text-o mr-2" />
                   Slides
@@ -108,7 +108,7 @@ export const SessionDetails = ({ session }: { session: Session }) => {
                   href={session.video_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary dark:text-primary font-semibold hover:underline"
+                  className="text-black dark:text-black font-semibold hover:underline"
                 >
                   <i className="fa fa-youtube-play mr-2" />
                   Recording by the speaker
@@ -119,7 +119,7 @@ export const SessionDetails = ({ session }: { session: Session }) => {
                   href={session.recording_url ?? undefined}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary dark:text-primary font-semibold hover:underline"
+                  className="text-black dark:text-black font-semibold hover:underline"
                 >
                   <i className="fa fa-youtube-play mr-2" />
                   Recording
@@ -131,7 +131,7 @@ export const SessionDetails = ({ session }: { session: Session }) => {
                   href={resource.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary dark:text-primary font-semibold hover:underline"
+                  className="text-black dark:text-black font-semibold hover:underline"
                 >
                   <i className="fa fa-external-link mr-2" />
                   {resource.label}
