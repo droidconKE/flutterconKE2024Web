@@ -7,14 +7,21 @@ import { ShareSessionAndFeedback } from '../../components/sessions/ShareSessionA
 import { SpeakersDetails } from '../../components/sessions/SpeakersDetails'
 import { Event, Session as SessionProp } from '../../types/types'
 import axios from '../../utils/axios'
+import { eventVenue } from '../../utils/helpers'
 
 interface SessionPageProp {
   session: SessionProp
   event: Event | null
   fullUrl: string
+  isCurrentEvent: boolean
 }
 
-const Session: NextPage<SessionPageProp> = ({ session, event, fullUrl }) => {
+const Session: NextPage<SessionPageProp> = ({
+  session,
+  event,
+  fullUrl,
+  isCurrentEvent,
+}) => {
   const router = useRouter()
 
   const navBackLink = router.query?.from ? router.query?.from : '/sessions'
@@ -42,18 +49,18 @@ const Session: NextPage<SessionPageProp> = ({ session, event, fullUrl }) => {
         <SessionDetails session={session} />
         <ShareSessionAndFeedback
           session={session}
-          venue={
-            event
-              ? [event.venue_name, event.venue_address]
-                  .filter(Boolean)
-                  .join(', ')
-              : undefined
-          }
+          venue={eventVenue(event)}
+          isCurrentEvent={isCurrentEvent}
         />
       </div>
     </>
   )
 }
+
+// `event` comes off the URL and goes into an API path, so it is kept to the
+// shape of a slug and lower-cased before use.
+const EVENT_SLUG = /^[a-z0-9][a-z0-9-]*$/i
+
 export async function getServerSideProps({
   query,
   req,
@@ -63,14 +70,14 @@ export async function getServerSideProps({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   req: any
 }) {
-  const { slug } = query
+  const { slug, event: eventParam } = query
   // A past-event card carries ?event=; a current-event link does not and
   // falls back to the live event, so those URLs keep working unchanged.
   const eventSlug =
-    typeof query.event === 'string' && query.event.trim()
-      ? query.event.trim()
+    typeof eventParam === 'string' && EVENT_SLUG.test(eventParam)
+      ? eventParam.toLowerCase()
       : process.env.NEXT_PUBLIC_EVENT_SLUG
-  const eventPath = `/events/${encodeURIComponent(String(eventSlug))}`
+  const eventPath = `/events/${eventSlug}`
 
   // Get protocol
   const protocol = req.headers['x-forwarded-proto'] || 'https'
@@ -107,6 +114,14 @@ export async function getServerSideProps({
       notFound: true,
     }
   }
-  return { props: { session, event, fullUrl } }
+  return {
+    props: {
+      session,
+      event,
+      fullUrl,
+      // Scheduling and reviewing only apply to the event being run now.
+      isCurrentEvent: eventSlug === process.env.NEXT_PUBLIC_EVENT_SLUG,
+    },
+  }
 }
 export default Session

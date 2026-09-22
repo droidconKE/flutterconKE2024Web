@@ -1,4 +1,5 @@
 import moment from 'moment'
+import { Event } from '../types/types'
 
 export const isServer = typeof window === 'undefined'
 
@@ -40,6 +41,17 @@ export const objIsEmpty = (obj: any) => {
     if (obj.hasOwnProperty(key)) return false
   }
   return true
+}
+
+// Where an event is held, for a calendar entry. Some events repeat the name
+// as the address (droidconKE 2024 carries "Nairobi, Kenya" as both), so
+// identical parts are only said once.
+export const eventVenue = (event?: Event | null): string | undefined => {
+  if (!event) return undefined
+  const parts = [event.venue_name, event.venue_address].filter(Boolean)
+  return (
+    parts.filter((part, i) => parts.indexOf(part) === i).join(', ') || undefined
+  )
 }
 
 // A session detail link. `from` is the page to return to; `eventSlug` names
