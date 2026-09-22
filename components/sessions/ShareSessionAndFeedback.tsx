@@ -38,7 +38,10 @@ export const ShareSessionAndFeedback = ({
 
   return (
     <div className="w-full flex flex-wrap items-center gap-4 py-2">
-      <StarIcon isStar={false} session={session} />
+      {/* Saving only applies to the event being run now: My Sessions filters
+          the current event's schedule by the ids saved here, so saving a past
+          session would toggle a control that can never show anything. */}
+      {isCurrentEvent && <StarIcon isStar={false} session={session} />}
       <button
         type="button"
         className="btn-accent uppercase"
@@ -75,7 +78,7 @@ export const ShareSessionAndFeedback = ({
       )}
       {/* Scheduling and reviewing only apply to the event being run now:
           feedback posts against the current event, so a past session must
-          not offer it. Share and save stay. */}
+          not offer it. Share stays. */}
       {isCurrentEvent && (
         <>
           <AddToCalendar session={session} venue={venue} />
