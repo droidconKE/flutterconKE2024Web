@@ -39,6 +39,11 @@ const Home2024: NextPage<SessionProps> = ({
     filterSession,
   } = useSession({ allSchedules })
 
+  // Session slugs are unique per event, so a card from a past event has to
+  // name its event or the detail page looks the slug up under the current
+  // one and 404s.
+  const eventSlug = process.env.NEXT_PUBLIC_EVENT_SLUG_2024
+
   return (
     <>
       <div className="s-container my-10 md:my-16">
@@ -90,6 +95,7 @@ const Home2024: NextPage<SessionProps> = ({
               schedules={schedules}
               activeTab={activeTab}
               from="/past-events/2024"
+              eventSlug={eventSlug}
               year={24}
             />
           )}
@@ -98,6 +104,7 @@ const Home2024: NextPage<SessionProps> = ({
               schedules={schedules}
               activeTab={activeTab}
               from="/past-events/2024"
+              eventSlug={eventSlug}
             />
           )}
           {loading && <SessionsSkeleton />}
@@ -105,7 +112,12 @@ const Home2024: NextPage<SessionProps> = ({
 
         {/* Speakers */}
         <div className="mt-12 md:mt-16">
-          <SpeakersList sessions={sessions} speakers={speakers} />
+          <SpeakersList
+            sessions={sessions}
+            speakers={speakers}
+            from="/past-events/2024"
+            eventSlug={eventSlug}
+          />
         </div>
       </div>
       <SponsorsList sponsors={sponsors} showSponsors year={24} />

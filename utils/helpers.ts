@@ -41,3 +41,19 @@ export const objIsEmpty = (obj: any) => {
   }
   return true
 }
+
+// A session detail link. `from` is the page to return to; `eventSlug` names
+// the event the slug belongs to. Session slugs are unique per event, not
+// globally, so a past event's card has to say which event it came from or
+// the detail page looks the slug up under the current event and 404s.
+// Omitting `eventSlug` keeps current-event links exactly as they were.
+export const sessionHref = (
+  slug: string,
+  { from, eventSlug }: { from?: string; eventSlug?: string } = {}
+): string => {
+  const params = new URLSearchParams()
+  if (from) params.set('from', from)
+  if (eventSlug) params.set('event', eventSlug)
+  const query = params.toString()
+  return `/sessions/${slug}${query ? `?${query}` : ''}`
+}

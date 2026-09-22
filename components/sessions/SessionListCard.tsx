@@ -1,6 +1,12 @@
 import Link from 'next/link'
 import { Schedule, Session } from '../../types/types'
-import { hour, time, timeAm, truncateString } from '../../utils/helpers'
+import {
+  hour,
+  sessionHref,
+  time,
+  timeAm,
+  truncateString,
+} from '../../utils/helpers'
 import { NoSessions } from './NoSessions'
 import { AddToCalendar } from './AddToCalendar'
 import { StarIcon } from '../shared/StarIcon'
@@ -14,6 +20,7 @@ const SessionListCard = ({
   schedules,
   activeTab,
   from,
+  eventSlug,
   showStar = false,
   eventVenue,
 }: {
@@ -21,6 +28,8 @@ const SessionListCard = ({
   activeTab: number
   // eslint-disable-next-line react/require-default-props
   from?: string
+  // eslint-disable-next-line react/require-default-props
+  eventSlug?: string
   // eslint-disable-next-line react/require-default-props
   showStar?: boolean
   // eslint-disable-next-line react/require-default-props
@@ -39,9 +48,10 @@ const SessionListCard = ({
                 {// eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 schedules[key]?.map((schedule: Session) => {
-                  const href = `/sessions/${schedule.slug}${
-                    from ? `?from=${from}` : ''
-                  }`
+                  const href = sessionHref(String(schedule.slug), {
+                    from,
+                    eventSlug,
+                  })
                   const showActions = showStar && !schedule.is_serviceSession
                   const cardClass =
                     'group block rounded-4xl bg-white dark:bg-darker-dark border border-primary dark:border-primary shadow-md hover:shadow-xl hover:border-accent transition-all duration-200 px-4 md:px-6 py-5'

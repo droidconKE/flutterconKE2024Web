@@ -64,6 +64,13 @@ export async function getServerSideProps({
   req: any
 }) {
   const { slug } = query
+  // A past-event card carries ?event=; a current-event link does not and
+  // falls back to the live event, so those URLs keep working unchanged.
+  const eventSlug =
+    typeof query.event === 'string' && query.event.trim()
+      ? query.event.trim()
+      : process.env.NEXT_PUBLIC_EVENT_SLUG
+  const eventPath = `/events/${encodeURIComponent(String(eventSlug))}`
 
   // Get protocol
   const protocol = req.headers['x-forwarded-proto'] || 'https'
@@ -76,7 +83,7 @@ export async function getServerSideProps({
 
   const [session, event] = await Promise.all([
     axios
-      .get(`/events/${process.env.NEXT_PUBLIC_EVENT_SLUG}/schedule/${slug}`)
+      .get(`${eventPath}/schedule/${slug}`)
       .then((response) => {
         return response.data.data
       })
@@ -84,7 +91,7 @@ export async function getServerSideProps({
         return null
       }),
     axios
-      .get(`/events/${process.env.NEXT_PUBLIC_EVENT_SLUG}`)
+      .get(eventPath)
       .then((response) => {
         return response.data.data
       })
