@@ -7,7 +7,11 @@ import { ShareSessionAndFeedback } from '../../components/sessions/ShareSessionA
 import { SpeakersDetails } from '../../components/sessions/SpeakersDetails'
 import { Event, Session as SessionProp } from '../../types/types'
 import axios from '../../utils/axios'
-import { eventVenue } from '../../utils/helpers'
+import {
+  eventVenue,
+  isCurrentEventSlug,
+  resolveEventSlug,
+} from '../../utils/helpers'
 
 interface SessionPageProp {
   session: SessionProp
@@ -57,10 +61,6 @@ const Session: NextPage<SessionPageProp> = ({
   )
 }
 
-// `event` comes off the URL and goes into an API path, so it is kept to the
-// shape of a slug and lower-cased before use.
-const EVENT_SLUG = /^[a-z0-9][a-z0-9-]*$/i
-
 export async function getServerSideProps({
   query,
   req,
@@ -73,11 +73,7 @@ export async function getServerSideProps({
   const { slug, event: eventParam } = query
   // A past-event card carries ?event=; a current-event link does not and
   // falls back to the live event, so those URLs keep working unchanged.
-  const eventSlug =
-    typeof eventParam === 'string' && EVENT_SLUG.test(eventParam)
-      ? eventParam.toLowerCase()
-      : process.env.NEXT_PUBLIC_EVENT_SLUG
-  const eventPath = `/events/${eventSlug}`
+  const eventPath = `/events/${resolveEventSlug(eventParam)}`
 
   // Get protocol
   const protocol = req.headers['x-forwarded-proto'] || 'https'
@@ -120,7 +116,7 @@ export async function getServerSideProps({
       event,
       fullUrl,
       // Scheduling and reviewing only apply to the event being run now.
-      isCurrentEvent: eventSlug === process.env.NEXT_PUBLIC_EVENT_SLUG,
+      isCurrentEvent: isCurrentEventSlug(eventParam),
     },
   }
 }
