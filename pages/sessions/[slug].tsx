@@ -7,14 +7,25 @@ import { ShareSessionAndFeedback } from '../../components/sessions/ShareSessionA
 import { SpeakersDetails } from '../../components/sessions/SpeakersDetails'
 import { Event, Session as SessionProp } from '../../types/types'
 import axios from '../../utils/axios'
+import {
+  eventVenue,
+  isCurrentEventSlug,
+  resolveEventSlug,
+} from '../../utils/helpers'
 
 interface SessionPageProp {
   session: SessionProp
   event: Event | null
   fullUrl: string
+  isCurrentEvent: boolean
 }
 
-const Session: NextPage<SessionPageProp> = ({ session, event, fullUrl }) => {
+const Session: NextPage<SessionPageProp> = ({
+  session,
+  event,
+  fullUrl,
+  isCurrentEvent,
+}) => {
   const router = useRouter()
 
   const navBackLink = router.query?.from ? router.query?.from : '/sessions'
@@ -42,18 +53,14 @@ const Session: NextPage<SessionPageProp> = ({ session, event, fullUrl }) => {
         <SessionDetails session={session} />
         <ShareSessionAndFeedback
           session={session}
-          venue={
-            event
-              ? [event.venue_name, event.venue_address]
-                  .filter(Boolean)
-                  .join(', ')
-              : undefined
-          }
+          venue={eventVenue(event)}
+          isCurrentEvent={isCurrentEvent}
         />
       </div>
     </>
   )
 }
+
 export async function getServerSideProps({
   query,
   req,
@@ -63,7 +70,10 @@ export async function getServerSideProps({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   req: any
 }) {
-  const { slug } = query
+  const { slug, event: eventParam } = query
+  // A past-event card carries ?event=; a current-event link does not and
+  // falls back to the live event, so those URLs keep working unchanged.
+  const eventPath = `/events/${resolveEventSlug(eventParam)}`
 
   // Get protocol
   const protocol = req.headers['x-forwarded-proto'] || 'https'
@@ -76,7 +86,7 @@ export async function getServerSideProps({
 
   const [session, event] = await Promise.all([
     axios
-      .get(`/events/${process.env.NEXT_PUBLIC_EVENT_SLUG}/schedule/${slug}`)
+      .get(`${eventPath}/schedule/${slug}`)
       .then((response) => {
         return response.data.data
       })
@@ -84,7 +94,7 @@ export async function getServerSideProps({
         return null
       }),
     axios
-      .get(`/events/${process.env.NEXT_PUBLIC_EVENT_SLUG}`)
+      .get(eventPath)
       .then((response) => {
         return response.data.data
       })
@@ -100,6 +110,14 @@ export async function getServerSideProps({
       notFound: true,
     }
   }
-  return { props: { session, event, fullUrl } }
+  return {
+    props: {
+      session,
+      event,
+      fullUrl,
+      // Scheduling and reviewing only apply to the event being run now.
+      isCurrentEvent: isCurrentEventSlug(eventParam),
+    },
+  }
 }
 export default Session

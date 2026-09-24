@@ -5,11 +5,17 @@ export const SpeakersList = ({
   speakers,
   sessions,
   hideTitle = false,
+  from,
+  eventSlug,
 }: {
   speakers: Speaker[]
   sessions: Session[]
   // eslint-disable-next-line react/require-default-props
   hideTitle?: boolean
+  // eslint-disable-next-line react/require-default-props
+  from?: string
+  // eslint-disable-next-line react/require-default-props
+  eventSlug?: string
 }) => (
   <div>
     {!hideTitle && (
@@ -29,6 +35,8 @@ export const SpeakersList = ({
               speaker={speaker}
               slug={speakerSession?.slug}
               key={speaker.name}
+              from={from}
+              eventSlug={eventSlug}
             />
           )
         })}
