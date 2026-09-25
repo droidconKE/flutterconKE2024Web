@@ -1,5 +1,7 @@
-import { Session } from '../../types/types'
+import { Event, Session } from '../../types/types'
 import { hour } from '../../utils/helpers'
+import { sessionAcceptsFeedback } from '../../utils/feedback'
+import { FeedbackNudge } from './FeedbackNudge'
 
 // Speakers and organizers supply these URLs, and they end up in an href.
 // React already refuses a javascript: URL, but a scheme a browser cannot open
@@ -11,7 +13,17 @@ const safeHref = (url?: string | null) => {
   return trimmed && /^https?:\/\//i.test(trimmed) ? trimmed : null
 }
 
-export const SessionDetails = ({ session }: { session: Session }) => {
+export const SessionDetails = ({
+  session,
+  event,
+  eventSlug,
+}: {
+  session: Session
+  // eslint-disable-next-line react/require-default-props
+  event?: Event | null
+  // eslint-disable-next-line react/require-default-props
+  eventSlug?: string
+}) => {
   const slidesUrl = safeHref(session.slides_url)
   const speakerVideoUrl = safeHref(session.video_url)
   const recordingUrl = safeHref(session.recording_url)
@@ -21,6 +33,13 @@ export const SessionDetails = ({ session }: { session: Session }) => {
   const recordingLinkOnly = recordingUrl && !session.recording_youtube_id
   const hasMaterials = Boolean(
     slidesUrl || speakerVideoUrl || resources.length || recordingLinkOnly
+  )
+  // Once the talk is over and the organizer is taking feedback, the banner
+  // carries the rate-it nudge — the share row yields to it (see
+  // ShareSessionAndFeedback), so this is the page's one session entry point.
+  const canRate = sessionAcceptsFeedback(
+    session,
+    event ? event.feedback_open !== false : true
   )
 
   return (
@@ -84,6 +103,11 @@ export const SessionDetails = ({ session }: { session: Session }) => {
                 Watch on YouTube
               </a>
             )}
+          </div>
+        )}
+        {canRate && (
+          <div className="mt-6">
+            <FeedbackNudge session={session} eventSlug={eventSlug} size="md" />
           </div>
         )}
         <div className="flex flex-col md:flex-row gap-6 mt-6">

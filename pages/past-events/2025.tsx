@@ -97,6 +97,7 @@ const Home2025: NextPage<SessionProps> = ({
               from="/past-events/2025"
               eventSlug={eventSlug}
               year={25}
+              feedbackOpen={event?.feedback_open}
             />
           )}
           {!loading && !isGridView && (
@@ -105,6 +106,7 @@ const Home2025: NextPage<SessionProps> = ({
               activeTab={activeTab}
               from="/past-events/2025"
               eventSlug={eventSlug}
+              feedbackOpen={event?.feedback_open}
             />
           )}
           {loading && <SessionsSkeleton />}

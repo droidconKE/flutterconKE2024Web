@@ -89,6 +89,7 @@ const Sessions: NextPage<SessionProps> = ({
               activeTab={activeTab}
               showStar
               eventVenue={venue}
+              feedbackOpen={event?.feedback_open}
             />
           )}
           {!loading && !isGridView && (
@@ -97,6 +98,7 @@ const Sessions: NextPage<SessionProps> = ({
               activeTab={activeTab}
               showStar
               eventVenue={venue}
+              feedbackOpen={event?.feedback_open}
             />
           )}
           {loading && <SessionsSkeleton />}

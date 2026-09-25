@@ -11,23 +11,49 @@ import {
 } from 'react-share'
 import { SessionFeedback } from './SessionFeedback'
 import { AddToCalendar } from './AddToCalendar'
-import { Session } from '../../types/types'
+import { Session, Event } from '../../types/types'
 import { truncateString } from '../../utils/helpers'
+import {
+  feedbackWindowLabel,
+  sessionAcceptsFeedback,
+} from '../../utils/feedback'
 import { StarIcon } from '../shared/StarIcon'
+
+// Speakers and organizers supply these URLs and they end up in an href, so
+// only a plain web link is kept — same rule the materials section applies.
+const safeHref = (url?: string | null) => {
+  const trimmed = url?.trim()
+  return trimmed && /^https?:\/\//i.test(trimmed) ? trimmed : null
+}
 
 export const ShareSessionAndFeedback = ({
   session,
   venue,
   isCurrentEvent = true,
+  eventSlug,
+  event,
 }: {
   session: Session
   // eslint-disable-next-line react/require-default-props
   venue?: string
   // eslint-disable-next-line react/require-default-props
   isCurrentEvent?: boolean
+  // eslint-disable-next-line react/require-default-props
+  eventSlug?: string
+  // eslint-disable-next-line react/require-default-props
+  event?: Event | null
 }) => {
   const [showFeedbackModal, setShowFeedbackModal] = useState(false)
   const [showShare, setShowShare] = useState(false)
+
+  // The window the page's own event carries. Missing or unreadable stays
+  // open — the default is on, never off.
+  const feedbackOpen = event ? event.feedback_open !== false : true
+  // Only one session-level entry point at a time: while the talk is on the
+  // timetable the button is it; once it is over the nudge takes over (the
+  // banner renders it), so the page never stacks two doors to the same form.
+  const nudgeApplies = sessionAcceptsFeedback(session, feedbackOpen)
+  const officialFormUrl = feedbackOpen ? safeHref(session.feedback_url) : null
 
   const title = `${session.title} by ${session.speakers.map(
     (s) => ` ${s.name}`
@@ -74,28 +100,55 @@ export const ShareSessionAndFeedback = ({
           <WhatsappShareButton url={window.location.href} title={title}>
             <WhatsappIcon size={32} round />
           </WhatsappShareButton>
+          {/* The official form is the same page the door QR codes open — a
+              way in for whoever prefers the event's own surface. */}
+          {officialFormUrl && (
+            <a
+              href={officialFormUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-sm font-semibold text-primary dark:text-accent-dark hover:underline"
+            >
+              <i className="fa fa-external-link mr-2" aria-hidden="true" />
+              Official feedback form
+            </a>
+          )}
         </div>
       )}
-      {/* Scheduling and reviewing only apply to the event being run now:
-          feedback posts against the current event, so a past session must
-          not offer it. Share stays. */}
-      {isCurrentEvent && (
+      {/* Scheduling only applies to the event being run now: feedback posts
+          under the event the page shows (eventSlug), but a past session's
+          entry point is the nudge, so the button yields there too. Share
+          stays. */}
+      {isCurrentEvent && !nudgeApplies && (
         <>
           <AddToCalendar session={session} venue={venue} />
-          <button
-            type="button"
-            className="btn-primary"
-            onClick={() => setShowFeedbackModal(true)}
-          >
-            Session Feedback{' '}
-            <i className="fa fa-send" style={{ transform: 'rotate(55deg)' }} />
-          </button>
+          {feedbackOpen ? (
+            <button
+              type="button"
+              className="btn-primary"
+              onClick={() => setShowFeedbackModal(true)}
+            >
+              Session Feedback{' '}
+              <i
+                className="fa fa-send"
+                style={{ transform: 'rotate(55deg)' }}
+              />
+            </button>
+          ) : (
+            <span
+              aria-disabled
+              className="inline-flex items-center rounded-full bg-primary/20 dark:bg-primary/30 text-primary dark:text-white-dark text-sm font-semibold px-4 py-2"
+            >
+              {feedbackWindowLabel(event)}
+            </span>
+          )}
         </>
       )}
       {showFeedbackModal && (
         <SessionFeedback
           closeDialog={() => setShowFeedbackModal(false)}
           sessionSlug={session.slug}
+          eventSlug={eventSlug}
         />
       )}
     </div>

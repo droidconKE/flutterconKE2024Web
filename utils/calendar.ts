@@ -39,6 +39,14 @@ const sessionTimes = (session: Session) => {
   return start && end ? { start, end } : null
 }
 
+// Whether a session is over, decided the same way on the server and the
+// client (parseEat pins the zone), compared once on render — not on a
+// ticking clock. An unparseable date reads as not ended: no nudge.
+export const sessionHasEnded = (endDateTime: string): boolean => {
+  const end = parseEat(endDateTime)
+  return end !== null && end.getTime() < Date.now()
+}
+
 const sessionUrl = (session: Session): string =>
   session.slug ? `${window.location.origin}/sessions/${session.slug}` : ''
 
