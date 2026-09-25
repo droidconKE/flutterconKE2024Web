@@ -3,7 +3,9 @@ import { Schedule, Session } from '../../types/types'
 import { hour, sessionHref, truncateString } from '../../utils/helpers'
 import { NoSessions } from './NoSessions'
 import { AddToCalendar } from './AddToCalendar'
+import { FeedbackNudge } from './FeedbackNudge'
 import { StarIcon } from '../shared/StarIcon'
+import { sessionAcceptsFeedback } from '../../utils/feedback'
 
 const levelPill =
   'bg-magenta-100 dark:bg-magenta-500/15 text-magenta-800 dark:text-accent-dark text-xs font-semibold px-3 py-1 rounded-full'
@@ -20,6 +22,7 @@ export const SessionGridCard = ({
   year = 25,
   showStar = false,
   eventVenue,
+  feedbackOpen,
 }: {
   schedules: Schedule[]
   activeTab: number
@@ -33,6 +36,8 @@ export const SessionGridCard = ({
   showStar?: boolean
   // eslint-disable-next-line react/require-default-props
   eventVenue?: string
+  // eslint-disable-next-line react/require-default-props
+  feedbackOpen?: boolean
 }) => {
   return (
     <>
@@ -149,26 +154,36 @@ export const SessionGridCard = ({
                     </>
                   )
                   return (
-                    <div
-                      className="flex relative mb-6 hover:-translate-y-1 transition-transform duration-200"
-                      key={schedule.id}
-                    >
-                      {schedule.is_serviceSession ? (
-                        <div className={cardClass}>{inner}</div>
-                      ) : (
-                        <Link href={href} className={`${cardClass} block`}>
-                          {inner}
-                        </Link>
-                      )}
-                      {/* Sibling of the Link — interactive content can't nest inside an <a> */}
-                      {showStar && !schedule.is_serviceSession && (
-                        <div className="absolute bottom-5 right-5 z-20 flex items-center gap-3">
-                          <AddToCalendar
+                    <div key={schedule.id} className="mb-6">
+                      {/* The hover lift and the floating actions anchor to
+                          the card itself, so the nudge below never moves
+                          them. */}
+                      <div className="flex relative hover:-translate-y-1 transition-transform duration-200">
+                        {schedule.is_serviceSession ? (
+                          <div className={cardClass}>{inner}</div>
+                        ) : (
+                          <Link href={href} className={`${cardClass} block`}>
+                            {inner}
+                          </Link>
+                        )}
+                        {/* Sibling of the Link — interactive content can't nest inside an <a> */}
+                        {showStar && !schedule.is_serviceSession && (
+                          <div className="absolute bottom-5 right-5 z-20 flex items-center gap-3">
+                            <AddToCalendar
+                              session={schedule}
+                              venue={eventVenue}
+                              compact
+                            />
+                            <StarIcon session={schedule} />
+                          </div>
+                        )}
+                      </div>
+                      {sessionAcceptsFeedback(schedule, feedbackOpen) && (
+                        <div className="mt-2 flex justify-end">
+                          <FeedbackNudge
                             session={schedule}
-                            venue={eventVenue}
-                            compact
+                            eventSlug={eventSlug}
                           />
-                          <StarIcon session={schedule} />
                         </div>
                       )}
                     </div>

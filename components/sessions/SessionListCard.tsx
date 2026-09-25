@@ -9,7 +9,9 @@ import {
 } from '../../utils/helpers'
 import { NoSessions } from './NoSessions'
 import { AddToCalendar } from './AddToCalendar'
+import { FeedbackNudge } from './FeedbackNudge'
 import { StarIcon } from '../shared/StarIcon'
+import { sessionAcceptsFeedback } from '../../utils/feedback'
 
 const levelPill =
   'bg-magenta-100 dark:bg-magenta-500/15 text-magenta-800 dark:text-accent-dark text-xs font-semibold px-3 py-1 rounded-full'
@@ -25,6 +27,7 @@ const SessionListCard = ({
   eventSlug,
   showStar = false,
   eventVenue,
+  feedbackOpen,
 }: {
   schedules: Schedule[]
   activeTab: number
@@ -36,6 +39,8 @@ const SessionListCard = ({
   showStar?: boolean
   // eslint-disable-next-line react/require-default-props
   eventVenue?: string
+  // eslint-disable-next-line react/require-default-props
+  feedbackOpen?: boolean
 }) => {
   return (
     <>
@@ -141,6 +146,14 @@ const SessionListCard = ({
                             session={schedule}
                             venue={eventVenue}
                             compact
+                          />
+                        </div>
+                      )}
+                      {sessionAcceptsFeedback(schedule, feedbackOpen) && (
+                        <div className="mt-2 flex justify-end">
+                          <FeedbackNudge
+                            session={schedule}
+                            eventSlug={eventSlug}
                           />
                         </div>
                       )}
