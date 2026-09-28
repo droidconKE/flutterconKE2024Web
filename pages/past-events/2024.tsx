@@ -162,6 +162,9 @@ export async function getServerSideProps() {
     .then((response) => {
       return response.data.data
     })
+    .catch(() => {
+      return []
+    })
 
   const speakers = await axios
     .get(
@@ -170,6 +173,9 @@ export async function getServerSideProps() {
     .then((response) => {
       return response.data.data
     })
+    .catch(() => {
+      return []
+    })
 
   const sessions = await axios
     .get(
@@ -177,6 +183,9 @@ export async function getServerSideProps() {
     )
     .then((response) => {
       return response.data.data
+    })
+    .catch(() => {
+      return []
     })
 
   if (!schedules) {
