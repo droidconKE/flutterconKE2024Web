@@ -15,18 +15,14 @@ export const SpeakerCard = ({
   from?: string
   // eslint-disable-next-line react/require-default-props
   eventSlug?: string
-}) => (
-  <div key={speaker.name} className="h-full">
-    <Link
-      href={
-        slug
-          ? sessionHref(slug, { from, eventSlug })
-          : (speaker.linkedin ?? String(speaker.twitter))
-      }
-      className="group flex flex-col h-full rounded-4xl overflow-hidden bg-white dark:bg-darker-dark border border-primary dark:border-primary shadow-md hover:shadow-xl hover:border-accent transition-all duration-200"
-      target={slug ? undefined : '_blank'}
-      rel={slug ? undefined : 'noreferrer noopener'}
-    >
+}) => {
+  // A missing social must not become a link: `linkedin ?? String(twitter)`
+  // rendered the string "undefined" as an href, and the whole card navigated
+  // to /undefined. Only wrap the card when there is a real destination.
+  const socialHref = speaker.linkedin || speaker.twitter
+
+  const body = (
+    <>
       {/* duotone photo — white highlights, blue shadows (screen over blue) */}
       <div className="relative overflow-hidden bg-blue-600">
         <img
@@ -44,6 +40,31 @@ export const SpeakerCard = ({
           {speaker.tagline}
         </p>
       </div>
-    </Link>
-  </div>
-)
+    </>
+  )
+
+  return (
+    <div key={speaker.name} className="h-full">
+      {slug || socialHref ? (
+        <Link
+          href={
+            slug
+              ? sessionHref(slug, { from, eventSlug })
+              : (socialHref as string)
+          }
+          className="group flex flex-col h-full rounded-4xl overflow-hidden bg-white dark:bg-darker-dark border border-primary dark:border-primary shadow-md hover:shadow-xl hover:border-accent transition-all duration-200"
+          target={slug ? undefined : '_blank'}
+          rel={slug ? undefined : 'noreferrer noopener'}
+        >
+          {body}
+        </Link>
+      ) : (
+        // No destination at all: a still card, without the hover affordances
+        // that would promise a click the card cannot honour.
+        <div className="flex flex-col h-full rounded-4xl overflow-hidden bg-white dark:bg-darker-dark border border-primary dark:border-primary shadow-md">
+          {body}
+        </div>
+      )}
+    </div>
+  )
+}
