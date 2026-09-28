@@ -14,35 +14,51 @@ const makeId = (): string => {
     return crypto.randomUUID()
   }
   // randomUUID needs a secure context; http previews fall back to
-  // getRandomValues, shaped into a v4 id on the hex string itself (the
-  // repo's eslint rules refuse bitwise operators)
+  // getRandomValues shaped into a real v4 id: 8-4-4-4-12 hex chars, the
+  // version nibble set to 4 and the variant nibble to one of 8/9/a/b, all in
+  // place on the hex string itself (the repo's eslint rules refuse bitwise
+  // operators). The variant comes from the random nibble rather than being
+  // discarded, so only the six bits the spec fixes are lost.
   if (
     typeof crypto !== 'undefined' &&
     typeof crypto.getRandomValues === 'function'
   ) {
-    const hex = Array.from(crypto.getRandomValues(new Uint8Array(16)), (b) =>
-      b.toString(16).padStart(2, '0')
-    )
-    return `${hex.slice(0, 4).join('')}-4${hex[5].slice(1)}-${hex
-      .slice(6, 8)
-      .join('')}-8${hex[9].slice(1)}-${hex.slice(10, 16).join('')}`
+    const hex = Array.from(crypto.getRandomValues(new Uint8Array(16)), (byte) =>
+      byte.toString(16).padStart(2, '0')
+    ).join('')
+    const chars = hex.split('')
+    chars[12] = '4'
+    chars[16] = '89ab'[parseInt(hex[16], 16) % 4]
+    const id = chars.join('')
+    return `${id.slice(0, 8)}-${id.slice(8, 12)}-${id.slice(12, 16)}-${id.slice(16, 20)}-${id.slice(20)}`
   }
   return `fb-${Date.now()}-${Math.random().toString(16).slice(2)}`
 }
 
+// Stable within the page's life even when localStorage is refused: private
+// browsing throws on every access, and a fresh id per call would make the
+// `mine` lookup and the POST disagree — edit and remove would silently never
+// work, and each submit would write a new answer instead of a correction.
+let pageDeviceId: string | null = null
+
 export const feedbackDeviceId = (): string => {
   if (typeof window === 'undefined') return ''
+  if (pageDeviceId) return pageDeviceId
   try {
     const existing = window.localStorage.getItem(DEVICE_KEY)
-    if (existing) return existing
-    const id = makeId()
-    window.localStorage.setItem(DEVICE_KEY, id)
-    return id
+    if (existing) {
+      pageDeviceId = existing
+      return existing
+    }
+    pageDeviceId = makeId()
+    window.localStorage.setItem(DEVICE_KEY, pageDeviceId)
   } catch {
-    // Private browsing can refuse localStorage; the answer still goes out,
-    // it just cannot be recognised as this browser's afterwards.
-    return makeId()
+    // Private browsing can refuse localStorage; the id still has to be the
+    // same one for the whole page, or nothing this browser sent can be
+    // recognised as its own afterwards.
+    pageDeviceId = makeId()
   }
+  return pageDeviceId
 }
 
 export const feedbackHeaders = (): Record<string, string> => ({
