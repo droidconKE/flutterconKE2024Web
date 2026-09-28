@@ -84,6 +84,9 @@ export interface Session {
   recording_url?: string | null
   recording_youtube_id?: string | null
   resources?: SessionResource[]
+  // The per-session feedback form link (the QR code target). Null until the
+  // talk is on the timetable, or if it was taken off.
+  feedback_url?: string | null
 }
 
 export interface Schedule {
@@ -93,6 +96,35 @@ export interface Schedule {
 export interface FeedbackError {
   feedback?: string[]
   rating?: string[]
+  name?: string[]
+  // The backend keys per-question failures as "answers.<id>", so the shape
+  // is open — anything not named above is a question id.
+  [key: string]: string[] | undefined
+}
+
+// One of the organizer's own questions on the feedback form.
+export interface FeedbackQuestion {
+  id: string
+  label: string
+  type: 'choice' | 'scale' | 'text'
+  options: string[] | null
+  required: boolean
+  applies_to: 'event' | 'session' | 'both'
+}
+
+export type FeedbackAnswerValue = string | number
+
+export type FeedbackAnswers = Record<string, FeedbackAnswerValue>
+
+// What GET …/feedback/mine returns when this browser has answered already.
+export interface MyFeedback {
+  rating: number
+  feedback: string | null
+  answers: FeedbackAnswers | null
+  name?: string | null
+  sent_at: string
+  editable: boolean
+  editable_for_minutes: number
 }
 
 export interface StarIconProps {
@@ -170,4 +202,9 @@ export interface Event {
   remaining_tickets: number
   cfs: Cfs
   rooms: Room[]
+  // The organizer's feedback window. `feedback_open` missing (an older
+  // backend, a cached payload) means open — the default is on, never off.
+  feedback_url: string
+  feedback_open?: boolean
+  feedback_questions?: FeedbackQuestion[]
 }

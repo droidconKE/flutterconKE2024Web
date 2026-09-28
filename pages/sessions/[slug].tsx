@@ -18,6 +18,7 @@ interface SessionPageProp {
   event: Event | null
   fullUrl: string
   isCurrentEvent: boolean
+  eventSlug: string
 }
 
 const Session: NextPage<SessionPageProp> = ({
@@ -25,6 +26,7 @@ const Session: NextPage<SessionPageProp> = ({
   event,
   fullUrl,
   isCurrentEvent,
+  eventSlug,
 }) => {
   const router = useRouter()
 
@@ -50,11 +52,13 @@ const Session: NextPage<SessionPageProp> = ({
           <i className="fa fa-arrow-left mr-2" /> back
         </Link>
         <SpeakersDetails session={session} />
-        <SessionDetails session={session} />
+        <SessionDetails session={session} event={event} eventSlug={eventSlug} />
         <ShareSessionAndFeedback
           session={session}
           venue={eventVenue(event)}
           isCurrentEvent={isCurrentEvent}
+          eventSlug={eventSlug}
+          event={event}
         />
       </div>
     </>
@@ -73,7 +77,10 @@ export async function getServerSideProps({
   const { slug, event: eventParam } = query
   // A past-event card carries ?event=; a current-event link does not and
   // falls back to the live event, so those URLs keep working unchanged.
-  const eventPath = `/events/${resolveEventSlug(eventParam)}`
+  // The resolved slug is what feedback posts under, too — the same single
+  // decision, made once.
+  const eventSlug = resolveEventSlug(eventParam)
+  const eventPath = `/events/${eventSlug}`
 
   // Get protocol
   const protocol = req.headers['x-forwarded-proto'] || 'https'
@@ -117,6 +124,7 @@ export async function getServerSideProps({
       fullUrl,
       // Scheduling and reviewing only apply to the event being run now.
       isCurrentEvent: isCurrentEventSlug(eventParam),
+      eventSlug,
     },
   }
 }
