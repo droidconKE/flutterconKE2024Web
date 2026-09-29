@@ -77,13 +77,14 @@ const Sessions: NextPage<SessionProps> = ({
               </span>
               {/* Session count for this day — the same length the card grids
                   read, so pills, grids and My-Sessions filtering always agree. */}
-              <span className="text-px-13 font-normal opacity-70 flex items-center gap-2">
-                Day {i + 1}
+              <span className="text-px-13 font-normal flex items-center gap-2">
+                {/* The dimming belongs to the "Day N" text alone. On the whole
+                    row it also dimmed the count and the surface behind it,
+                    which is what left the number at 2.1:1. */}
+                <span className="opacity-70">Day {i + 1}</span>
                 <span
                   className={`rounded-full px-2 py-px text-xs font-semibold tabular-nums ${
-                    activeTab === i
-                      ? 'bg-white/20 text-white'
-                      : 'bg-primary/10 text-primary dark:bg-white/10 dark:text-white-dark'
+                    activeTab === i ? 'bg-accent text-black' : 'bg-primary/10'
                   }`}
                 >
                   {schedules[key]?.length ?? 0}
