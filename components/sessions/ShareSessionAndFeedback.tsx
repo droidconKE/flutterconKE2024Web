@@ -12,7 +12,7 @@ import {
 import { SessionFeedback } from './SessionFeedback'
 import { AddToCalendar } from './AddToCalendar'
 import { Session, Event } from '../../types/types'
-import { truncateString } from '../../utils/helpers'
+import { getTwitterUsername, truncateString } from '../../utils/helpers'
 import {
   feedbackWindowLabel,
   sessionAcceptsFeedback,
@@ -59,7 +59,8 @@ export const ShareSessionAndFeedback = ({
     (s) => ` ${s.name}`
   )} \r`
   const twTitle = `${session.title} by ${session.speakers.map(
-    (s) => ` ${s.twitter ? `@${s.twitter.split('twitter.com/')[1]}` : s.name}`
+    (s) =>
+      ` ${getTwitterUsername(s.twitter) ? `@${getTwitterUsername(s.twitter)}` : s.name}`
   )} \r`
 
   return (
