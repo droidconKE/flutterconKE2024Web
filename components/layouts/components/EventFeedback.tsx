@@ -44,7 +44,7 @@ export const EventFeedback = () => {
       ) : (
         <span
           aria-disabled
-          className="rounded-t-lg bg-primary/50 dark:bg-primary/40 px-6 p-1 text-white text-sm"
+          className="rounded-t-lg bg-primary px-6 p-1 text-white text-sm"
         >
           {feedbackWindowLabel(event)}
         </span>
