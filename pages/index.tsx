@@ -9,6 +9,7 @@ import { Organizer, Sponsor as SponsorType } from '../types/types'
 import axios from '../utils/axios'
 import Marquee from '../components/home/Marquee'
 import About from '../components/home/About'
+import { BackToTop } from '../components/home/BackToTop'
 
 interface HomeProps {
   sponsors: SponsorType[]
@@ -26,6 +27,7 @@ const Home: NextPage<HomeProps> = ({ sponsors, organizers }) => {
       <SponsorsList sponsors={sponsors} year={26} showSponsors />
       <Gallery />
       <Organizers organizers={organizers} compact={false} />
+      <BackToTop />
     </div>
   )
 }
