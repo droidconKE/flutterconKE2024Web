@@ -93,6 +93,6 @@ export const isCurrentEventSlug = (param?: string | string[]) =>
 // literal 'twitter.com/' yields `@undefined` for the new ones (#70).
 export const getTwitterUsername = (url?: string | null): string | null => {
   if (!url) return null
-  const match = url.match(/(?:twitter\.com|x\.com)\/([^/?#]+)/i)
+  const match = url.match(/(?:twitter\.com|x\.com)\/@?([^/?#]+)/i)
   return match?.[1] ?? null
 }

@@ -1,5 +1,5 @@
 import { Event, Session } from '../types/types'
-import { sessionHasEnded } from './calendar'
+import { parseEat, sessionHasEnded } from './calendar'
 
 // A per-browser id, made up once and kept in localStorage. It is what lets
 // the API tell "this browser again" apart from "someone else" — it is hashed
@@ -66,17 +66,16 @@ export const feedbackHeaders = (): Record<string, string> => ({
 // Which "closed" wording applies. Only called once the window is known to be
 // shut: before the event starts the form opens later, after that it has shut.
 export const feedbackWindowLabel = (event?: Event | null): string => {
+  // The API sends "YYYY-MM-DD HH:MM:SS" — a space, no zone — which parseEat
+  // reads. Building a date string by hand here produced an Invalid Date, so
+  // the branch below could never be reached and a future event was told its
+  // feedback had already closed.
   const start = event?.start_date
-  if (start) {
-    const startDate = new Date(`${start}T00:00:00+03:00`)
-    if (
-      !Number.isNaN(startDate.getTime()) &&
-      startDate.getTime() > Date.now()
-    ) {
-      return 'Not open yet'
-    }
-  }
-  return 'Feedback has closed'
+    ? parseEat(event.start_date, { allowDateOnly: true })
+    : null
+  return start && start.getTime() > Date.now()
+    ? 'Not open yet'
+    : 'Feedback has closed'
 }
 
 // The one decision of whether a session can be rated from here: it is a real
