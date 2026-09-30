@@ -81,8 +81,18 @@ const Home2025: NextPage<SessionProps> = ({
               <span className="font-bold block leading-tight">
                 {timeDay(key)}
               </span>
-              <span className="text-px-13 font-normal opacity-70">
-                Day {i + 1}
+              {/* Session count for this day — the same chip the agenda pills
+                  carry (twin of droidconKE#193), reading the same length the
+                  card grids branch on. */}
+              <span className="text-px-13 font-normal flex items-center gap-2">
+                <span className="opacity-70">Day {i + 1}</span>
+                <span
+                  className={`rounded-full px-2 py-px text-xs font-semibold tabular-nums ${
+                    activeTab === i ? 'bg-accent text-black' : 'bg-primary/10'
+                  }`}
+                >
+                  {schedules[key]?.length ?? 0}
+                </span>
               </span>
             </button>
           ))}
