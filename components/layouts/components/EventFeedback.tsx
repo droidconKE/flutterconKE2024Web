@@ -1,22 +1,44 @@
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 import { SessionFeedback } from '../../sessions/SessionFeedback'
 import { Event } from '../../../types/types'
 import axios from '../../../utils/axios'
 import { feedbackWindowLabel } from '../../../utils/feedback'
-import { resolveEventSlug } from '../../../utils/helpers'
+import { isCurrentEventSlug, resolveEventSlug } from '../../../utils/helpers'
 
 // The floating feedback button. It is the one event-level entry point, so it
 // reads the organizer's window itself: when feedback_open is false it shows
 // which closed-state applies and posts nothing. A missing field or a failed
 // request stays open — the default is on, never off.
+//
+// It only ever serves the event the current page is about. The page's event
+// is the year slug on the past-events routes, the ?event= param on session
+// pages, and the live event everywhere else. On anything that is not the
+// live event the button renders nothing — the per-session nudge is the
+// documented entry point on past events — so feedback can never be written
+// into another event's bucket.
 export const EventFeedback = () => {
+  const router = useRouter()
   const [showFeedbackModal, setShowFeedbackModal] = useState(false)
   const [event, setEvent] = useState<Event | null>(null)
 
+  // One resolution, shared by the window fetch below and the modal it opens.
+  const eventSlug = resolveEventSlug(
+    router.pathname === '/past-events/2024'
+      ? process.env.NEXT_PUBLIC_EVENT_SLUG_2024
+      : router.pathname === '/past-events/2025'
+        ? process.env.NEXT_PUBLIC_EVENT_SLUG_2025
+        : router.query.event
+  )
+  const isCurrentEvent = isCurrentEventSlug(eventSlug)
+
   useEffect(() => {
+    // The modal posts under the same resolved slug, so fetching a window for
+    // an event this button will never render for is wasted traffic.
+    if (!isCurrentEvent) return undefined
     let alive = true
     axios
-      .get(`/events/${resolveEventSlug()}`, { timeout: 5000 })
+      .get(`/events/${eventSlug}`, { timeout: 5000 })
       .then((response) => {
         if (alive) setEvent(response.data.data)
       })
@@ -27,7 +49,12 @@ export const EventFeedback = () => {
     return () => {
       alive = false
     }
-  }, [])
+    // Re-resolve when the page's event changes — navigating between pages
+    // about different events must re-read the window, not keep the old one.
+  }, [eventSlug, isCurrentEvent])
+
+  // Scheduling and reviewing only apply to the event being run now.
+  if (!isCurrentEvent) return null
 
   const open = event ? event.feedback_open !== false : true
 
@@ -51,7 +78,10 @@ export const EventFeedback = () => {
       )}
 
       {showFeedbackModal && open && (
-        <SessionFeedback closeDialog={() => setShowFeedbackModal(false)} />
+        <SessionFeedback
+          closeDialog={() => setShowFeedbackModal(false)}
+          eventSlug={eventSlug}
+        />
       )}
     </div>
   )
