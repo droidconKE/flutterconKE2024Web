@@ -143,7 +143,14 @@ export const SessionFeedback = ({
         { headers: feedbackHeaders(), timeout: WRITE_TIMEOUT }
       )
       .then((response) => {
-        const minutes = Number(response.data?.editable_for_minutes) || 10
+        // This API wraps payloads in { data: ... } — the two reads above
+        // unwrap it — but the write endpoint's envelope is not guaranteed,
+        // so read both, bare body last, keeping the 10-minute fallback.
+        const minutes =
+          Number(
+            response.data?.data?.editable_for_minutes ??
+              response.data?.editable_for_minutes
+          ) || 10
         toast.success(
           `Thank you. You can edit or remove this for the next ${minutes} minutes.`
         )
