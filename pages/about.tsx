@@ -210,7 +210,8 @@ export async function getServerSideProps() {
   const organizers: Organizer[] = await axios
     .get(`/organizers/${process.env.NEXT_PUBLIC_ORG_SLUG}/team`)
     .then((response) => {
-      return response.data.data
+      const list = response.data?.data
+      return Array.isArray(list) ? list : []
     })
     .catch(() => [])
 

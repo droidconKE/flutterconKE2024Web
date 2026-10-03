@@ -41,14 +41,16 @@ export async function getServerSideProps() {
   const speakers = await axios
     .get(`/events/${process.env.NEXT_PUBLIC_EVENT_SLUG}/speakers?per_page=100`)
     .then((response) => {
-      return response.data.data
+      const list = response.data?.data
+      return Array.isArray(list) ? list : []
     })
     .catch(() => [])
 
   const sessions = await axios
     .get(`/events/${process.env.NEXT_PUBLIC_EVENT_SLUG}/sessions?per_page=100`)
     .then((response) => {
-      return response.data.data
+      const list = response.data?.data
+      return Array.isArray(list) ? list : []
     })
     .catch(() => [])
 
