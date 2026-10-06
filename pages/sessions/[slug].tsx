@@ -32,8 +32,9 @@ const Session: NextPage<SessionPageProp> = ({
 
   const navBackLink = router.query?.from ? router.query?.from : '/sessions'
 
+  // "" is the API's absent value here — ?? would ship an empty og:image.
   const image =
-    session.session_image ??
+    session.session_image ||
     'https://fluttercondev.ke/images/new-design/revised/fcke-cover.png'
 
   return (
