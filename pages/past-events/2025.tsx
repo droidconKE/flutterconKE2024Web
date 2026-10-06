@@ -173,8 +173,7 @@ export async function getServerSideProps() {
   const sponsors = await axios
     .get(`/events/${process.env.NEXT_PUBLIC_EVENT_SLUG_2025}/sponsors`)
     .then((response) => {
-      const list = response.data?.data
-      return Array.isArray(list) ? list : []
+      return response.data.data ?? []
     })
     .catch(() => {
       return []
@@ -185,8 +184,7 @@ export async function getServerSideProps() {
       `/events/${process.env.NEXT_PUBLIC_EVENT_SLUG_2025}/speakers?per_page=100`
     )
     .then((response) => {
-      const list = response.data?.data
-      return Array.isArray(list) ? list : []
+      return response.data.data ?? []
     })
     .catch(() => {
       return []
@@ -197,8 +195,7 @@ export async function getServerSideProps() {
       `/events/${process.env.NEXT_PUBLIC_EVENT_SLUG_2025}/sessions?per_page=100`
     )
     .then((response) => {
-      const list = response.data?.data
-      return Array.isArray(list) ? list : []
+      return response.data.data ?? []
     })
     .catch(() => {
       return []

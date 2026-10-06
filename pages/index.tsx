@@ -36,16 +36,14 @@ export async function getServerSideProps() {
   const organizers = await axios
     .get(`/organizers/${process.env.NEXT_PUBLIC_ORG_SLUG}/team?type=company`)
     .then((response) => {
-      const list = response.data?.data
-      return Array.isArray(list) ? list : []
+      return response.data.data ?? []
     })
     .catch(() => [])
 
   const sponsors = await axios
     .get(`/events/${process.env.NEXT_PUBLIC_EVENT_SLUG}/sponsors`)
     .then((response) => {
-      const list = response.data?.data
-      return Array.isArray(list) ? list : []
+      return response.data.data ?? []
     })
     .catch(() => [])
 
