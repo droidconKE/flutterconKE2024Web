@@ -1,63 +1,33 @@
 import type { NextPage } from 'next'
-import Link from 'next/link'
 import { Banner } from '../components/home/Banner'
 import { EventTypes } from '../components/home/EventTypes'
+import { ConfHighlights } from '../components/home/ConfHighlights'
 import { Gallery } from '../components/home/Gallery'
 import Organizers from '../components/home/Organizers'
-import { Sponsor } from '../components/home/Sponsor'
-// import SponsorsList from '../components/home/SponsorsList'
-// import { Organizer, Sponsor as SponsorType } from '../types/types'
-import { Organizer } from '../types/types'
+import SponsorsList from '../components/home/SponsorsList'
+import { Organizer, Sponsor as SponsorType } from '../types/types'
 import axios from '../utils/axios'
+import Marquee from '../components/home/Marquee'
+import About from '../components/home/About'
+import { BackToTop } from '../components/home/BackToTop'
 
 interface HomeProps {
+  sponsors: SponsorType[]
   organizers: Organizer[]
-  // sponsors: SponsorType[]
 }
 
-const Home: NextPage<HomeProps> = ({ organizers }) => {
+const Home: NextPage<HomeProps> = ({ sponsors, organizers }) => {
   return (
-    <div
-      className="bg-[length:0%] md:bg-[length:47%] bg-[top_340px_left_110%] md:bg-[top_100px_left_110%] bg-no-repeat"
-      style={{ backgroundImage: 'url(/images/kenyatta.png)' }}
-    >
+    <div className="bg-[length:0%] md:bg-[length:47%] bg-[top_340px_left_110%] md:bg-[top_100px_left_110%] bg-no-repeat">
+      <Marquee />
       <Banner />
-      <section className="s-container mt-8 md:mt-0 pb-6 md:pb-12">
-        <div className="flex flex-wrap">
-          <div className="w-full md:w-7/12">
-            <h2 className="title lowercase dark:text-accent-dark">
-              <span>about</span>{' '}
-              <span className="font-medium">flutterconke</span>
-            </h2>
-            <p className="dark:text-lighter-dark py-5 md:py-8 text-xl md:text-2xl">
-              Fluttercon Kenya stands as the pioneering event of its kind in
-              Africa, marking the debut of the Fluttercon conference on the
-              continent. Designed to be a hub of innovation and learning,
-              Fluttercon Kenya will offer a rich program of tech talks,
-              workshops, and panels led by industry experts, Google Developer
-              Experts, and seasoned Flutter specialists, all dedicated to
-              exploring the latest in Flutter and Dart technologies.
-            </p>
-            <Link href="/about">
-              <a className="lowercase text-xl font-bold">
-                more about flutterconke
-              </a>
-            </Link>
-          </div>
-          <div className="flex justify-center items-center w-full md:w-5/12 py-6">
-            <img
-              className="w-[300px] md:w-[450px]"
-              src="/images/oporo.png"
-              alt="oporo"
-            />
-          </div>
-        </div>
-      </section>
+      <About />
       <EventTypes />
-      <Sponsor />
-      {/* <SponsorsList sponsors={sponsors} year={23} showSponsors /> */}
+      <ConfHighlights />
+      <SponsorsList sponsors={sponsors} year={26} showSponsors />
       <Gallery />
-      <Organizers organizers={organizers} />
+      <Organizers organizers={organizers} compact={false} />
+      <BackToTop />
     </div>
   )
 }
@@ -66,17 +36,19 @@ export async function getServerSideProps() {
   const organizers = await axios
     .get(`/organizers/${process.env.NEXT_PUBLIC_ORG_SLUG}/team?type=company`)
     .then((response) => {
-      return response.data.data
+      return response.data.data ?? []
     })
+    .catch(() => [])
 
-  // const sponsors = await axios
-  //   .get(`/events/${process.env.NEXT_PUBLIC_EVENT_SLUG}/sponsors`)
-  //   .then((response) => {
-  //     return response.data.data
-  //   })
+  const sponsors = await axios
+    .get(`/events/${process.env.NEXT_PUBLIC_EVENT_SLUG}/sponsors`)
+    .then((response) => {
+      return response.data.data ?? []
+    })
+    .catch(() => [])
 
   // Pass data to the page via props
-  return { props: { organizers } }
+  return { props: { organizers, sponsors } }
 }
 
 export default Home

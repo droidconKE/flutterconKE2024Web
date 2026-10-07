@@ -2,6 +2,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 class MyDocument extends Document {
   render() {
+    const title = `FlutterconKE - Africa's Largest Mobile Developer Conference`
     return (
       <Html>
         <Head>
@@ -95,16 +96,16 @@ class MyDocument extends Document {
             name="msapplication-TileImage"
             content="/images/icons/ms-icon-144x144.png"
           />
-          <meta name="theme-color" content="#FFAB00" />
+          <meta name="theme-color" content="#008BFF" />
 
           {/* SEO Headers */}
           <meta
             name="description"
-            content="Fluttercon is a global conference focused on the engineering of Mobile applications. Fluttercon provides a forum for developers to network with other developers, share techniques, announce apps and products, and learn and teach."
+            content="Fluttercon is a global conference focused on the engineering of mobile applications, part of next.app devCon. It provides a forum for developers to network, share techniques, announce apps and products, and learn and teach."
           />
           <meta
             name="keywords"
-            content="Android, Event,  Conference, Meetup, droidCon, Kenya, KE, FlutterconKE, FlutterconKE, Android254, Kotlin, Flutter, iOS, droidcon, droidcon africa, africa, android, 254 tech "
+            content="Android, Event,  Conference, Meetup, droidCon, Kenya, KE, FlutterconKE, FlutterconKE, Android254, Kotlin, Flutter, iOS, droidcon, droidcon africa, africa, android, 254 tech"
           />
           <meta name="author" content="FlutterconKE" />
 
@@ -113,37 +114,40 @@ class MyDocument extends Document {
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:site" content="@FlutterconKE" />
           <meta name="twitter:creator" content="@FlutterconKE" />
-          <meta name="twitter:url" content="https://flutterconke.dev" />
-          <meta name="twitter:title" content="FlutterconKE" />
+          <meta name="twitter:url" content="https://fluttercondev.ke/" />
+          <meta name="twitter:title" content={title} />
           {/* <!-- maximum 140 char --> */}
           <meta
             name="twitter:description"
-            content="Fluttercon is a global conference focused on the engineering of Mobile applications. Fluttercon provides a forum for developers to network with other developers, share techniques, announce apps and products, and learn and teach."
+            content="Fluttercon is a global conference focused on the engineering of mobile applications, part of next.app devCon. It provides a forum for developers to network, share techniques, announce apps and products, and learn and teach."
           />
           {/* <!-- maximum 140 char --> */}
+          {/* // TODO: focing push */}
           <meta
             name="twitter:image"
-            content="https://flutterconke.dev/images/fluttercon-24-kenya-announcement.png"
+            content="https://fluttercondev.ke/images/new-design/revised/fcke-cover.png"
           />
-          <meta name="twitter:image:alt" content="droidcon logo" />
+          <meta
+            name="twitter:image:alt"
+            content="FlutterconKE 2026 — Nov 5-6, Nairobi"
+          />
           {/* <!-- when you post this page url in twitter , this image will be shown -->
 	<!-- twitter card ends from here --> */}
 
           {/* <!-- facebook open graph starts from here, if you don't need then delete open graph related  --> */}
-          <meta property="og:title" content="FlutterconKE" />
-          <meta property="og:url" content="https://flutterconke.dev/" />
+          <meta property="og:title" content={title} />
+          <meta property="og:url" content="https://fluttercondev.ke/" />
           <meta property="og:locale" content="en_US" />
           <meta property="og:site_name" content="FlutterconKE" />
           {/* <!--meta property="fb:admins" content="" /-->  <!-- use this if you have  --> */}
           <meta property="og:type" content="website" />
           <meta
             property="og:image"
-            content="https://flutterconke.dev/images/fluttercon-24-kenya-announcement.png"
+            content="https://fluttercondev.ke/images/new-design/revised/fcke-cover.png"
           />
           <meta
             property="og:description"
-            content="Fluttercon is a global conference focused on the engineering of Mobile applications. Fluttercon provides a forum for developers to network with other developers, share techniques, announce apps and products, and learn and teach.
-"
+            content="Fluttercon is a global conference focused on the engineering of mobile applications, part of next.app devCon. It provides a forum for developers to network, share techniques, announce apps and products, and learn and teach."
           />
           {/* <!-- when you post this page url in facebook , this image will be shown -->
 	<!-- facebook open graph ends from here --></meta> */}

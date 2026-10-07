@@ -2,15 +2,15 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
-        <loc>https://flutterconke.dev</loc>
+        <loc>https://fluttercondev.ke</loc>
     </url>
     <url>
-        <loc>https://flutterconke.dev/about</loc>
+        <loc>https://fluttercondev.ke/about</loc>
     </url>
     <url>
-        <loc>https://flutterconke.dev/speakers</loc>
+        <loc>https://fluttercondev.ke/speakers</loc>
     </url>
     <url>
-        <loc>https://flutterconke.dev/schedule</loc>
+        <loc>https://fluttercondev.ke/schedule</loc>
     </url>
 </urlset>

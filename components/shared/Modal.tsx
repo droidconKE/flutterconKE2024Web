@@ -67,7 +67,6 @@ export const Modal = ({
               </div>
             </div>
           </div>,
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
           document.getElementById('layout')!
         )}
     </div>

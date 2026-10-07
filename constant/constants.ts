@@ -1,2 +1,3 @@
-export const TICKETS_LINK = 'https://bit.ly/dcKE2024Tickets'
-export const CFS_LINK = 'https://bit.ly/dcke24CFP'
+export const TICKETS_LINK = 'https://bit.ly/dcKE2026Tickets'
+export const CFS_LINK = 'https://bit.ly/dckeCFP26'
+export const SWAG_LINK = 'https://paystack.shop/dcke-fcke-merch-store'
