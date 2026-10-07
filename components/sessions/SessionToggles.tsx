@@ -30,14 +30,24 @@ export const SessionToggles: NextPage<SessionPageProps> = ({
           View Annual Report
         </Link>
       )}
-      <button type="button" onClick={() => onChangeViewType(true)}>
+      <button
+        type="button"
+        aria-label="Grid view"
+        aria-pressed={isGridView}
+        onClick={() => onChangeViewType(true)}
+      >
         <i
           className={`fa fa-th text-2xl ${
             !isGridView ? 'text-white dark:text-white-dark' : 'text-secondary'
           }`}
         />
       </button>
-      <button type="button" onClick={() => onChangeViewType(false)}>
+      <button
+        type="button"
+        aria-label="List view"
+        aria-pressed={!isGridView}
+        onClick={() => onChangeViewType(false)}
+      >
         <i
           className={`fa fa-th-list text-2xl ${
             isGridView ? 'text-white dark:text-white-dark' : 'text-secondary'
@@ -53,7 +63,6 @@ export const SessionToggles: NextPage<SessionPageProps> = ({
           >
             <div className="relative">
               <input
-                id="toogleA"
                 checked={isMySessions}
                 type="checkbox"
                 className="hidden"
