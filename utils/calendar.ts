@@ -52,7 +52,7 @@ const sessionTimes = (session: Session) => {
 // ticking clock. An unparseable date reads as not ended: no nudge.
 export const sessionHasEnded = (endDateTime: string): boolean => {
   const end = parseEat(endDateTime)
-  return end !== null && end.getTime() < Date.now()
+  return end !== null && end.getTime() <= Date.now()
 }
 
 const sessionUrl = (session: Session): string =>

@@ -1,45 +1,74 @@
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { Event } from '../types/types'
-import { feedbackWindowLabel } from './feedback'
+import { feedbackWindowLabel, feedbackWindowState } from './feedback'
 
-// Only start_date matters to the label; the rest of Event is irrelevant here.
-const event = (startDate?: string) =>
-  ({ start_date: startDate }) as unknown as Event
+const event = (fields: Partial<Event>) => fields as Event
+
+describe('feedbackWindowState', () => {
+  it('is open when the organizer set no window and the switch is on', () => {
+    expect(feedbackWindowState(event({ feedback_open: true }))).toBe('open')
+  })
+
+  it('stays open when the payload has no window and no switch', () => {
+    expect(feedbackWindowState(null)).toBe('open')
+    expect(feedbackWindowState(undefined)).toBe('open')
+    expect(feedbackWindowState(event({}))).toBe('open')
+  })
+
+  it('is not-open-yet while the window has not opened', () => {
+    expect(
+      feedbackWindowState(event({ feedback_opens_at: '2099-01-01 09:00:00' }))
+    ).toBe('not-open-yet')
+  })
+
+  it('is closed once the window has passed', () => {
+    expect(
+      feedbackWindowState(
+        event({
+          feedback_opens_at: '2020-01-01 09:00:00',
+          feedback_closes_at: '2020-01-02 09:00:00',
+        })
+      )
+    ).toBe('closed')
+  })
+
+  // end_date carries no time, and parseEat refuses a bare date unless asked.
+  // A long-finished event with feedback switched off must say closed, not
+  // "not open yet".
+  it('says closed, not not-open-yet, for a finished event with no window', () => {
+    expect(
+      feedbackWindowState(
+        event({ feedback_open: false, end_date: '2020-01-02' })
+      )
+    ).toBe('closed')
+  })
+
+  it('still says not-open-yet for an event that has not happened', () => {
+    expect(
+      feedbackWindowState(
+        event({ feedback_open: false, end_date: '2099-01-02' })
+      )
+    ).toBe('not-open-yet')
+  })
+
+  it('says not-open-yet when there is no window and no end date', () => {
+    expect(feedbackWindowState(event({ feedback_open: false }))).toBe(
+      'not-open-yet'
+    )
+  })
+})
 
 describe('feedbackWindowLabel', () => {
-  beforeEach(() => {
-    vi.useFakeTimers()
-    vi.setSystemTime(new Date('2026-09-29T12:00:00Z'))
-  })
-  afterEach(() => vi.useRealTimers())
-
-  it('says "Not open yet" for an event that has not started, in the API shape', () => {
-    expect(feedbackWindowLabel(event('2026-11-05 00:00:00'))).toBe(
-      'Not open yet'
-    )
-  })
-
-  it('says "Not open yet" for a bare future date', () => {
-    expect(feedbackWindowLabel(event('2026-11-05'))).toBe('Not open yet')
-  })
-
-  it('says "Not open yet" for an ISO date with an explicit zone', () => {
-    expect(feedbackWindowLabel(event('2027-01-01T00:00:00+03:00'))).toBe(
-      'Not open yet'
-    )
-  })
-
-  it('says "Feedback has closed" once the event has started', () => {
-    expect(feedbackWindowLabel(event('2024-11-06 00:00:00'))).toBe(
-      'Feedback has closed'
-    )
-    expect(feedbackWindowLabel(event('2024-11-06'))).toBe('Feedback has closed')
-  })
-
-  it('falls back to "Feedback has closed" when there is no usable date', () => {
-    expect(feedbackWindowLabel(event('not-a-date'))).toBe('Feedback has closed')
-    expect(feedbackWindowLabel(event())).toBe('Feedback has closed')
-    expect(feedbackWindowLabel(null)).toBe('Feedback has closed')
-    expect(feedbackWindowLabel(undefined)).toBe('Feedback has closed')
+  it('matches the state it is labelling', () => {
+    expect(
+      feedbackWindowLabel(
+        event({ feedback_open: false, end_date: '2020-01-02' })
+      )
+    ).toBe('Feedback has closed')
+    expect(
+      feedbackWindowLabel(
+        event({ feedback_open: false, end_date: '2099-01-02' })
+      )
+    ).toBe('Not open yet')
   })
 })

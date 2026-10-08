@@ -5,10 +5,9 @@ import { NoSessions } from './NoSessions'
 import { AddToCalendar } from './AddToCalendar'
 import { FeedbackNudge } from './FeedbackNudge'
 import { StarIcon } from '../shared/StarIcon'
-import { sessionAcceptsFeedback } from '../../utils/feedback'
 
 const levelPill =
-  'bg-magenta-100 dark:bg-magenta-500/15 text-magenta-800 dark:text-accent-dark text-xs font-semibold px-3 py-1 rounded-full'
+  'bg-magenta-100 dark:bg-magenta-500/20 text-magenta-800 dark:text-accent-dark text-xs font-semibold px-3 py-1 rounded-full'
 const formatPill =
   'bg-blue-50 dark:bg-primary/20 text-primary dark:text-blue-300 text-xs font-semibold px-3 py-1 rounded-full'
 const recordingPill =
@@ -176,14 +175,12 @@ export const SessionGridCard = ({
                           </div>
                         )}
                       </div>
-                      {sessionAcceptsFeedback(schedule, feedbackOpen) && (
-                        <div className="mt-2 flex justify-end">
-                          <FeedbackNudge
-                            session={schedule}
-                            eventSlug={eventSlug}
-                          />
-                        </div>
-                      )}
+                      <FeedbackNudge
+                        session={schedule}
+                        feedbackOpen={feedbackOpen}
+                        eventSlug={eventSlug}
+                        className="mt-2 flex justify-end"
+                      />
                     </div>
                   )
                 })}

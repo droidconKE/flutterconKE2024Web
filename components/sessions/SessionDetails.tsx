@@ -1,6 +1,6 @@
 import { Event, Session } from '../../types/types'
 import { hour } from '../../utils/helpers'
-import { sessionAcceptsFeedback } from '../../utils/feedback'
+import { feedbackWindowState } from '../../utils/feedback'
 import { FeedbackNudge } from './FeedbackNudge'
 
 // Speakers and organizers supply these URLs, and they end up in an href.
@@ -34,14 +34,6 @@ export const SessionDetails = ({
   const hasMaterials = Boolean(
     slidesUrl || speakerVideoUrl || resources.length || recordingLinkOnly
   )
-  // Once the talk is over and the organizer is taking feedback, the banner
-  // carries the rate-it nudge — the share row yields to it (see
-  // ShareSessionAndFeedback), so this is the page's one session entry point.
-  const canRate = sessionAcceptsFeedback(
-    session,
-    event ? event.feedback_open !== false : true
-  )
-
   return (
     <div className="relative isolate overflow-hidden w-full rounded-4xl md:rounded-5xl bg-accent p-6 md:p-12">
       {/* halftone dots at the top of the card */}
@@ -105,11 +97,13 @@ export const SessionDetails = ({
             )}
           </div>
         )}
-        {canRate && (
-          <div className="mt-6">
-            <FeedbackNudge session={session} eventSlug={eventSlug} size="md" />
-          </div>
-        )}
+        <FeedbackNudge
+          session={session}
+          eventSlug={eventSlug}
+          feedbackOpen={feedbackWindowState(event) === 'open'}
+          size="md"
+          className="mt-6"
+        />
         <div className="flex flex-col md:flex-row gap-6 mt-6">
           {session.session_image && (
             <img

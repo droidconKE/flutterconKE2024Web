@@ -11,10 +11,9 @@ import { NoSessions } from './NoSessions'
 import { AddToCalendar } from './AddToCalendar'
 import { FeedbackNudge } from './FeedbackNudge'
 import { StarIcon } from '../shared/StarIcon'
-import { sessionAcceptsFeedback } from '../../utils/feedback'
 
 const levelPill =
-  'bg-magenta-100 dark:bg-magenta-500/15 text-magenta-800 dark:text-accent-dark text-xs font-semibold px-3 py-1 rounded-full'
+  'bg-magenta-100 dark:bg-magenta-500/20 text-magenta-800 dark:text-accent-dark text-xs font-semibold px-3 py-1 rounded-full'
 const formatPill =
   'bg-blue-50 dark:bg-primary/20 text-primary dark:text-blue-300 text-xs font-semibold px-3 py-1 rounded-full'
 const recordingPill =
@@ -60,7 +59,7 @@ const SessionListCard = ({
                     'group block rounded-4xl bg-white dark:bg-darker-dark border border-primary dark:border-primary shadow-md hover:shadow-xl hover:border-accent transition-all duration-200 px-4 md:px-6 py-5'
                   const inner = (
                     <div className="flex flex-row items-start gap-4">
-                      <div className="flex flex-col w-16 shrink-0 items-center justify-center rounded-2xl bg-blue-50 dark:bg-primary/15 py-3">
+                      <div className="flex flex-col w-16 shrink-0 items-center justify-center rounded-2xl bg-blue-50 dark:bg-primary/20 py-3">
                         <span className="font-display text-lg leading-none text-primary dark:text-accent-dark">
                           {time(schedule.start_date_time)}
                         </span>
@@ -145,14 +144,12 @@ const SessionListCard = ({
                           />
                         </div>
                       )}
-                      {sessionAcceptsFeedback(schedule, feedbackOpen) && (
-                        <div className="mt-2 flex justify-end">
-                          <FeedbackNudge
-                            session={schedule}
-                            eventSlug={eventSlug}
-                          />
-                        </div>
-                      )}
+                      <FeedbackNudge
+                        session={schedule}
+                        feedbackOpen={feedbackOpen}
+                        eventSlug={eventSlug}
+                        className="mt-2 flex justify-end"
+                      />
                     </div>
                   )
                 })}
