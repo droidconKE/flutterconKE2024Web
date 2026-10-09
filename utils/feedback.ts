@@ -63,25 +63,65 @@ export const feedbackHeaders = (): Record<string, string> => ({
   'X-Feedback-Device': feedbackDeviceId(),
 })
 
-// Which "closed" wording applies. Only called once the window is known to be
-// shut: before the event starts the form opens later, after that it has shut.
-export const feedbackWindowLabel = (event?: Event | null): string => {
-  // The API sends "YYYY-MM-DD HH:MM:SS" — a space, no zone — which parseEat
-  // reads. Building a date string by hand here produced an Invalid Date, so
-  // the branch below could never be reached and a future event was told its
-  // feedback had already closed.
-  const start = event?.start_date
-    ? parseEat(event.start_date, { allowDateOnly: true })
-    : null
-  return start && start.getTime() > Date.now()
-    ? 'Not open yet'
-    : 'Feedback has closed'
+// Speaker and organizer input ends up in hrefs. Only a plain web link is
+// kept. Pasted values often carry surrounding whitespace.
+const isSafeHref = (url?: string | null): url is string => {
+  const trimmed = url?.trim()
+  return !!trimmed && /^https?:\/\//i.test(trimmed)
 }
 
-// The one decision of whether a session can be rated from here: it is a real
-// talk, it is over, the organizer is taking feedback and the session carries
-// a form link. Every entry point (card nudge, banner nudge, share-row
-// button) reads this, so they can never disagree.
+// The organizer's master switch. Missing stays open — the default is on,
+// never off: a window we cannot read must never be the reason somebody
+// cannot leave feedback.
+const eventFeedbackOpen = (event?: Event | null): boolean =>
+  event?.feedback_open !== false
+
+// Where in the organizer's feedback window we are. The window lives on the
+// payload as feedback_opens_at / feedback_closes_at, so nothing is guessed
+// from the event's own start_date: an organizer who opens feedback on day
+// two must not show "Feedback has closed" to everybody on day one. A payload
+// carrying neither field predates them — fall back to the master switch, and
+// when it says closed, let end_date tell "not open yet" from "has closed".
+export type FeedbackWindowState = 'open' | 'not-open-yet' | 'closed'
+
+export const feedbackWindowState = (
+  event?: Event | null
+): FeedbackWindowState => {
+  const opens = event?.feedback_opens_at
+    ? parseEat(event.feedback_opens_at)
+    : null
+  const closes = event?.feedback_closes_at
+    ? parseEat(event.feedback_closes_at)
+    : null
+
+  if (opens === null && closes === null) {
+    if (eventFeedbackOpen(event)) return 'open'
+    // end_date is a date, with no time on it — it needs allowDateOnly or it
+    // parses as null and this branch can only ever say 'not-open-yet'.
+    const end = event?.end_date
+      ? parseEat(event.end_date, { allowDateOnly: true })
+      : null
+    return end !== null && end.getTime() <= Date.now()
+      ? 'closed'
+      : 'not-open-yet'
+  }
+
+  const now = Date.now()
+  if (opens !== null && opens.getTime() > now) return 'not-open-yet'
+  if (!eventFeedbackOpen(event)) return 'closed'
+  if (closes !== null && closes.getTime() <= now) return 'closed'
+  return 'open'
+}
+
+// The user-facing label for a shut window. Only call it once the window is
+// known to be shut.
+export const feedbackWindowLabel = (event?: Event | null): string =>
+  feedbackWindowState(event) === 'not-open-yet'
+    ? 'Not open yet'
+    : 'Feedback has closed'
+
+// Whether a session can be rated from here: a real talk, already over, the
+// organizer is taking feedback, and the form link is a plain web URL.
 export const sessionAcceptsFeedback = (
   session: Session,
   feedbackOpen?: boolean
@@ -89,5 +129,5 @@ export const sessionAcceptsFeedback = (
   !session.is_serviceSession &&
   Boolean(session.slug) &&
   feedbackOpen !== false &&
-  Boolean(session.feedback_url) &&
+  isSafeHref(session.feedback_url) &&
   sessionHasEnded(session.end_date_time)

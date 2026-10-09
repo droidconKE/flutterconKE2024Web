@@ -11,6 +11,7 @@ import {
   eventVenue,
   isCurrentEventSlug,
   resolveEventSlug,
+  sessionShareUrl,
 } from '../../utils/helpers'
 
 interface SessionPageProp {
@@ -42,8 +43,12 @@ const Session: NextPage<SessionPageProp> = ({
       <Head>
         <meta name="twitter:image" content={image} />
         <meta property="og:image" content={image} />
-        <meta property="og:url" content={fullUrl} />
-        <meta name="twitter:url" content={fullUrl} />
+        {fullUrl && (
+          <>
+            <meta property="og:url" content={fullUrl} />
+            <meta name="twitter:url" content={fullUrl} />
+          </>
+        )}
       </Head>
       <div className="s-container mt-4 md:mt-6 mb-10 md:mb-16 space-y-5 md:space-y-6">
         <Link
@@ -69,11 +74,13 @@ const Session: NextPage<SessionPageProp> = ({
 export async function getServerSideProps({
   query,
   req,
+  resolvedUrl,
 }: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   query: any
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   req: any
+  resolvedUrl: string
 }) {
   const { slug, event: eventParam } = query
   // A past-event card carries ?event=; a current-event link does not and
@@ -83,14 +90,13 @@ export async function getServerSideProps({
   const eventSlug = resolveEventSlug(eventParam)
   const eventPath = `/events/${eventSlug}`
 
-  // Get protocol
-  const protocol = req.headers['x-forwarded-proto'] || 'https'
-  // Get host (includes domain and port)
-  const { host } = req.headers
-  // Get path
-  const urlPath = req.url
-  // Full URL
-  const fullUrl = `${protocol}://${host}${urlPath}`
+  const fullUrl = sessionShareUrl({
+    forwardedProto: req.headers['x-forwarded-proto'],
+    host: req.headers.host,
+    resolvedUrl,
+    eventParam,
+    eventSlug,
+  })
 
   const [session, event] = await Promise.all([
     axios

@@ -6,6 +6,7 @@ import { FilterSessions } from '../../components/sessions/FilterSessions'
 import axios from '../../utils/axios'
 import { SessionGridCard } from '../../components/sessions/SessionGridCard'
 import { Event, Schedule, Session, Speaker, Sponsor } from '../../types/types'
+import { feedbackWindowState } from '../../utils/feedback'
 import { sessionCountLabel, timeDay } from '../../utils/helpers'
 import { SessionsSkeleton } from '../../components/sessions/skeletons/SessionsSkeleton'
 import { useSession } from '../../hooks/useSession'
@@ -43,6 +44,7 @@ const Home2024: NextPage<SessionProps> = ({
   // name its event or the detail page looks the slug up under the current
   // one and 404s.
   const eventSlug = process.env.NEXT_PUBLIC_EVENT_SLUG_2024
+  const feedbackOpen = feedbackWindowState(event) === 'open'
 
   return (
     <>
@@ -111,7 +113,7 @@ const Home2024: NextPage<SessionProps> = ({
               from="/past-events/2024"
               eventSlug={eventSlug}
               year={24}
-              feedbackOpen={event?.feedback_open}
+              feedbackOpen={feedbackOpen}
             />
           )}
           {!loading && !isGridView && (
@@ -120,7 +122,7 @@ const Home2024: NextPage<SessionProps> = ({
               activeTab={activeTab}
               from="/past-events/2024"
               eventSlug={eventSlug}
-              feedbackOpen={event?.feedback_open}
+              feedbackOpen={feedbackOpen}
             />
           )}
           {loading && <SessionsSkeleton />}

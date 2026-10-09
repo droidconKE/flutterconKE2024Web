@@ -88,6 +88,36 @@ export const resolveEventSlug = (param?: string | string[]) =>
 export const isCurrentEventSlug = (param?: string | string[]) =>
   resolveEventSlug(param) === resolveEventSlug()
 
+// The URL a session share card points at. A proxy can send "https,http";
+// the first value is the visitor's. The path is the page, never a
+// /_next/data URL. Only `event` is kept from the query, and only when the
+// link carried one — a campaign tag must not become a second canonical URL.
+// No host means no tag, rather than one that points at "undefined".
+export const sessionShareUrl = ({
+  forwardedProto,
+  host,
+  resolvedUrl,
+  eventParam,
+  eventSlug,
+}: {
+  forwardedProto?: string | string[]
+  host?: string
+  resolvedUrl: string
+  eventParam?: string | string[]
+  eventSlug: string
+}): string => {
+  const protocol =
+    (Array.isArray(forwardedProto) ? forwardedProto[0] : forwardedProto || '')
+      .split(',')[0]
+      .trim() || 'https'
+  if (!host) return ''
+  const path = resolvedUrl.split('?')[0]
+  const share = eventParam
+    ? `${path}?event=${encodeURIComponent(eventSlug)}`
+    : path
+  return `${protocol}://${host}${share}`
+}
+
 // The @handle from a speaker's profile URL, whatever domain it is on today —
 // profiles have been migrating twitter.com -> x.com, and splitting on the
 // literal 'twitter.com/' yields `@undefined` for the new ones (#70).

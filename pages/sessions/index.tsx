@@ -6,6 +6,7 @@ import { FilterSessions } from '../../components/sessions/FilterSessions'
 import axios from '../../utils/axios'
 import { SessionGridCard } from '../../components/sessions/SessionGridCard'
 import { Event, Schedule } from '../../types/types'
+import { feedbackWindowState } from '../../utils/feedback'
 import { eventVenue, sessionCountLabel, timeDay } from '../../utils/helpers'
 import { SessionsSkeleton } from '../../components/sessions/skeletons/SessionsSkeleton'
 import { useSession } from '../../hooks/useSession'
@@ -35,6 +36,7 @@ const Sessions: NextPage<SessionProps> = ({
   } = useSession({ allSchedules })
 
   const venue = eventVenue(event)
+  const feedbackOpen = feedbackWindowState(event) === 'open'
 
   return (
     <>
@@ -85,7 +87,9 @@ const Sessions: NextPage<SessionProps> = ({
                 <span
                   aria-label={sessionCountLabel(schedules[key]?.length ?? 0)}
                   className={`rounded-full px-2 py-px text-xs font-semibold tabular-nums ${
-                    activeTab === i ? 'bg-accent text-black' : 'bg-primary/10'
+                    activeTab === i
+                      ? 'bg-white/20 text-white'
+                      : 'bg-primary/10 text-primary dark:bg-white/10 dark:text-white-dark'
                   }`}
                 >
                   {schedules[key]?.length ?? 0}
@@ -103,7 +107,7 @@ const Sessions: NextPage<SessionProps> = ({
               activeTab={activeTab}
               showStar
               eventVenue={venue}
-              feedbackOpen={event?.feedback_open}
+              feedbackOpen={feedbackOpen}
             />
           )}
           {!loading && !isGridView && (
@@ -112,7 +116,7 @@ const Sessions: NextPage<SessionProps> = ({
               activeTab={activeTab}
               showStar
               eventVenue={venue}
-              feedbackOpen={event?.feedback_open}
+              feedbackOpen={feedbackOpen}
             />
           )}
           {loading && <SessionsSkeleton />}

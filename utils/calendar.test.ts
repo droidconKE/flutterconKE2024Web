@@ -54,6 +54,10 @@ describe('sessionHasEnded', () => {
     expect(sessionHasEnded('2026-09-29 14:00:00')).toBe(true)
   })
 
+  it('is true at the scheduled end, not a moment after', () => {
+    expect(sessionHasEnded('2026-09-29 15:00:00')).toBe(true)
+  })
+
   it('is false while the session is still on', () => {
     expect(sessionHasEnded('2026-09-29 16:00:00')).toBe(false)
   })

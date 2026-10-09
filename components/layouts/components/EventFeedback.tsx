@@ -3,13 +3,17 @@ import { useRouter } from 'next/router'
 import { SessionFeedback } from '../../sessions/SessionFeedback'
 import { Event } from '../../../types/types'
 import axios from '../../../utils/axios'
-import { feedbackWindowLabel } from '../../../utils/feedback'
+import {
+  feedbackWindowLabel,
+  feedbackWindowState,
+} from '../../../utils/feedback'
 import { isCurrentEventSlug, resolveEventSlug } from '../../../utils/helpers'
 
 // The floating feedback button. It is the one event-level entry point, so it
-// reads the organizer's window itself: when feedback_open is false it shows
-// which closed-state applies and posts nothing. A missing field or a failed
-// request stays open — the default is on, never off.
+// reads the organizer's window itself. Before the window opens it renders
+// nothing. Once the window has closed it shows which shut-state applies and
+// posts nothing. A missing field or a failed request stays open — the
+// default is on, never off.
 //
 // It only ever serves the event the current page is about. The page's event
 // is the year slug on the past-events routes, the ?event= param on session
@@ -40,7 +44,7 @@ export const EventFeedback = () => {
     axios
       .get(`/events/${eventSlug}`, { timeout: 5000 })
       .then((response) => {
-        if (alive) setEvent(response.data.data)
+        if (alive) setEvent(response.data?.data ?? null)
       })
       .catch(() => {
         // An unreadable window must never be the reason somebody cannot
@@ -56,11 +60,15 @@ export const EventFeedback = () => {
   // Scheduling and reviewing only apply to the event being run now.
   if (!isCurrentEvent) return null
 
-  const open = event ? event.feedback_open !== false : true
+  // Before the window opens, render nothing — a permanent grey chip pinned
+  // to every page for the weeks before the conference reads as a broken
+  // site. Once it has closed, keep a muted chip saying so.
+  const windowState = feedbackWindowState(event)
+  if (windowState === 'not-open-yet') return null
 
   return (
     <div className=" fixed bottom-0 right-0">
-      {open ? (
+      {windowState === 'open' ? (
         <button
           type="button"
           className="rounded-t-lg bg-primary px-6 p-1 text-white"
@@ -71,13 +79,13 @@ export const EventFeedback = () => {
       ) : (
         <span
           aria-disabled
-          className="rounded-t-lg bg-primary px-6 p-1 text-white text-sm"
+          className="rounded-t-lg bg-black/40 text-white/60 px-6 p-1 text-sm cursor-not-allowed"
         >
           {feedbackWindowLabel(event)}
         </span>
       )}
 
-      {showFeedbackModal && open && (
+      {showFeedbackModal && windowState === 'open' && (
         <SessionFeedback
           closeDialog={() => setShowFeedbackModal(false)}
           eventSlug={eventSlug}
