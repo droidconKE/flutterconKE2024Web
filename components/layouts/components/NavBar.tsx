@@ -131,6 +131,16 @@ export const NavBar = () => {
             </li>
             <li className="mr-3 text-xl">
               <Link
+                href="/beyond-stacks"
+                className={`whitespace-nowrap ${
+                  router.pathname === '/beyond-stacks' ? 'active-link' : 'link'
+                }`}
+              >
+                Beyond Stacks
+              </Link>
+            </li>
+            <li className="mr-3 text-xl">
+              <Link
                 href="/sponsors"
                 className={
                   router.pathname === '/sponsors' ? 'active-link' : 'link'
