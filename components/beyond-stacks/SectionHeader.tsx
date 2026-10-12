@@ -4,8 +4,6 @@ import { TicketLink, type TicketLinkVariant } from './TicketLink'
 type SectionTitleProps = {
   id: string
   children: ReactNode
-  // Headings are brand blue on the light theme and magenta on the dark one,
-  // except where the design sets them in the page's text colour.
   // eslint-disable-next-line react/require-default-props
   colorClassName?: string
 }
@@ -33,7 +31,7 @@ export const SectionHeader = ({
   ctaVariant,
   ...titleProps
 }: SectionHeaderProps) => (
-  <div className="flex flex-wrap items-center justify-between gap-4 mb-8 md:mb-10">
+  <div className="flex flex-wrap items-center justify-between gap-4 mb-12 sm:mb-20">
     <SectionTitle {...titleProps}>{title}</SectionTitle>
     <TicketLink
       variant={ctaVariant}

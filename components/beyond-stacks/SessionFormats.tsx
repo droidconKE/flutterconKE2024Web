@@ -38,7 +38,7 @@ const formats = [
 export const SessionFormats = () => (
   <section
     aria-labelledby="session-formats-title"
-    className="s-container my-12 md:my-24"
+    className="s-container my-12 sm:my-10"
   >
     {/* The design's accent titles would read at 1.09:1 on this blue, so the
         title and the tile headings are white like the copy. */}

@@ -16,7 +16,7 @@ const facts = [
 export const Overview = () => (
   <section
     aria-labelledby="overview-title"
-    className="s-container my-12 md:my-24"
+    className="s-container my-12 sm:my-10"
   >
     <div className="grid gap-6 lg:grid-cols-5 lg:gap-12">
       <div className="lg:col-span-2">
@@ -36,8 +36,6 @@ export const Overview = () => (
       </div>
     </div>
 
-    {/* The design's accent terms would read at 1.09:1 on this blue, so they
-        are white like the detail beneath them. */}
     <dl className="mt-10 md:mt-12 grid rounded-3xl bg-primary md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/40">
       {facts.map(({ term, detail }, index) => (
         <div

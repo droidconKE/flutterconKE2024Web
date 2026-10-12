@@ -22,7 +22,7 @@ const passes = [
 export const Pricing = () => (
   <section
     aria-labelledby="pricing-title"
-    className="s-container my-12 md:my-24"
+    className="s-container my-12 sm:my-10"
   >
     <SectionHeader
       id="pricing-title"
@@ -45,8 +45,6 @@ export const Pricing = () => (
           <div className="grid gap-4 p-8 md:grid-cols-12 md:gap-8 md:p-10">
             <div className="md:col-span-4">
               <h3 className="text-white text-2xl leading-tight">{pass.name}</h3>
-              {/* The palette's lighter pink. The design letters the badge in
-                  white, which reads at 2.7:1 on it; black clears AA at 6:1. */}
               {pass.bestValue && (
                 <p className="mt-3 inline-flex items-center gap-2.5 rounded-full bg-secondary-2 pl-4 pr-6 py-1.5 text-sm text-black dark:text-black">
                   <i aria-hidden="true" className="fa fa-asterisk" />
