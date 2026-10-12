@@ -99,6 +99,26 @@ export const NavBar = () => {
                 Home
               </Link>
             </li>
+            <li className="text-xl">
+              <Link
+                href="/about"
+                className={
+                  router.pathname === '/about' ? 'active-link' : 'link'
+                }
+              >
+                About
+              </Link>
+            </li>
+            <li className="text-xl whitespace-nowrap">
+              <Link
+                href="/beyond-stacks"
+                className={
+                  router.pathname === '/beyond-stacks' ? 'active-link' : 'link'
+                }
+              >
+                Beyond Stacks
+              </Link>
+            </li>
             {showSessions && (
               <li className="text-xl">
                 <Link
@@ -123,26 +143,6 @@ export const NavBar = () => {
                 </Link>
               </li>
             )}
-            <li className="text-xl">
-              <Link
-                href="/about"
-                className={
-                  router.pathname === '/about' ? 'active-link' : 'link'
-                }
-              >
-                About
-              </Link>
-            </li>
-            <li className="text-xl whitespace-nowrap">
-              <Link
-                href="/beyond-stacks"
-                className={
-                  router.pathname === '/beyond-stacks' ? 'active-link' : 'link'
-                }
-              >
-                Beyond Stacks
-              </Link>
-            </li>
             <li className="text-xl">
               <Link
                 href="/sponsors"
