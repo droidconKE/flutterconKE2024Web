@@ -1,33 +1,48 @@
-import { TICKETS_LINK } from '../../constant/constants'
-import { CtaLink } from './CtaLink'
+import { TicketLink } from './TicketLink'
 
 export const Hero = () => (
-  <section className="s-container pt-6 md:pt-12">
+  // Below md this is an inset card on the page gutter with centred copy and a
+  // compact CTA, like the sponsors hero. From md it runs full-bleed, as drawn.
+  <section
+    aria-labelledby="beyond-stacks-title"
+    className="relative isolate overflow-hidden bg-primary mx-4 sm:mx-10 mt-6 rounded-4xl md:mx-0 md:mt-0 md:rounded-t-none"
+  >
+    {/* A stand-in event photo until the design's own image is exported. */}
+    <img
+      src="/images/gallery/8_96.jpg"
+      alt=""
+      fetchPriority="high"
+      className="absolute inset-y-0 right-0 -z-10 h-full w-full md:w-2/3 object-cover object-[60%_35%]"
+    />
+    {/* Below md, a flat brand-blue tint over the photo. White on this blue
+        tops out at 3.4:1, so the tint is 90%: the title still clears 3:1 over
+        the photo's brightest patches, where 85% would drop to 2.9:1. From md,
+        magenta into blue behind the copy; from xl the copy ends well left of
+        the photo, so the wash clears and it shows in its own colours. The
+        from/via/to stops only take effect with the gradient. */}
     <div
-      className="relative isolate overflow-hidden w-full rounded-4xl md:rounded-5xl bg-cover bg-center min-h-[26rem] md:min-h-[32rem] flex items-center"
-      style={{
-        backgroundImage: "url('/images/new-design/revised/happy-smiley.png')",
-      }}
-    >
-      {/* The brand wash sits over the photo, solid at the text end and open
-          over the faces, the way the design fades its gradient into the crowd. */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-gradient-to-r from-accent from-15% via-accent/70 via-55% to-primary/30"
-      />
-      <div className="px-6 py-10 md:px-16 md:py-16 max-w-4xl">
-        <h1 className="font-display text-white dark:text-white text-4xl md:text-5xl lg:text-6xl leading-none">
-          Beyond Stacks Track
-        </h1>
-        <p className="mt-4 md:mt-6 text-white dark:text-white text-xl md:text-2xl font-semibold leading-snug max-w-xl">
-          A shared 3rd track across both conference days for the entire
-          engineering ecosystem.
-        </p>
-        <div className="mt-8 md:mt-12">
-          <CtaLink href={TICKETS_LINK} variant="accent">
-            Get Unconference Ticket
-          </CtaLink>
-        </div>
+      aria-hidden="true"
+      className="absolute inset-0 -z-10 bg-primary/90 md:bg-transparent md:bg-gradient-to-r from-accent via-primary via-40% to-primary/60 xl:to-transparent xl:to-75%"
+    />
+
+    <div className="s-container py-12 md:py-24 text-center md:text-left">
+      <h1
+        id="beyond-stacks-title"
+        className="font-display text-white text-3xl md:text-6xl leading-tight"
+      >
+        Beyond Stacks Track
+      </h1>
+      <p className="mt-4 text-white dark:text-white text-lg md:text-2xl leading-snug">
+        A shared 3rd track across both conference days{' '}
+        {/* The drawn two-line split needs lg: at md the first line is wider
+            than the copy column, and the break would strand "days". */}
+        <br className="hidden lg:inline" />
+        for the entire engineering ecosystem.
+      </p>
+      <div className="mt-8 md:mt-14 flex justify-center md:justify-start">
+        <TicketLink className="text-xs md:text-sm px-6 py-2.5 md:py-4">
+          Get Unconference Ticket
+        </TicketLink>
       </div>
     </div>
   </section>

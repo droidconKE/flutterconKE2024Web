@@ -1,77 +1,85 @@
-// Font Awesome ships with the site; these are the closest glyphs to the
-// design's custom icons, which cannot be exported from the prototype.
+import { SectionTitle } from './SectionHeader'
+
+// Icons are drawn for their natural size, so width and height are theirs.
 const formats = [
   {
-    name: 'Lightning',
-    icon: 'fa-bolt',
-    body: 'One sharp idea, practical technique, or anti-pattern',
+    title: 'Lightning',
+    description: 'One sharp idea, practical technique, or anti-pattern',
+    icon: { src: '/images/svg/lightning.svg', width: 36, height: 63 },
   },
   {
-    name: 'Talk',
-    icon: 'fa-comments-o',
-    body: 'Deep dive into a workflow, architectural pattern, or case study',
+    title: 'Talk',
+    description:
+      'Deep dive into a workflow, architectural pattern, or case study',
+    icon: { src: '/images/svg/talk.svg', width: 44, height: 43 },
   },
   {
-    name: 'Live Demo',
-    icon: 'fa-eye',
-    body: 'End-to-end live running loops—no slides',
+    title: 'Live Demo',
+    description: 'End-to-end live running loops—no slides',
+    icon: { src: '/images/svg/live-demo.svg', width: 64, height: 45 },
   },
   {
-    name: 'Panel',
-    icon: 'fa-users',
-    body: 'Cross-company debates, post-mortems, and trade-offs',
+    title: 'Panel',
+    description: 'Cross-company debates, post-mortems, and trade-offs',
+    icon: { src: '/images/svg/panel.svg', width: 64, height: 26 },
   },
   {
-    name: 'Keynote',
-    icon: 'fa-microphone',
-    body: 'Strategic framing and industry mindset shifts',
+    title: 'Keynote',
+    description: 'Strategic framing and industry mindset shifts',
+    icon: { src: '/images/svg/keynote.svg', width: 54, height: 74 },
   },
   {
-    name: 'Workshop',
-    icon: 'fa-wrench',
-    body: 'Hands-on, build-along technical sessions',
+    title: 'Workshop',
+    description: 'Hands-on, build-along technical sessions',
+    icon: { src: '/images/svg/workshop.svg', width: 64, height: 59 },
   },
 ]
 
 export const SessionFormats = () => (
   <section
-    className="s-container mt-16 md:mt-24"
-    aria-labelledby="session-formats"
+    aria-labelledby="session-formats-title"
+    className="s-container my-12 md:my-24"
   >
-    {/* Fixed brand surface in both themes; text pinned against the global
-        `p` rule. The design's accent titles would be 1.09:1 on this blue. */}
-    <div className="w-full rounded-4xl md:rounded-5xl bg-primary px-6 py-8 md:px-10 md:py-12">
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-6 lg:gap-16 items-start">
-        <h2
-          id="session-formats"
-          className="font-display text-white dark:text-white text-4xl md:text-6xl leading-none"
+    {/* The design's accent titles would read at 1.09:1 on this blue, so the
+        title and the tile headings are white like the copy. */}
+    <div className="rounded-4xl bg-primary p-8 md:px-12 md:py-16">
+      {/* Side by side only from lg: at md the two-line title is wider than
+          half the card. There the copy starts one gutter right of the second
+          column of tiles, and a little below the title's cap line, as drawn. */}
+      <div className="grid gap-6 lg:grid-cols-2 lg:gap-8 mb-8 md:mb-11">
+        <SectionTitle
+          id="session-formats-title"
+          colorClassName="text-white dark:text-white"
         >
-          Session
-          <br />
+          Session <br className="hidden lg:inline" />
           Formats
-        </h2>
-        <p className="text-white dark:text-white text-base md:text-lg leading-relaxed max-w-md lg:pt-2">
+        </SectionTitle>
+        <p className="lg:mt-3.5 max-w-sm text-white dark:text-white text-base md:text-xl leading-relaxed">
           Every session prioritizes interactive debate and practical execution
           over passive presentations.
         </p>
       </div>
-
-      <ul className="mt-8 md:mt-10 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
-        {formats.map((format) => (
+      <ul className="grid gap-3 lg:grid-cols-2 lg:gap-x-1.5">
+        {formats.map(({ title, description, icon }) => (
           <li
-            key={format.name}
-            className="flex items-start gap-5 rounded-3xl bg-white/10 px-5 py-5 md:px-6 md:py-6"
+            key={title}
+            className="flex items-start gap-4 rounded-3xl bg-white/10 p-5 md:gap-7 md:pl-9 md:pr-8 md:pt-6 md:pb-8"
           >
-            <i
-              className={`fa ${format.icon} text-accent text-3xl md:text-4xl w-10 text-center shrink-0`}
-              aria-hidden="true"
+            {/* One box for every icon, as tall as the tallest, so titles line
+                up whatever the drawing; scale-down keeps each at its natural
+                size inside it. Below md, zoom halves the box and its icon
+                alike, so the set keeps its proportions to one another. */}
+            <img
+              src={icon.src}
+              alt=""
+              width={icon.width}
+              height={icon.height}
+              className="h-[74px] w-16 shrink-0 object-scale-down [zoom:0.5] md:[zoom:1]"
             />
-            <div>
-              <h3 className="text-white dark:text-white text-xl font-semibold leading-tight">
-                {format.name}
-              </h3>
-              <p className="mt-1 text-white dark:text-white text-sm md:text-base leading-snug">
-                {format.body}
+            <div className="md:max-w-[21rem]">
+              <h3 className="text-white text-2xl">{title}</h3>
+              <p className="mt-1 md:mt-3.5 text-white dark:text-white text-sm md:text-base leading-snug md:leading-relaxed">
+                {description}
               </p>
             </div>
           </li>

@@ -1,19 +1,18 @@
-import { TICKETS_LINK } from '../../constant/constants'
-import { CtaLink } from './CtaLink'
-import { SectionHeading } from './SectionHeading'
+import { SectionHeader } from './SectionHeader'
+import { TicketLink } from './TicketLink'
 
 const passes = [
   {
     name: 'Beyond Stacks Side Event Pass Only',
     price: 'KES 7,500',
-    access: 'Full 2-day access to The Unconference Track only',
+    description: 'Full 2-day access to The Unconference Track only',
     cta: 'Get Unconference Pass only',
     bestValue: false,
   },
   {
     name: 'Full Access Pass',
     price: 'KES 10,000',
-    access:
+    description:
       'Full 2-day access to Unconference + Droidcon Kenya + Fluttercon Kenya',
     cta: 'Get Full Pass',
     bestValue: true,
@@ -21,57 +20,50 @@ const passes = [
 ]
 
 export const Pricing = () => (
-  <section className="s-container mt-16 md:mt-24" aria-labelledby="pricing">
-    <SectionHeading id="pricing" title="Pricing & Passes">
-      <CtaLink href={TICKETS_LINK} compact>
-        Get Unconference Ticket
-      </CtaLink>
-    </SectionHeading>
-
-    {/* A ticket: the rows share one blue stub, the foot fades into the accent,
-        and the perforation between them is cut by two page-coloured discs. */}
-    <ul className="relative overflow-hidden w-full rounded-4xl bg-gradient-to-b from-primary from-80% to-accent">
+  <section
+    aria-labelledby="pricing-title"
+    className="s-container my-12 md:my-24"
+  >
+    <SectionHeader
+      id="pricing-title"
+      title="Pricing & Passes"
+      ctaVariant="primary"
+    />
+    {/* A ticket stub: overflow-hidden clips the page-coloured circles on the
+        perforation into the half-moon notches at each edge. The accent only
+        fades in behind the last CTA, so white text never sits on it. */}
+    <ul className="overflow-hidden rounded-4xl bg-gradient-to-b from-primary from-[calc(100%-4rem)] to-accent">
       {passes.map((pass, index) => (
-        <li
-          key={pass.name}
-          className={`relative grid grid-cols-1 lg:grid-cols-[1.4fr_0.7fr_1.2fr] gap-5 lg:gap-8 items-center px-6 py-8 md:px-10 md:py-10 ${
-            index > 0 ? 'border-t border-white/60' : ''
-          }`}
-        >
+        <li key={pass.name}>
           {index > 0 && (
-            <>
-              <span
-                aria-hidden="true"
-                className="absolute -left-4 -top-4 w-8 h-8 rounded-full bg-white dark:bg-black-dark"
-              />
-              <span
-                aria-hidden="true"
-                className="absolute -right-4 -top-4 w-8 h-8 rounded-full bg-white dark:bg-black-dark"
-              />
-            </>
+            <div aria-hidden="true" className="relative">
+              <div className="mx-8 md:mx-10 h-px bg-white/60" />
+              <span className="absolute left-0 top-1/2 h-10 w-10 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white dark:bg-dark" />
+              <span className="absolute right-0 top-1/2 h-10 w-10 translate-x-1/2 -translate-y-1/2 rounded-full bg-white dark:bg-dark" />
+            </div>
           )}
-          <div>
-            <h3 className="text-white dark:text-white text-xl md:text-2xl leading-snug">
-              {pass.name}
-            </h3>
-            {pass.bestValue && (
-              <span className="mt-3 inline-flex items-center rounded-full bg-accent text-black text-xs font-semibold px-3 py-1">
-                <i className="fa fa-star mr-1.5" aria-hidden="true" />
-                Best Value
-              </span>
-            )}
-          </div>
-          <p className="text-white dark:text-white text-xl md:text-2xl">
-            {pass.price}
-          </p>
-          <div>
-            <p className="text-white dark:text-white text-base md:text-lg leading-snug">
-              {pass.access}
+          <div className="grid gap-4 p-8 md:grid-cols-12 md:gap-8 md:p-10">
+            <div className="md:col-span-4">
+              <h3 className="text-white text-2xl leading-tight">{pass.name}</h3>
+              {/* The palette's lighter pink. The design letters the badge in
+                  white, which reads at 2.7:1 on it; black clears AA at 6:1. */}
+              {pass.bestValue && (
+                <p className="mt-3 inline-flex items-center gap-2.5 rounded-full bg-secondary-2 pl-4 pr-6 py-1.5 text-sm text-black dark:text-black">
+                  <i aria-hidden="true" className="fa fa-asterisk" />
+                  Best Value
+                </p>
+              )}
+            </div>
+            <p className="md:col-span-3 text-white dark:text-white text-2xl">
+              {pass.price}
             </p>
-            <div className="mt-4">
-              <CtaLink href={TICKETS_LINK} variant="accent" compact>
+            <div className="md:col-span-5">
+              <p className="text-white dark:text-white text-base md:text-lg leading-snug">
+                {pass.description}
+              </p>
+              <TicketLink className="mt-4 text-xs md:text-sm px-5 py-2.5">
                 {pass.cta}
-              </CtaLink>
+              </TicketLink>
             </div>
           </div>
         </li>

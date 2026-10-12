@@ -8,9 +8,15 @@
         <loc>https://fluttercondev.ke/about</loc>
     </url>
     <url>
+        <loc>https://fluttercondev.ke/beyond-stacks</loc>
+    </url>
+    <url>
+        <loc>https://fluttercondev.ke/sessions</loc>
+    </url>
+    <url>
         <loc>https://fluttercondev.ke/speakers</loc>
     </url>
     <url>
-        <loc>https://fluttercondev.ke/schedule</loc>
+        <loc>https://fluttercondev.ke/sponsors</loc>
     </url>
 </urlset>

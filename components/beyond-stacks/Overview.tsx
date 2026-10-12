@@ -1,25 +1,28 @@
-import { SectionHeading } from './SectionHeading'
+import { SectionTitle } from './SectionHeader'
 
 const facts = [
+  { term: 'Format', detail: 'Discussion-first over slide decks.' },
   {
-    label: 'Format:',
-    body: 'Discussion-first over slide decks.',
+    term: 'Access',
+    detail:
+      'Included with the All-Access Pass or available as a standalone track ticket.',
   },
   {
-    label: 'Access:',
-    body: 'Included with the All-Access Pass or available as a standalone track ticket.',
-  },
-  {
-    label: 'Level',
-    body: 'Sessions tagged Intro, Intermediate, or Advanced.',
+    term: 'Level',
+    detail: 'Sessions tagged Intro, Intermediate, or Advanced.',
   },
 ]
 
 export const Overview = () => (
-  <section className="s-container mt-12 md:mt-20" aria-labelledby="overview">
-    <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-6 lg:gap-16 items-start">
-      <SectionHeading id="overview" title="Overview" />
-      <div className="space-y-5 text-base md:text-lg leading-relaxed lg:pt-2">
+  <section
+    aria-labelledby="overview-title"
+    className="s-container my-12 md:my-24"
+  >
+    <div className="grid gap-6 lg:grid-cols-5 lg:gap-12">
+      <div className="lg:col-span-2">
+        <SectionTitle id="overview-title">Overview</SectionTitle>
+      </div>
+      <div className="lg:col-span-3 space-y-6 text-base md:text-lg leading-relaxed">
         <p>
           The Beyond Stacks Track is a single, dedicated room running alongside
           Droidcon and Fluttercon. While Android and Flutter remain our core,
@@ -33,18 +36,31 @@ export const Overview = () => (
       </div>
     </div>
 
-    {/* Fixed brand surface in both themes, so the text is pinned against the
-        global `p` rule. The design's accent-on-blue labels would measure
-        1.09:1 here, so the labels are white like the body. */}
-    <dl className="mt-10 md:mt-12 w-full rounded-4xl bg-primary px-6 py-8 md:px-10 md:py-10 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0 md:divide-x md:divide-white/40">
-      {facts.map((fact) => (
-        <div key={fact.label} className="md:px-8 first:md:pl-0 last:md:pr-0">
-          <dt className="flex items-center justify-between gap-4 text-white dark:text-white text-xl font-semibold">
-            {fact.label}
-            <i className="fa fa-long-arrow-right text-2xl" aria-hidden="true" />
+    {/* The design's accent terms would read at 1.09:1 on this blue, so they
+        are white like the detail beneath them. */}
+    <dl className="mt-10 md:mt-12 grid rounded-3xl bg-primary md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/40">
+      {facts.map(({ term, detail }, index) => (
+        <div
+          key={term}
+          className="relative px-8 py-8 md:my-6 md:py-4 md:px-6 md:first:pl-12"
+        >
+          <dt className="text-white text-2xl">
+            {term}:
+            {/* Points the eye along the row, so only between items, and only
+                from lg: an md column is no wider than the label beside it.
+                Inside the <dt> because a <dl> group may hold only <dt>/<dd>. */}
+            {index < facts.length - 1 && (
+              <img
+                src="/images/svg/arrow-right.svg"
+                alt=""
+                width={64}
+                height={25}
+                className="hidden lg:block absolute top-5 right-6"
+              />
+            )}
           </dt>
-          <dd className="mt-2 text-white dark:text-white text-base md:text-lg leading-snug">
-            {fact.body}
+          <dd className="mt-2 md:max-w-[14rem] text-white text-base md:text-lg leading-snug">
+            {detail}
           </dd>
         </div>
       ))}

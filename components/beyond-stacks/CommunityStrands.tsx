@@ -1,10 +1,8 @@
-import { TICKETS_LINK } from '../../constant/constants'
-import { CtaLink } from './CtaLink'
-import { SectionHeading } from './SectionHeading'
+import { SectionHeader } from './SectionHeader'
 
 const strands = [
   {
-    name: 'Agentic Engineering (Flagship Strand)',
+    title: 'Agentic Engineering (Flagship Strand)',
     focus:
       'Building, testing, and shipping with AI agents in large, existing codebases.',
     topics: [
@@ -14,66 +12,90 @@ const strands = [
       'Eliminating low-quality AI code generation in code reviews.',
       'Real-world post-mortems: What we stopped letting agents do in production.',
     ],
-    flagship: true,
+    fadesToAccent: true,
   },
   {
-    name: 'iOS / Swift',
+    title: 'iOS / Swift',
     focus: 'Native iOS development and modern client architecture.',
     topics: [
       'Key Topics: VIPER, MVVM, MVI, state management, and Swift ecosystem updates (~4 curated sessions).',
     ],
-    flagship: false,
+    fadesToAccent: false,
   },
   {
-    name: 'React Native',
+    title: 'React Native',
     focus: 'Cross-platform engineering at scale.',
     topics: [
       'Key Topics: Performance optimization, native module bridging, and architecture patterns (~4 curated sessions).',
     ],
-    flagship: false,
+    fadesToAccent: true,
   },
   {
-    name: 'Ecosystem & Infrastructure',
+    title: 'Ecosystem & Infrastructure',
     focus: 'Supporting technologies that power modern applications.',
     topics: [
       'Key Topics: API design, cloud/DevOps pipelines, data infrastructure, and product-engineering collaboration.',
     ],
-    flagship: false,
+    fadesToAccent: false,
   },
 ]
 
 export const CommunityStrands = () => (
   <section
-    className="s-container mt-16 md:mt-24"
-    aria-labelledby="community-strands"
+    aria-labelledby="community-strands-title"
+    className="s-container my-12 md:my-24"
   >
-    <SectionHeading id="community-strands" title="Community Strands">
-      <CtaLink href={TICKETS_LINK} variant="accent" compact>
-        Get Unconference Ticket
-      </CtaLink>
-    </SectionHeading>
-
-    {/* The flagship strand runs the full height of the right-hand stack. */}
-    <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
-      {strands.map((strand) => (
+    <SectionHeader
+      id="community-strands-title"
+      title="Community Strands"
+      ctaVariant="accent"
+    />
+    {/* The flagship strand spans the three rows the others stack into, in
+        the narrower of the two columns, as drawn. */}
+    <ul className="grid gap-4 xl:grid-cols-[minmax(0,7fr)_minmax(0,8fr)] xl:gap-x-9 xl:gap-y-3.5">
+      {strands.map(({ title, focus, topics, fadesToAccent }, index) => (
         <li
-          key={strand.name}
-          className={`rounded-4xl px-6 py-8 md:px-8 md:py-10 bg-gradient-to-b from-primary from-70% to-accent ${
-            strand.flagship ? 'md:row-span-3' : ''
-          }`}
+          key={title}
+          className={`flex flex-col overflow-hidden rounded-4xl bg-primary ${index === 0 ? 'xl:row-span-3' : ''}`}
         >
-          <h3 className="font-display text-white dark:text-white text-2xl md:text-3xl leading-tight">
-            {strand.name}
-          </h3>
-          <p className="mt-4 text-white dark:text-white text-base md:text-lg leading-snug">
-            <span className="font-semibold">Core Focus: </span>
-            {strand.focus}
-          </p>
-          <ul className="mt-5 space-y-4 list-[square] pl-5 marker:text-white text-white dark:text-white text-sm md:text-base leading-relaxed">
-            {strand.topics.map((topic) => (
-              <li key={topic}>{topic}</li>
-            ))}
-          </ul>
+          <div
+            className={`p-8 md:px-10 md:pt-10 ${fadesToAccent ? 'pb-0' : 'md:pb-8'}`}
+          >
+            {/* The design's accent titles would read at 1.09:1 on this blue,
+                so they are white like the copy. */}
+            <h3 className="text-white text-2xl md:text-[2rem] leading-tight md:leading-normal">
+              {title}
+            </h3>
+            <p className="mt-4 md:mt-6 text-white dark:text-white text-lg md:text-2xl leading-snug">
+              Core Focus: {focus}
+            </p>
+            {/* Drawn squares rather than list markers, which can't be moved
+                away from the text. Safari stops announcing a list once its
+                markers are gone, so the role is restated. */}
+            {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
+            <ul
+              role="list"
+              className="mt-6 md:mt-8 space-y-5 md:space-y-8 text-white text-base md:text-lg leading-relaxed md:leading-8"
+            >
+              {topics.map((topic) => (
+                <li
+                  key={topic}
+                  className="relative pl-8 md:pl-10 before:absolute before:left-1 md:before:left-1.5 before:top-[0.75em] before:h-1.5 before:w-1.5 md:before:h-2 md:before:w-2 before:bg-white"
+                >
+                  {topic}
+                </li>
+              ))}
+            </ul>
+          </div>
+          {/* The accent fills whatever height the card has below its text, so
+              it never sits behind white copy: a 3rem strip at least, and on
+              the flagship's spare length a ramp over the last 10rem only. */}
+          {fadesToAccent && (
+            <div
+              aria-hidden="true"
+              className="grow min-h-[3rem] bg-gradient-to-b from-primary from-[max(0px,calc(100%-10rem))] to-accent"
+            />
+          )}
         </li>
       ))}
     </ul>
