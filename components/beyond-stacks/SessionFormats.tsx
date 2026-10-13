@@ -1,5 +1,8 @@
 import { SectionTitle } from './SectionHeader'
 
+// The icons are filled white rather than the accent: the accent reads at
+// 1.0:1 on these tiles, and no pink in the palette reaches the 3:1 that
+// graphics want on this blue. White does, just, at 3.1:1.
 const formats = [
   {
     title: 'Lightning',
