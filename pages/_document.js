@@ -2,7 +2,6 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 class MyDocument extends Document {
   render() {
-    const title = `FlutterconKE - Africa's Largest Mobile Developer Conference`
     return (
       <Html>
         <Head>
@@ -98,59 +97,20 @@ class MyDocument extends Document {
           />
           <meta name="theme-color" content="#008BFF" />
 
-          {/* SEO Headers */}
-          <meta
-            name="description"
-            content="Fluttercon is a global conference focused on the engineering of mobile applications, part of next.app devCon. It provides a forum for developers to network, share techniques, announce apps and products, and learn and teach."
-          />
+          {/* SEO. The description, Open Graph and Twitter-card tags live in
+              the layout's next/head with keys, so a page can replace them;
+              only the site-wide constants stay here. */}
           <meta
             name="keywords"
             content="Android, Event,  Conference, Meetup, droidCon, Kenya, KE, FlutterconKE, FlutterconKE, Android254, Kotlin, Flutter, iOS, droidcon, droidcon africa, africa, android, 254 tech"
           />
           <meta name="author" content="FlutterconKE" />
-
-          {/* <!-- twitter card starts from here, if you don't need remove this section --> */}
-          {/* <meta name="twitter:card" content="summary"/> */}
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:site" content="@FlutterconKE" />
           <meta name="twitter:creator" content="@FlutterconKE" />
-          <meta name="twitter:url" content="https://fluttercondev.ke/" />
-          <meta name="twitter:title" content={title} />
-          {/* <!-- maximum 140 char --> */}
-          <meta
-            name="twitter:description"
-            content="Fluttercon is a global conference focused on the engineering of mobile applications, part of next.app devCon. It provides a forum for developers to network, share techniques, announce apps and products, and learn and teach."
-          />
-          {/* <!-- maximum 140 char --> */}
-          {/* // TODO: focing push */}
-          <meta
-            name="twitter:image"
-            content="https://fluttercondev.ke/images/new-design/revised/fcke-cover.png"
-          />
-          <meta
-            name="twitter:image:alt"
-            content="FlutterconKE 2026 — Nov 5-6, Nairobi"
-          />
-          {/* <!-- when you post this page url in twitter , this image will be shown -->
-	<!-- twitter card ends from here --> */}
-
-          {/* <!-- facebook open graph starts from here, if you don't need then delete open graph related  --> */}
-          <meta property="og:title" content={title} />
-          <meta property="og:url" content="https://fluttercondev.ke/" />
           <meta property="og:locale" content="en_US" />
           <meta property="og:site_name" content="FlutterconKE" />
-          {/* <!--meta property="fb:admins" content="" /-->  <!-- use this if you have  --> */}
           <meta property="og:type" content="website" />
-          <meta
-            property="og:image"
-            content="https://fluttercondev.ke/images/new-design/revised/fcke-cover.png"
-          />
-          <meta
-            property="og:description"
-            content="Fluttercon is a global conference focused on the engineering of mobile applications, part of next.app devCon. It provides a forum for developers to network, share techniques, announce apps and products, and learn and teach."
-          />
-          {/* <!-- when you post this page url in facebook , this image will be shown -->
-	<!-- facebook open graph ends from here --></meta> */}
         </Head>
         <body>
           <Main />
