@@ -36,6 +36,8 @@ const personas = [
   },
 ]
 
+// Headings in blue-800: the brand blue is 3.42:1 on white, short of the 4.5:1
+// that 20px text needs on phones; blue-800 reads at 5.41:1.
 const card =
   'rounded-3xl border border-accent bg-gradient-to-b from-white from-55% to-accent px-6 py-8 lg:pb-12'
 
@@ -53,7 +55,7 @@ export const Audience = () => (
     <ul className="grid gap-5 lg:grid-cols-3">
       {audiences.map(({ title, description }) => (
         <li key={title} className={`lg:min-h-[25rem] ${card}`}>
-          <h3 className="lg:min-h-[3lh] xl:min-h-[2lh] text-primary dark:text-primary text-xl md:text-2xl leading-tight">
+          <h3 className="lg:min-h-[3lh] xl:min-h-[2lh] text-blue-800 dark:text-blue-800 text-xl md:text-2xl leading-tight">
             {title}
           </h3>
           <p className="mt-4 lg:mt-8 text-black dark:text-black text-base md:text-lg leading-snug">
@@ -65,7 +67,7 @@ export const Audience = () => (
     <ul className="mt-5 grid gap-5 lg:grid-cols-3">
       {personas.map(({ name, description }) => (
         <li key={name} className={card}>
-          <h3 className="text-primary dark:text-primary text-xl md:text-2xl leading-tight">
+          <h3 className="text-blue-800 dark:text-blue-800 text-xl md:text-2xl leading-tight">
             {name}
           </h3>
           <p className="mt-3 text-black dark:text-black text-base md:text-lg leading-snug">

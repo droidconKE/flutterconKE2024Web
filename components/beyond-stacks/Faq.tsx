@@ -11,7 +11,7 @@ const faqs = [
         at{' '}
         <a
           href={`mailto:${CONTACT_EMAIL}`}
-          className="text-primary dark:text-primary underline"
+          className="text-blue-800 dark:text-blue-800 underline"
         >
           {CONTACT_EMAIL}
         </a>
@@ -30,6 +30,8 @@ const faqs = [
   },
 ]
 
+// Questions and the link in blue-800: the brand blue is 3.42:1 on white, short
+// of the 4.5:1 that body-size text needs; blue-800 reads at 5.41:1.
 export const Faq = () => (
   <section aria-labelledby="faq-title" className="s-container my-12 sm:my-10">
     <div className="border-b border-gray-300 dark:border-white/60 pb-6 mb-6">
@@ -41,7 +43,7 @@ export const Faq = () => (
           key={question}
           className="rounded-3xl border border-gray-200 dark:border-transparent bg-white px-6 py-6 md:px-8"
         >
-          <dt className="text-primary text-xl md:text-2xl leading-tight">
+          <dt className="text-blue-800 text-xl md:text-2xl leading-tight">
             {question}
           </dt>
           <dd className="mt-3 max-w-3xl text-black dark:text-black text-sm md:text-base leading-snug">
