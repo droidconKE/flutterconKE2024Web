@@ -29,20 +29,17 @@ export const Pricing = () => (
       title="Pricing & Passes"
       ctaVariant="primary"
     />
-    {/* A ticket stub: overflow-hidden clips the page-coloured circles on the
-        perforation into the half-moon notches at each edge. The accent only
-        fades in behind the last CTA, so white text never sits on it. */}
     <ul className="overflow-hidden rounded-4xl bg-gradient-to-b from-primary from-[calc(100%-4rem)] to-accent">
       {passes.map((pass, index) => (
         <li key={pass.name}>
           {index > 0 && (
             <div aria-hidden="true" className="relative">
-              <div className="mx-8 md:mx-10 h-px bg-white/60" />
+              <div className="mx-6 md:mx-10 h-px bg-white/60" />
               <span className="absolute left-0 top-1/2 h-10 w-10 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white dark:bg-dark" />
               <span className="absolute right-0 top-1/2 h-10 w-10 translate-x-1/2 -translate-y-1/2 rounded-full bg-white dark:bg-dark" />
             </div>
           )}
-          <div className="grid gap-4 p-8 md:grid-cols-12 md:gap-8 md:p-10">
+          <div className="grid gap-4 px-6 py-8 md:grid-cols-12 md:gap-8 md:p-10">
             <div className="md:col-span-4">
               <h3 className="text-white text-2xl leading-tight">{pass.name}</h3>
               {pass.bestValue && (

@@ -1,6 +1,5 @@
 import { SectionTitle } from './SectionHeader'
 
-// Icons are drawn for their natural size, so width and height are theirs.
 const formats = [
   {
     title: 'Lightning',
@@ -20,7 +19,7 @@ const formats = [
   },
   {
     title: 'Panel',
-    description: 'Cross-company debates, post-mortems, and trade-offs',
+    description: 'Cross-company conversations, post-mortems, and trade-offs',
     icon: { src: '/images/svg/panel.svg', width: 64, height: 26 },
   },
   {
@@ -40,12 +39,7 @@ export const SessionFormats = () => (
     aria-labelledby="session-formats-title"
     className="s-container my-12 sm:my-10"
   >
-    {/* The design's accent titles would read at 1.09:1 on this blue, so the
-        title and the tile headings are white like the copy. */}
-    <div className="rounded-4xl bg-primary p-8 md:px-12 md:py-16">
-      {/* Side by side only from lg: at md the two-line title is wider than
-          half the card. There the copy starts one gutter right of the second
-          column of tiles, and a little below the title's cap line, as drawn. */}
+    <div className="rounded-4xl bg-primary px-4 py-8 md:px-12 md:py-16">
       <div className="grid gap-6 lg:grid-cols-2 lg:gap-8 mb-8 md:mb-11">
         <SectionTitle
           id="session-formats-title"
@@ -55,8 +49,8 @@ export const SessionFormats = () => (
           Formats
         </SectionTitle>
         <p className="lg:mt-3.5 max-w-sm text-white dark:text-white text-base md:text-xl leading-relaxed">
-          Every session prioritizes interactive debate and practical execution
-          over passive presentations.
+          Every session prioritizes interactive conversations and practical
+          execution over passive presentations.
         </p>
       </div>
       <ul className="grid gap-3 lg:grid-cols-2 lg:gap-x-1.5">
@@ -65,10 +59,6 @@ export const SessionFormats = () => (
             key={title}
             className="flex items-start gap-4 rounded-3xl bg-white/10 p-5 md:gap-7 md:pl-9 md:pr-8 md:pt-6 md:pb-8"
           >
-            {/* One box for every icon, as tall as the tallest, so titles line
-                up whatever the drawing; scale-down keeps each at its natural
-                size inside it. Below md, zoom halves the box and its icon
-                alike, so the set keeps its proportions to one another. */}
             <img
               src={icon.src}
               alt=""

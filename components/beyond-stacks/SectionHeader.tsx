@@ -4,6 +4,8 @@ import { TicketLink, type TicketLinkVariant } from './TicketLink'
 type SectionTitleProps = {
   id: string
   children: ReactNode
+  // Headings are brand blue on the light theme and magenta on the dark one,
+  // except where the design sets them in the page's text colour.
   // eslint-disable-next-line react/require-default-props
   colorClassName?: string
 }
@@ -26,6 +28,9 @@ type SectionHeaderProps = Omit<SectionTitleProps, 'children'> & {
   ctaVariant: TicketLinkVariant
 }
 
+// Spaced to sit evenly between the section above and its own content: from
+// sm, s-container pads 20px each side of the 40px section margin, so the gap
+// above is 80px and so is this margin below.
 export const SectionHeader = ({
   title,
   ctaVariant,
