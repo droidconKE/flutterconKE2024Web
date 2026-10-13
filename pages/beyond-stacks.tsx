@@ -13,9 +13,6 @@ const TITLE = 'Beyond Stacks | FlutterconKE'
 const DESCRIPTION =
   'Engineering goes beyond mobile. Build beyond your usual stack, explore new technologies, and connect with engineers solving problems across the wider ecosystem.'
 const URL = 'https://fluttercondev.ke/beyond-stacks'
-const IMAGE =
-  'https://fluttercondev.ke/images/new-design/revised/beyond-stacks-hero.jpg'
-const IMAGE_ALT = 'Attendees at a FlutterconKE session'
 
 const BeyondStacks: NextPage = () => (
   <>
@@ -29,7 +26,6 @@ const BeyondStacks: NextPage = () => (
         content={DESCRIPTION}
       />
       <meta key="og:url" property="og:url" content={URL} />
-      <meta key="og:image" property="og:image" content={IMAGE} />
       <meta key="twitter:title" name="twitter:title" content={TITLE} />
       <meta
         key="twitter:description"
@@ -37,12 +33,6 @@ const BeyondStacks: NextPage = () => (
         content={DESCRIPTION}
       />
       <meta key="twitter:url" name="twitter:url" content={URL} />
-      <meta key="twitter:image" name="twitter:image" content={IMAGE} />
-      <meta
-        key="twitter:image:alt"
-        name="twitter:image:alt"
-        content={IMAGE_ALT}
-      />
     </Head>
     <Marquee />
     <Hero />
