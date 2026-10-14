@@ -70,7 +70,7 @@ export const SessionGridCard = ({
                           ? '/images/all-2025.png'
                           : '/images/all.png')
                   const cardClass =
-                    'group relative w-full rounded-4xl overflow-hidden bg-white dark:bg-darker-dark border border-primary dark:border-primary shadow-md hover:shadow-xl hover:border-accent transition-all duration-200 flex flex-col'
+                    'group relative w-full rounded-4xl overflow-hidden bg-white dark:bg-darker-dark border border-primary dark:border-primary shadow-md hover:shadow-xl hover:border-accent transition-all duration-200 flex flex-col flex-1'
                   const inner = (
                     <>
                       {/* halftone dots at the top corners */}
@@ -151,15 +151,18 @@ export const SessionGridCard = ({
                     </>
                   )
                   return (
-                    <div key={schedule.id} className="mb-6">
+                    <div key={schedule.id} className="mb-6 flex flex-col">
+                      {/* A column, so the card below grows to the row's height
+                          with the nudge pinned beneath it; the twin's card is
+                          the cell itself, so flex-1 alone does it there. */}
                       {/* The hover lift and the floating actions anchor to
                           the card itself, so the nudge below never moves
                           them. */}
-                      <div className="flex relative hover:-translate-y-1 transition-transform duration-200">
+                      <div className="flex-1 flex relative hover:-translate-y-1 transition-transform duration-200">
                         {schedule.is_serviceSession ? (
                           <div className={cardClass}>{inner}</div>
                         ) : (
-                          <Link href={href} className={`${cardClass} block`}>
+                          <Link href={href} className={cardClass}>
                             {inner}
                           </Link>
                         )}
