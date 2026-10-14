@@ -76,8 +76,14 @@ export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
               </div>
               <div className="rounded-3xl md:rounded-4xl bg-white border-[3px] md:border-4 border-accent px-7 py-6 md:px-[3.75rem] md:py-12 -mb-20 md:-mb-28">
                 <div className="flex flex-wrap items-center gap-y-8">
-                  <div className="w-full md:w-4/12 md:pr-8">
-                    <h3 className="font-display text-2xl md:text-4xl leading-tight md:leading-tight text-accent dark:text-accent max-w-[7ch]">
+                  <div className="w-full md:w-4/12 md:min-w-0 md:pr-8 [container-type:inline-size]">
+                    {/* "flutterconKE26" is one word, 7.8px wide per pixel of
+                        font size. max-w-[7ch] was sized for "dcKe26", so from
+                        768 to 1024 the word painted over the figures. From md
+                        the column sizes it. The floor is 14px: at 768 the
+                        content box is 112px, and 20px still crossed into the
+                        figures. Capped at the 36px it already used. */}
+                    <h3 className="font-display leading-tight text-2xl text-accent dark:text-accent md:text-[clamp(0.875rem,calc(100cqw/7.8),2.25rem)]">
                       flutterconKE26 at a glance
                     </h3>
                   </div>
@@ -90,8 +96,11 @@ export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
                       { value: '6000+', label: 'Social Media Reach' },
                       { value: '2', label: 'Day Event' },
                     ].map((stat) => (
-                      <div key={stat.label}>
-                        <p className="font-display leading-none text-3xl min-[360px]:text-4xl md:text-5xl text-primary dark:text-primary">
+                      <div
+                        key={stat.label}
+                        className="[container-type:inline-size]"
+                      >
+                        <p className="font-display leading-none text-[clamp(1.25rem,calc(100cqw/3.81),3rem)] text-primary dark:text-primary">
                           {stat.value}
                         </p>
                         <p className="mt-1.5 text-[11px] md:text-xs font-semibold text-primary dark:text-primary">
