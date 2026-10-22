@@ -140,7 +140,7 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
               A dedicated Fluttercon Kenya track
             </li>
             <li className="text-white dark:text-white text-sm md:text-base">
-              An unconference track, shared across both conferences
+              Beyond Stacks, shared across both conferences
             </li>
             <li className="text-white dark:text-white text-sm md:text-base">
               Panel discussions with Flutter engineering leaders
@@ -169,7 +169,7 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
                 <span>1. Beyond the Sessions</span>
               </h4>
               <p className="mt-3 text-white dark:text-white text-sm md:text-base leading-relaxed">
-                The unconference track, shared with Droidcon Kenya, opens the
+                Beyond Stacks, shared with Droidcon Kenya, opens the
                 floor to attendee-driven discussions and lightning talks, with
                 agentic engineering as the anchor theme. Panels bring Flutter
                 engineering leaders together on the evolving cross-platform
