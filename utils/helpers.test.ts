@@ -1,9 +1,11 @@
 import { describe, expect, it } from 'vitest'
 import {
   getTwitterUsername,
+  isCurrentEventSlug,
   sessionCountLabel,
   sessionShareUrl,
 } from './helpers'
+import { BEYOND_STACKS_EVENT_SLUG } from '../constant/constants'
 
 describe('getTwitterUsername', () => {
   it('takes the handle from twitter.com and x.com profile URLs', () => {
@@ -91,5 +93,19 @@ describe('sessionCountLabel', () => {
     expect(sessionCountLabel(0)).toBe('0 sessions')
     expect(sessionCountLabel(3)).toBe('3 sessions')
     expect(sessionCountLabel(28)).toBe('28 sessions')
+  })
+})
+
+describe('isCurrentEventSlug', () => {
+  it('counts the conference and Beyond Stacks as being run now', () => {
+    expect(isCurrentEventSlug()).toBe(true)
+    expect(isCurrentEventSlug(BEYOND_STACKS_EVENT_SLUG)).toBe(true)
+    expect(isCurrentEventSlug(BEYOND_STACKS_EVENT_SLUG.toUpperCase())).toBe(
+      true
+    )
+  })
+
+  it('does not count a past event', () => {
+    expect(isCurrentEventSlug('fluttercon-ke-2025')).toBe(false)
   })
 })

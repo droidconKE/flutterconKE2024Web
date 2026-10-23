@@ -4,7 +4,7 @@ import { Session, FilterInterface, Room, Schedule } from '../types/types'
 import { objIsEmpty, isClient } from '../utils/helpers'
 import { readStarred, STARRED_EVENT } from './useStarredSessions'
 
-const ACTIVE_VIEW = 'fluttercon_view'
+export const ACTIVE_VIEW = 'fluttercon_view'
 const MY_SESSIONS = 'fluttercon_my_sessions'
 
 export const useSession = ({ allSchedules }: { allSchedules: Schedule }) => {
