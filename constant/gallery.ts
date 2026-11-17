@@ -1,4 +1,72 @@
 export const gallery = [
+  // 2026. Shapes are interleaved so the top rows of the masonry do not
+  // line up as one strip of same-sized photos.
+  {
+    imageTitle: 'Attendees at a demo table',
+    imageName: 'fcke-2026-5',
+    imageWidth: 2000,
+    imageHeight: 1545,
+  },
+  {
+    imageTitle: 'Prize winners on stage',
+    imageName: 'fcke-2026-8',
+    imageWidth: 2000,
+    imageHeight: 1125,
+  },
+  {
+    imageTitle: 'Swag handed out in the audience',
+    imageName: 'fcke-2026-1',
+    imageWidth: 2000,
+    imageHeight: 1333,
+  },
+  {
+    imageTitle: 'Attendees at the photo wall',
+    imageName: 'fcke-2026-11',
+    imageWidth: 2000,
+    imageHeight: 1227,
+  },
+  {
+    imageTitle: 'A game of tumbling blocks between sessions',
+    imageName: 'fcke-2026-7',
+    imageWidth: 2000,
+    imageHeight: 1333,
+  },
+  {
+    imageTitle: 'Attendees at the photo wall',
+    imageName: 'fcke-2026-9',
+    imageWidth: 2000,
+    imageHeight: 1125,
+  },
+  {
+    imageTitle: 'Breakfast at the Typesense stand',
+    imageName: 'fcke-2026-4',
+    imageWidth: 2000,
+    imageHeight: 1333,
+  },
+  {
+    imageTitle: 'A Beyond Stacks talk on the Fluttercon stage',
+    imageName: 'fcke-2026-6',
+    imageWidth: 2000,
+    imageHeight: 1333,
+  },
+  {
+    imageTitle: 'A talk on the droidcon stage',
+    imageName: 'fcke-2026-2',
+    imageWidth: 2000,
+    imageHeight: 1333,
+  },
+  {
+    imageTitle: 'A talk on Flutter performance',
+    imageName: 'fcke-2026-10',
+    imageWidth: 2000,
+    imageHeight: 1333,
+  },
+  {
+    imageTitle: 'A speaker on stage',
+    imageName: 'fcke-2026-3',
+    imageWidth: 2000,
+    imageHeight: 1333,
+  },
   {
     imageTitle: 'Memories Five',
     imageName: 'CLN06242',

@@ -42,12 +42,6 @@ export const gallery2022 = [
     imageHeight: 3600,
   },
   {
-    imageTitle: 'Memories 366',
-    imageName: 'CLN06479',
-    imageWidth: 2400,
-    imageHeight: 3600,
-  },
-  {
     imageTitle: 'Memories 181',
     imageName: '1',
     imageWidth: 2400,
@@ -57,12 +51,6 @@ export const gallery2022 = [
   {
     imageTitle: 'Memories 462',
     imageName: '7_3',
-    imageWidth: 2400,
-    imageHeight: 3600,
-  },
-  {
-    imageTitle: 'Memories Two',
-    imageName: 'CLN06742',
     imageWidth: 2400,
     imageHeight: 3600,
   },
