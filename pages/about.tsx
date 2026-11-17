@@ -46,8 +46,8 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
                 <br />
                 <br />
                 Fluttercon Kenya brought Fluttercon to the African continent for
-                the first time in 2024. Now in its 3rd edition, it takes place
-                November 5th and 6th, 2026, at PrideInn Azure Hotel in Nairobi.
+                the first time in 2024. Now in its 4th edition, it takes place
+                November 5th and 6th, 2027, at PrideInn Azure Hotel in Nairobi.
                 <br />
                 <br />
                 Fluttercon Kenya is part of next.app devCon, the global home of

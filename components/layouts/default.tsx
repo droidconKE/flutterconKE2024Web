@@ -41,7 +41,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         <meta
           key="og:image:alt"
           property="og:image:alt"
-          content="FlutterconKE 2026 — Nov 5-6, Nairobi"
+          content="FlutterconKE 2027 — Nov 5-6, Nairobi"
         />
       </Head>
       <ThemeProvider>

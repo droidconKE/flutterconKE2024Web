@@ -77,14 +77,14 @@ export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
               <div className="rounded-3xl md:rounded-4xl bg-white border-[3px] md:border-4 border-accent px-7 py-6 md:px-[3.75rem] md:py-12 -mb-20 md:-mb-28">
                 <div className="flex flex-wrap items-center gap-y-8">
                   <div className="w-full md:w-4/12 md:min-w-0 md:pr-8 [container-type:inline-size]">
-                    {/* "flutterconKE26" is one word, 7.8px wide per pixel of
+                    {/* "flutterconKE27" is one word, 7.8px wide per pixel of
                         font size. max-w-[7ch] was sized for "dcKe26", so from
                         768 to 1024 the word painted over the figures. From md
                         the column sizes it. The floor is 14px: at 768 the
                         content box is 112px, and 20px still crossed into the
                         figures. Capped at the 36px it already used. */}
                     <h3 className="font-display leading-tight text-2xl text-accent dark:text-accent md:text-[clamp(0.875rem,calc(100cqw/7.8),2.25rem)]">
-                      flutterconKE26 at a glance
+                      flutterconKE27 at a glance
                     </h3>
                   </div>
                   <div className="w-full md:w-8/12 grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-14">
@@ -125,10 +125,10 @@ export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
           <div className="relative z-10 text-left">
             <div className="flex items-center text-primary dark:text-primary text-sm md:text-base font-medium mb-3">
               <div className="w-6 h-px bg-primary mr-3" />
-              sponsor flutterconke26
+              sponsor flutterconke27
             </div>
             <h2 className="font-display capitalize text-3xl md:text-5xl text-primary dark:text-primary">
-              Sponsor flutterconKe26
+              Sponsor flutterconKe27
             </h2>
             <div
               className="h-2 w-full max-w-xs md:max-w-md bg-primary mt-4"
@@ -143,7 +143,7 @@ export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
               To earn a spot here/Meet our partners By sponsoring
             </h6>
             <h3 className="font-display capitalize text-2xl md:text-3xl text-primary dark:text-primary mt-10 md:mt-12">
-              <span>To Sponsor</span> flutterconke 2026, contact us at:
+              <span>To Sponsor</span> flutterconke 2027, contact us at:
             </h3>
             <Link
               href="mailto:sponsor@droidcon.co.ke?Subject=Sponsor flutterconKe"
@@ -154,7 +154,7 @@ export default function SponsorsPage({ sponsors }: { sponsors: Sponsor[] }) {
           </div>
         </div>
       </section>
-      <SponsorsList sponsors={sponsors} showSponsors year={26} />
+      <SponsorsList sponsors={sponsors} showSponsors={false} year={27} />
     </div>
   )
 }
