@@ -18,6 +18,10 @@ type ScheduleProps = {
   from?: string
   // eslint-disable-next-line react/require-default-props
   year?: number
+  // Save to my sessions and Add to calendar. Off for a programme that has
+  // already run, as on the other past-event pages.
+  // eslint-disable-next-line react/require-default-props
+  showStar?: boolean
 }
 
 const toggleClass = (active: boolean) =>
@@ -35,6 +39,7 @@ export const Schedule = ({
   feedbackOpen = true,
   from = '/beyond-stacks',
   year = 26,
+  showStar = true,
 }: ScheduleProps) => {
   const [activeTab, setActiveTab] = useState(0)
   const [isGridView, setIsGridView] = useState(true)
@@ -135,7 +140,7 @@ export const Schedule = ({
             activeTab={activeTab}
             from={from}
             year={year}
-            showStar
+            showStar={showStar}
             eventVenue={venue}
             eventSlug={eventSlug}
             feedbackOpen={feedbackOpen}
@@ -145,7 +150,7 @@ export const Schedule = ({
             schedules={schedules}
             activeTab={activeTab}
             from={from}
-            showStar
+            showStar={showStar}
             eventVenue={venue}
             eventSlug={eventSlug}
             feedbackOpen={feedbackOpen}

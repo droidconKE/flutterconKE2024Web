@@ -127,7 +127,7 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
             automatically registers you for the co-located Droidcon Kenya.
           </p>
           <p className="font-display text-white dark:text-white text-xl md:text-2xl mt-6 md:mt-8">
-            In 2026, Expect:
+            In 2027, Expect:
           </p>
           <ul className="mt-4 md:mt-6 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-3 list-disc pl-5 marker:text-white/70">
             <li className="text-white dark:text-white text-sm md:text-base">
