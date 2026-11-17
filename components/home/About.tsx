@@ -1,8 +1,8 @@
 import React from 'react'
 
 const statsBoxes = [
-  { value: '3RD', label: 'FLUTTERCON EDITION' },
-  { value: '7TH', label: 'DROIDCON EDITION' },
+  { value: '4TH', label: 'FLUTTERCON EDITION' },
+  { value: '8TH', label: 'DROIDCON EDITION' },
   { value: '230+', label: 'Sessions Delivered' },
   { value: '3,000+', label: 'Attendees Since 2018' },
 ]
@@ -27,8 +27,8 @@ const About = () => {
             FlutterconKE
           </h2>
           <p className="text-white dark:text-white text-lg md:text-xl leading-relaxed mb-6">
-            FlutterconKE returns for its 3rd edition on November 5th and 6th,
-            2026, at PrideInn Azure Hotel in Nairobi, bringing together Flutter
+            FlutterconKE returns for its 4th edition on November 5th and 6th,
+            2027, at PrideInn Azure Hotel in Nairobi, bringing together Flutter
             and Dart experts, Google Developer Experts, and hundreds of Mobile
             developers from across the continent.
           </p>

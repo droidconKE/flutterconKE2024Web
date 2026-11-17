@@ -5,7 +5,6 @@ import {
   sessionCountLabel,
   sessionShareUrl,
 } from './helpers'
-import { BEYOND_STACKS_EVENT_SLUG } from '../constant/constants'
 
 describe('getTwitterUsername', () => {
   it('takes the handle from twitter.com and x.com profile URLs', () => {
@@ -97,12 +96,12 @@ describe('sessionCountLabel', () => {
 })
 
 describe('isCurrentEventSlug', () => {
-  it('counts the conference and Beyond Stacks as being run now', () => {
+  it('counts the conference as being run now', () => {
     expect(isCurrentEventSlug()).toBe(true)
-    expect(isCurrentEventSlug(BEYOND_STACKS_EVENT_SLUG)).toBe(true)
-    expect(isCurrentEventSlug(BEYOND_STACKS_EVENT_SLUG.toUpperCase())).toBe(
-      true
-    )
+  })
+
+  it('does not count Beyond Stacks 2026, which ran beside the last one', () => {
+    expect(isCurrentEventSlug('unconference-2026')).toBe(false)
   })
 
   it('does not count a past event', () => {

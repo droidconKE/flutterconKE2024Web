@@ -13,6 +13,11 @@ type ScheduleProps = {
   venue?: string
   // eslint-disable-next-line react/require-default-props
   feedbackOpen?: boolean
+  // Where a session card links back to, and the edition its artwork is from.
+  // eslint-disable-next-line react/require-default-props
+  from?: string
+  // eslint-disable-next-line react/require-default-props
+  year?: number
 }
 
 const toggleClass = (active: boolean) =>
@@ -28,6 +33,8 @@ export const Schedule = ({
   eventSlug,
   venue,
   feedbackOpen = true,
+  from = '/beyond-stacks',
+  year = 26,
 }: ScheduleProps) => {
   const [activeTab, setActiveTab] = useState(0)
   const [isGridView, setIsGridView] = useState(true)
@@ -126,7 +133,8 @@ export const Schedule = ({
           <SessionGridCard
             schedules={schedules}
             activeTab={activeTab}
-            from="/beyond-stacks"
+            from={from}
+            year={year}
             showStar
             eventVenue={venue}
             eventSlug={eventSlug}
@@ -136,7 +144,7 @@ export const Schedule = ({
           <SessionListCard
             schedules={schedules}
             activeTab={activeTab}
-            from="/beyond-stacks"
+            from={from}
             showStar
             eventVenue={venue}
             eventSlug={eventSlug}
