@@ -1,4 +1,9 @@
-import { Event, Session } from '../types/types'
+import {
+  Event,
+  FeedbackAnswers,
+  FeedbackQuestion,
+  Session,
+} from '../types/types'
 import { parseEat, sessionHasEnded } from './calendar'
 
 // A per-browser id, made up once and kept in localStorage. It is what lets
@@ -131,3 +136,29 @@ export const sessionAcceptsFeedback = (
   feedbackOpen !== false &&
   isSafeHref(session.feedback_url) &&
   sessionHasEnded(session.end_date_time)
+
+// The answers worth sending: a question left blank (unanswered, emptied, or
+// with nothing ticked) is left out rather than sent empty.
+export const answersToSend = (
+  questions: FeedbackQuestion[],
+  answers: FeedbackAnswers
+): FeedbackAnswers => {
+  const sent: FeedbackAnswers = {}
+  questions.forEach((q) => {
+    const value = answers[q.id]
+    const blank =
+      value === undefined ||
+      value === '' ||
+      (Array.isArray(value) && value.length === 0)
+    if (!blank) sent[q.id] = value
+  })
+  return sent
+}
+
+// Required on a several-from-a-list question means at least one ticked, as
+// the server checks it.
+export const untickedRequired = (
+  questions: FeedbackQuestion[],
+  sent: FeedbackAnswers
+): FeedbackQuestion[] =>
+  questions.filter((q) => q.type === 'multi' && q.required && !sent[q.id])
