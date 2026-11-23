@@ -12,7 +12,7 @@ const TITLE = "FlutterconKE - Africa's Largest Mobile Developer Conference"
 const DESCRIPTION =
   'Fluttercon is a global conference focused on the engineering of mobile applications, part of next.app devCon. It provides a forum for developers to network, share techniques, announce apps and products, and learn and teach.'
 const IMAGE =
-  'https://fluttercondev.ke/images/new-design/revised/fcke-cover.png'
+  'https://fluttercondev.ke/images/new-design/revised/fcke-cover-2027.jpg'
 
 export default function Layout({ children }: { children: ReactNode }) {
   const gTagCode = process.env.NEXT_PUBLIC_GOOGLE_TAG
