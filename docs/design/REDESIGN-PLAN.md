@@ -146,7 +146,7 @@ Ported from droidconKE, which carries the authoritative write-up: see **section 
 | Asset                                          | Origin                                                                                 |
 | ---------------------------------------------- | -------------------------------------------------------------------------------------- |
 | `revised/fcke-square.png` (2524²)              | Flutter-specific — feeds the whole `public/images/icons/` set                          |
-| `revised/fcke-cover.png` (2400×800)            | Flutter-specific — `og:image` / `twitter:image`                                        |
+| `revised/fcke-cover-2027.jpg` (2400×800)       | Flutter-specific — `og:image` / `twitter:image`                                        |
 | `revised/beyond-sessions.png` · `dev-days.png` | **Flutter-only** — magenta halftones. droidconKE's are blue; do NOT copy between repos |
 | `revised/new-footer-pink.png`                  | **Flutter-only** — dark-mode KICC. Light mode uses the shared blue `new-footer-2.png`  |
 | `revised/stacks.png` · `new-footer-2.png`      | **Shared with droidconKE** — keep in step                                              |
