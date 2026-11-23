@@ -36,7 +36,7 @@ const Session: NextPage<SessionPageProp> = ({
   // "" is the API's absent value here — ?? would ship an empty og:image.
   const image =
     session.session_image ||
-    'https://fluttercondev.ke/images/new-design/revised/fcke-cover.png'
+    'https://fluttercondev.ke/images/new-design/revised/fcke-cover-2027.jpg'
 
   return (
     <>
