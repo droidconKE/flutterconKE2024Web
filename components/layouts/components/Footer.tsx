@@ -129,14 +129,19 @@ export const Footer = () => {
               <div className="flex items-center space-x-6">
                 <a
                   href="https://www.instagram.com/fluttercon_ke/"
+                  aria-label="Instagram"
                   target="_blank"
                   rel="noreferrer"
                   className="text-primary dark:text-secondary-dark hover:opacity-80 transition-opacity"
                 >
-                  <i className="fa fa-instagram text-2xl align-middle" />
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-instagram text-2xl align-middle"
+                  />
                 </a>
                 <a
                   href="https://twitter.com/FlutterconKE"
+                  aria-label="X"
                   target="_blank"
                   rel="noreferrer"
                   className="text-primary dark:text-secondary-dark hover:opacity-80 transition-opacity"
@@ -152,19 +157,27 @@ export const Footer = () => {
                 </a>
                 <a
                   href="https://www.linkedin.com/company/flutterconke/"
+                  aria-label="LinkedIn"
                   target="_blank"
                   rel="noreferrer"
                   className="text-primary dark:text-secondary-dark hover:opacity-80 transition-opacity"
                 >
-                  <i className="fa fa-linkedin text-2xl align-middle" />
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-linkedin text-2xl align-middle"
+                  />
                 </a>
                 <a
                   href="https://www.youtube.com/channel/UCNumwOLkQjVgNmYdG8-qHVg"
+                  aria-label="YouTube"
                   target="_blank"
                   rel="noreferrer"
                   className="text-primary dark:text-secondary-dark hover:opacity-80 transition-opacity"
                 >
-                  <i className="fa fa-youtube-play text-2xl align-middle" />
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-youtube-play text-2xl align-middle"
+                  />
                 </a>
               </div>
               <p className="text-black dark:text-white text-xs text-center font-medium pb-4">
