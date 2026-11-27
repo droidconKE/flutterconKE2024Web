@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import { SessionFeedback } from '../../sessions/SessionFeedback'
 import { Event } from '../../../types/types'
@@ -58,6 +58,23 @@ export const EventFeedback = () => {
   }, [eventSlug, isCurrentEvent])
 
   // Scheduling and reviewing only apply to the event being run now.
+  // Back-to-top shares this corner. While the chip is on screen its height is
+  // published here and back-to-top rises by it, so the two never overlap.
+  const chipRef = useRef<HTMLDivElement>(null)
+  const chipShown =
+    isCurrentEvent && feedbackWindowState(event) !== 'not-open-yet'
+  useEffect(() => {
+    if (!chipShown) return undefined
+    const root = document.documentElement
+    root.style.setProperty(
+      '--feedback-chip-h',
+      `${chipRef.current?.offsetHeight ?? 0}px`
+    )
+    return () => {
+      root.style.removeProperty('--feedback-chip-h')
+    }
+  }, [chipShown])
+
   if (!isCurrentEvent) return null
 
   // Before the window opens, render nothing — a permanent grey chip pinned
@@ -67,7 +84,7 @@ export const EventFeedback = () => {
   if (windowState === 'not-open-yet') return null
 
   return (
-    <div className=" fixed bottom-0 right-0">
+    <div ref={chipRef} className=" fixed bottom-0 right-0">
       {windowState === 'open' ? (
         <button
           type="button"
