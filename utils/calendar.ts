@@ -1,6 +1,6 @@
 import { Session } from '../types/types'
 
-const EAT_UTC_OFFSET_HOURS = 3
+export const EAT_UTC_OFFSET_HOURS = 3
 
 // The calendar date in Nairobi. Shifting the instant by the offset and then
 // reading the UTC date is that date: a visitor whose local clock still says

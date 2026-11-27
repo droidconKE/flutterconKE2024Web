@@ -1,10 +1,14 @@
-import { describe, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import {
   agendaTabForDate,
   getTwitterUsername,
   isCurrentEventSlug,
   sessionCountLabel,
   sessionShareUrl,
+  hour,
+  time,
+  timeAm,
+  timeDay,
 } from './helpers'
 
 describe('getTwitterUsername', () => {
@@ -134,3 +138,31 @@ describe('agendaTabForDate', () => {
     ).toBe(1)
   })
 })
+
+// The server renders in UTC and a visitor can be anywhere, so the same
+// timestamp has to print the same Nairobi time in every one of these.
+describe.each(['UTC', 'Africa/Nairobi', 'America/Los_Angeles', 'Asia/Tokyo'])(
+  'session times with the clock in %s',
+  (zone) => {
+    beforeEach(() => {
+      vi.stubEnv('TZ', zone)
+    })
+    afterEach(() => {
+      vi.unstubAllEnvs()
+    })
+
+    it('prints the Nairobi time the API sends', () => {
+      expect(hour('2026-11-05T09:30:00+03:00')).toBe('9:30 am')
+      expect(time('2026-11-05T18:00:00+03:00')).toBe('6:00')
+      expect(timeAm('2026-11-05T18:00:00+03:00')).toBe('pm')
+    })
+
+    it('reads a timestamp without an offset as Nairobi time', () => {
+      expect(hour('2024-11-07 09:30:00')).toBe('9:30 am')
+    })
+
+    it("labels a day pill with the schedule key's own date", () => {
+      expect(timeDay('2026-11-05')).toBe('05')
+    })
+  }
+)
