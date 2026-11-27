@@ -2,6 +2,14 @@ import { Session } from '../types/types'
 
 const EAT_UTC_OFFSET_HOURS = 3
 
+// The calendar date in Nairobi. Shifting the instant by the offset and then
+// reading the UTC date is that date: a visitor whose local clock still says
+// the 7th must not be treated as if the conference day were the 7th.
+export const eatCalendarDate = (now = Date.now()): string =>
+  new Date(now + EAT_UTC_OFFSET_HOURS * 60 * 60 * 1000)
+    .toISOString()
+    .slice(0, 10)
+
 export const parseEat = (
   value: string,
   { allowDateOnly = false }: { allowDateOnly?: boolean } = {}

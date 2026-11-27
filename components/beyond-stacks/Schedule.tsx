@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react'
 import type { Schedule as ScheduleType } from '../../types/types'
 import { ACTIVE_VIEW } from '../../hooks/useSession'
-import { sessionCountLabel, timeDay } from '../../utils/helpers'
+import { eatCalendarDate } from '../../utils/calendar'
+import {
+  agendaTabForDate,
+  sessionCountLabel,
+  timeDay,
+} from '../../utils/helpers'
 import { SessionGridCard } from '../sessions/SessionGridCard'
 import SessionListCard from '../sessions/SessionListCard'
 import { SectionTitle } from './SectionHeader'
@@ -48,16 +53,10 @@ export const Schedule = ({
     if (localStorage.getItem(ACTIVE_VIEW) === 'list') setIsGridView(false)
   }, [])
 
-  // Open on the day being lived in Nairobi: en-CA formats a date as
-  // YYYY-MM-DD, the shape the schedule's day keys start with.
+  // Open on the day being lived in Nairobi, as the agenda does.
   useEffect(() => {
-    const today = new Intl.DateTimeFormat('en-CA', {
-      timeZone: 'Africa/Nairobi',
-    }).format(new Date())
-    const index = Object.keys(schedules).findIndex((key) =>
-      key.startsWith(today)
-    )
-    if (index > 0) setActiveTab(index)
+    const index = agendaTabForDate(Object.keys(schedules), eatCalendarDate())
+    if (index !== 0) setActiveTab(index)
   }, [schedules])
 
   const changeView = (grid: boolean) => {
