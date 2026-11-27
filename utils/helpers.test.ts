@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import {
+  agendaTabForDate,
   getTwitterUsername,
   isCurrentEventSlug,
   sessionCountLabel,
@@ -106,5 +107,30 @@ describe('isCurrentEventSlug', () => {
 
   it('does not count a past event', () => {
     expect(isCurrentEventSlug('fluttercon-ke-2025')).toBe(false)
+  })
+})
+
+describe('agendaTabForDate', () => {
+  const days = ['2026-11-05', '2026-11-06']
+
+  it('opens the day being lived', () => {
+    expect(agendaTabForDate(days, '2026-11-06')).toBe(1)
+  })
+
+  it('stays on the first day when that date is not in the schedule', () => {
+    expect(agendaTabForDate(days, '2026-10-07')).toBe(0)
+    expect(agendaTabForDate(days, '2026-11-07')).toBe(0)
+    // The 6th and 7th of a month with no event: neither picks a day by itself.
+    expect(agendaTabForDate(days, '2026-12-06')).toBe(0)
+    expect(agendaTabForDate(days, '2026-12-07')).toBe(0)
+  })
+
+  it('reads a key that also carries a time', () => {
+    expect(
+      agendaTabForDate(
+        ['2026-11-05 00:00:00', '2026-11-06 00:00:00'],
+        '2026-11-06'
+      )
+    ).toBe(1)
   })
 })

@@ -134,3 +134,13 @@ export const getTwitterUsername = (url?: string | null): string | null => {
 // instead, with the singular spelled out.
 export const sessionCountLabel = (count: number): string =>
   `${count} ${count === 1 ? 'session' : 'sessions'}`
+
+// Which agenda pill is today in Nairobi. Schedule keys start with YYYY-MM-DD.
+// A date that is not one of those days stays on the first day, rather than
+// selecting a tab that does not exist.
+export const agendaTabForDate = (keys: string[], date: string): number => {
+  const index = keys.findIndex(
+    (key) => key.match(/^(\d{4}-\d{2}-\d{2})/)?.[1] === date
+  )
+  return index < 0 ? 0 : index
+}
