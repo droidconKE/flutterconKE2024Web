@@ -9,6 +9,7 @@ import {
   time,
   timeAm,
   timeDay,
+  sessionHref,
 } from './helpers'
 
 describe('getTwitterUsername', () => {
@@ -166,3 +167,71 @@ describe.each(['UTC', 'Africa/Nairobi', 'America/Los_Angeles', 'Asia/Tokyo'])(
     })
   }
 )
+
+describe('sessionHref', () => {
+  beforeEach(() => {
+    vi.stubEnv('NEXT_PUBLIC_EVENT_SLUG', 'fcke27')
+  })
+  afterEach(() => {
+    vi.unstubAllEnvs()
+  })
+
+  it('carries the event being run now when no other is given', () => {
+    expect(sessionHref('a-talk')).toBe('/sessions/a-talk?event=fcke27')
+  })
+
+  it('carries a past event and the page the visitor came from', () => {
+    expect(
+      sessionHref('a-talk', {
+        from: '/past-events/2026',
+        eventSlug: 'fluttercon-ke-2026-222',
+      })
+    ).toBe(
+      '/sessions/a-talk?from=%2Fpast-events%2F2026&event=fluttercon-ke-2026-222'
+    )
+  })
+})
+
+// The past-event slugs are read when the module loads, as Next inlines them,
+// so each case loads it again under its own environment.
+const editionsWith = async (env: Record<string, string>) => {
+  Object.entries(env).forEach(([name, value]) => vi.stubEnv(name, value))
+  vi.resetModules()
+  return (await import('./helpers')).sessionEditions()
+}
+
+describe('sessionEditions', () => {
+  afterEach(() => {
+    vi.unstubAllEnvs()
+  })
+
+  const past = {
+    NEXT_PUBLIC_EVENT_SLUG_2025: 'flutterconke-2025-171',
+    NEXT_PUBLIC_EVENT_SLUG_2026: 'fluttercon-ke-2026-222',
+    NEXT_PUBLIC_BEYOND_STACKS_EVENT_SLUG_2026: 'unconference-2026',
+  }
+
+  it('looks in the event being run now, then the past ones, newest first', async () => {
+    expect(
+      await editionsWith({ ...past, NEXT_PUBLIC_EVENT_SLUG: 'fcke27' })
+    ).toEqual([
+      'fcke27',
+      'unconference-2026',
+      'fluttercon-ke-2026-222',
+      'flutterconke-2025-171',
+    ])
+  })
+
+  it('looks in each event once, even one listed as past already', async () => {
+    expect(
+      await editionsWith({
+        ...past,
+        NEXT_PUBLIC_EVENT_SLUG: 'fluttercon-ke-2026-222',
+      })
+    ).toEqual([
+      'fluttercon-ke-2026-222',
+      'unconference-2026',
+      'flutterconke-2025-171',
+    ])
+  })
+})

@@ -1,5 +1,11 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { parseEat, sessionHasEnded, eatCalendarDate } from './calendar'
+import {
+  parseEat,
+  sessionHasEnded,
+  eatCalendarDate,
+  googleCalendarUrl,
+} from './calendar'
+import type { Session } from '../types/types'
 
 // Nairobi is UTC+3 all year, so "2026-11-05 09:30" in EAT is 06:30Z.
 const iso = (d: Date | null) => d?.toISOString() ?? null
@@ -81,6 +87,34 @@ describe('eatCalendarDate', () => {
     // One second earlier is still the 5th there.
     expect(eatCalendarDate(Date.parse('2026-11-05T20:59:59.000Z'))).toBe(
       '2026-11-05'
+    )
+  })
+})
+
+describe('googleCalendarUrl', () => {
+  beforeEach(() => {
+    vi.stubGlobal('window', {
+      location: { origin: 'https://fluttercondev.ke' },
+    })
+  })
+  afterEach(() => {
+    vi.unstubAllGlobals()
+  })
+
+  it('links back to the session with the event it belongs to', () => {
+    const session = {
+      slug: 'a-talk',
+      title: 'A talk',
+      description: '',
+      speakers: [],
+      start_date_time: '2026-11-05T09:30:00+03:00',
+      end_date_time: '2026-11-05T10:00:00+03:00',
+    } as unknown as Session
+    const url = new URL(
+      String(googleCalendarUrl(session, 'fluttercon-ke-2026-222'))
+    )
+    expect(url.searchParams.get('details')).toBe(
+      'https://fluttercondev.ke/sessions/a-talk?event=fluttercon-ke-2026-222'
     )
   })
 })

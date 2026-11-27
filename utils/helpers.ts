@@ -63,22 +63,6 @@ export const eventVenue = (event?: Event | null): string | undefined => {
   )
 }
 
-// A session detail link. `from` is the page to return to; `eventSlug` names
-// the event the slug belongs to. Session slugs are unique per event, not
-// globally, so a past event's card has to say which event it came from or
-// the detail page looks the slug up under the current event and 404s.
-// Omitting `eventSlug` keeps current-event links exactly as they were.
-export const sessionHref = (
-  slug: string,
-  { from, eventSlug }: { from?: string; eventSlug?: string } = {}
-): string => {
-  const params = new URLSearchParams()
-  if (from) params.set('from', from)
-  if (eventSlug) params.set('event', eventSlug)
-  const query = params.toString()
-  return `/sessions/${slug}${query ? `?${query}` : ''}`
-}
-
 // `event` comes off the URL and goes into an API path, so it is kept to the
 // shape of a slug before use. A repeated parameter arrives as an array and a
 // malformed one is refused; both fall back to the event being run now.
@@ -97,6 +81,45 @@ export const resolveEventSlug = (param?: string | string[]) =>
 // Beyond Stacks 2026 ran beside the conference; it is a past event now.
 export const isCurrentEventSlug = (param?: string | string[]) =>
   resolveEventSlug(param) === resolveEventSlug()
+
+// A session detail link, always with the event the slug belongs to: the event
+// being run now unless another is given. `from` is the page to return to. A
+// link that is copied or shared keeps opening the session after the site
+// moves on to the next edition.
+export const sessionHref = (
+  slug: string,
+  { from, eventSlug }: { from?: string; eventSlug?: string } = {}
+): string => {
+  const params = new URLSearchParams()
+  if (from) params.set('from', from)
+  const event = resolveEventSlug(eventSlug)
+  if (event) params.set('event', event)
+  const query = params.toString()
+  return `/sessions/${slug}${query ? `?${query}` : ''}`
+}
+
+// Each past-events route and the event it is about, in the order they ran.
+// Next inlines NEXT_PUBLIC_* only when written out in full, so these stay
+// literal. An edition joins this list when the site moves on from it.
+export const PAST_EVENT_SLUGS: Record<string, string | undefined> = {
+  '/past-events/2024': process.env.NEXT_PUBLIC_EVENT_SLUG_2024,
+  '/past-events/2025': process.env.NEXT_PUBLIC_EVENT_SLUG_2025,
+  '/past-events/2026': process.env.NEXT_PUBLIC_EVENT_SLUG_2026,
+  '/past-events/beyond-stacks-2026':
+    process.env.NEXT_PUBLIC_BEYOND_STACKS_EVENT_SLUG_2026,
+}
+
+// Where to look for a session whose link does not say which event it is
+// from: the event being run now, then the past ones, newest first.
+export const sessionEditions = (): string[] => {
+  const slugs = [
+    resolveEventSlug(),
+    ...Object.values(PAST_EVENT_SLUGS).reverse(),
+  ]
+    .filter((slug): slug is string => !!slug)
+    .map((slug) => slug.toLowerCase())
+  return slugs.filter((slug, i) => slugs.indexOf(slug) === i)
+}
 
 // The URL a session share card points at. A proxy can send "https,http";
 // the first value is the visitor's. The path is the page, never a
