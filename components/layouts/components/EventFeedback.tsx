@@ -7,17 +7,11 @@ import {
   feedbackWindowLabel,
   feedbackWindowState,
 } from '../../../utils/feedback'
-import { isCurrentEventSlug, resolveEventSlug } from '../../../utils/helpers'
-
-// Each past-events route and the event it is about. Next inlines
-// NEXT_PUBLIC_* only when written out in full, so these stay literal.
-const PAST_EVENT_SLUGS: Record<string, string | undefined> = {
-  '/past-events/2024': process.env.NEXT_PUBLIC_EVENT_SLUG_2024,
-  '/past-events/2025': process.env.NEXT_PUBLIC_EVENT_SLUG_2025,
-  '/past-events/2026': process.env.NEXT_PUBLIC_EVENT_SLUG_2026,
-  '/past-events/beyond-stacks-2026':
-    process.env.NEXT_PUBLIC_BEYOND_STACKS_EVENT_SLUG_2026,
-}
+import {
+  isCurrentEventSlug,
+  PAST_EVENT_SLUGS,
+  resolveEventSlug,
+} from '../../../utils/helpers'
 
 // The floating feedback button. It is the one event-level entry point, so it
 // reads the organizer's window itself. Before the window opens it renders

@@ -141,6 +141,7 @@ const SessionListCard = ({
                             session={schedule}
                             venue={eventVenue}
                             compact
+                            eventSlug={eventSlug}
                           />
                         </div>
                       )}

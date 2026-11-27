@@ -107,7 +107,11 @@ export const ShareSessionAndFeedback = ({
           muted chip says why. Share stays. */}
       {isCurrentEvent && (
         <>
-          <AddToCalendar session={session} venue={venue} />
+          <AddToCalendar
+            session={session}
+            venue={venue}
+            eventSlug={eventSlug}
+          />
           {windowState === 'open' && !nudgeHasTakenOver && (
             <button
               type="button"
