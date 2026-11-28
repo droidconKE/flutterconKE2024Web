@@ -53,7 +53,7 @@ const About: NextPage<AboutProps> = ({ organizers }) => {
                 Fluttercon Kenya is part of next.app devCon, the global home of
                 Fluttercon, Droidcon and the wider mobile developer community.
                 <br /> <br />
-                Our 2026 theme is Beyond Stacks. Cross-platform work no longer
+                Our 2026 theme was Beyond Stacks. Cross-platform work no longer
                 stops at one codebase, and the interesting problems sit at the
                 edges, in tooling, in AI-assisted workflows, in what runs
                 natively underneath. Fluttercon Kenya is where the Flutter side
