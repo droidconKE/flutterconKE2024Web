@@ -10,6 +10,8 @@ const Error: NextPageWithLayout = () => (
   />
 )
 
-Error.getLayout = (page: ReactElement) => <ErrorLayout>{page}</ErrorLayout>
+Error.getLayout = (page: ReactElement) => (
+  <ErrorLayout title="Something went wrong">{page}</ErrorLayout>
+)
 
 export default Error
